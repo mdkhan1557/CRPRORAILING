@@ -536,27 +536,98 @@ footer {
   .hamburger { display: flex; }
   .nav-links.open {
     display: flex; flex-direction: column;
-    position: fixed; top: 75px; left: 0; right: 0;
+    position: fixed; top: 62px; left: 0; right: 0;
     background: var(--dark-2); border-bottom: 1px solid rgba(201,168,76,0.15);
-    padding: 20px 5% 28px; gap: 20px;
+    padding: 16px 5% 20px; gap: 16px; z-index: 999;
   }
+  nav { height: 62px !important; }
+  .nav-logo img.logo-img { height: 38px; }
+
   .hero-content { grid-template-columns: 1fr; }
   .hero-image-wrap { display: none; }
-  .stats-bar .inner { grid-template-columns: repeat(2,1fr); }
-  .cat-grid { grid-template-columns: 1fr 1fr; }
-  .products-grid { grid-template-columns: 1fr 1fr; }
+
+  .section { padding: 50px 4%; }
+  .section-title { font-size: clamp(22px, 6vw, 32px); }
+  .section-header { margin-bottom: 36px; }
+
+  .stats-bar { padding: 28px 4%; }
+  .stats-bar .inner { grid-template-columns: repeat(2,1fr); gap: 16px; }
+  .stat-item .num { font-size: 32px; }
+
+  .cat-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .cat-card img { height: 160px; }
+  .cat-overlay h3 { font-size: 14px; }
+
+  .products-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .product-card img { height: 150px; }
+  .product-name { font-size: 15px; }
+
   .why-grid { grid-template-columns: 1fr; }
   .why-image { display: none; }
+  .why-features { gap: 20px; }
+
   .testi-grid { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr 1fr; }
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 24px; }
   .about-intro { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
+
+  .page-banner { height: 200px; }
+  .page-banner h1 { font-size: 32px; }
+
+  .whatsapp-float { bottom: 16px; right: 12px; }
+  .whatsapp-btn { width: 52px; height: 52px; }
+
+  .cat-page-wrap { grid-template-columns: 1fr; }
+  .gallery-grid { grid-template-columns: 1fr 1fr; gap: 12px; }
+  .prod-grid { grid-template-columns: repeat(2,1fr); gap: 10px; }
+  .cat-prod-grid { grid-template-columns: repeat(2,1fr); gap: 10px; }
 }
 @media (max-width: 480px) {
-  .cat-grid { grid-template-columns: 1fr; }
-  .products-grid { grid-template-columns: 1fr; }
-  .footer-grid { grid-template-columns: 1fr; }
+  nav { height: 58px !important; padding: 0 4% !important; }
+  .nav-logo img.logo-img { height: 34px !important; }
+  .hamburger span { width: 22px; }
+
+  .section { padding: 40px 4% !important; }
+  .section-title { font-size: 20px !important; }
+  .section-sub { font-size: 14px !important; }
+
+  .hero-title { font-size: 24px !important; }
+  .hero-tag { font-size: 10px !important; }
+  .hero-desc { font-size: 13px !important; }
+  .hero-actions { flex-direction: column; }
+  .btn-primary, .btn-outline, .btn-catalog {
+    width: 100%; max-width: 100%; justify-content: center;
+    font-size: 12px !important; padding: 12px 16px !important;
+  }
+  .contact-strip { flex-direction: column; }
+  .contact-strip-btn { width: 100%; justify-content: center; font-size: 13px; }
+
+  .stats-bar .inner { grid-template-columns: repeat(2,1fr); gap: 10px; }
+  .stat-item .num { font-size: 26px; }
+  .stat-item .label { font-size: 10px; }
+
+  .cat-grid { grid-template-columns: 1fr 1fr !important; gap: 8px; }
+  .products-grid { grid-template-columns: 1fr 1fr !important; gap: 8px; }
+  .prod-grid { grid-template-columns: repeat(2,1fr) !important; gap: 8px; }
+  .cat-prod-grid { grid-template-columns: repeat(2,1fr) !important; gap: 8px; }
+  .gallery-grid { grid-template-columns: 1fr !important; }
+
+  .footer-grid { grid-template-columns: 1fr !important; gap: 20px; }
+  .footer-bottom { font-size: 11px; }
+
+  .cta-section { padding: 50px 4%; }
+  .cta-section h2 { font-size: 22px; }
+  .cta-btns { flex-direction: column; align-items: center; gap: 10px; }
+  .cta-btns a { width: 100%; max-width: 280px; justify-content: center; }
+
+  .page-banner { height: 160px; }
+  .page-banner h1 { font-size: 24px; }
+
+  .prod-modal-inner { grid-template-columns: 1fr !important; }
+  .cat-modal-inner { grid-template-columns: 1fr !important; }
+  .modal-grid { grid-template-columns: 1fr !important; }
+  .prod-img-main { height: 200px !important; }
 }
 
 /* ── WHATSAPP FLOATING BUTTON ── */
@@ -834,11 +905,11 @@ footer {
         <img src="images/cr-pro-logo-transparent.png"
              onerror="this.src='images/cr-pro-logo.png'"
              alt="CR PRO RAILING"
-             style="max-width:340px;width:55%;height:auto;object-fit:contain;filter:drop-shadow(0 4px 24px rgba(201,168,76,0.35));"/>
+             style="max-width:320px;width:65%;height:auto;object-fit:contain;filter:drop-shadow(0 4px 24px rgba(201,168,76,0.35));"/>
       </div>
 
       <!-- BOTTOM: 2-col -->
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;">
+      <div id="heroGrid" style="display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center;">
 
         <!-- LEFT: Text -->
         <div>
@@ -868,23 +939,86 @@ footer {
           </div>
         </div>
 
-        <!-- RIGHT: Railing image -->
+        <!-- RIGHT: Auto Image Slider -->
         <div style="position:relative;">
-          <img
-            src="https://images.unsplash.com/photo-1600607687939-54fa7f7e9244?w=800&h=560&fit=crop&q=85"
-            alt="Premium Glass Railing Hyderabad"
-            style="width:100%;height:460px;object-fit:cover;border-radius:12px;border:1px solid rgba(201,168,76,0.25);display:block;"
-          />
+          <!-- SLIDER CONTAINER -->
+          <div id="heroSlider" style="width:100%;height:460px;border-radius:12px;border:1px solid rgba(201,168,76,0.25);overflow:hidden;position:relative;">
+            <!-- Slides - Upload your images to images/slider/ folder on GitHub -->
+            <div class="hslide active" style="position:absolute;inset:0;transition:opacity 0.8s ease;">
+              <img src="images/slider/slide-1.jpg" onerror="this.src='https://images.unsplash.com/photo-1600607687939-54fa7f7e9244?w=800&h=560&fit=crop&q=85'" style="width:100%;height:100%;object-fit:cover;" alt="Railing 1"/>
+            </div>
+            <div class="hslide" style="position:absolute;inset:0;transition:opacity 0.8s ease;opacity:0;">
+              <img src="images/slider/slide-2.jpg" onerror="this.src='https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&h=560&fit=crop&q=85'" style="width:100%;height:100%;object-fit:cover;" alt="Railing 2"/>
+            </div>
+            <div class="hslide" style="position:absolute;inset:0;transition:opacity 0.8s ease;opacity:0;">
+              <img src="images/slider/slide-3.jpg" onerror="this.src='https://images.unsplash.com/photo-1541123437800-1bb1317badc2?w=800&h=560&fit=crop&q=85'" style="width:100%;height:100%;object-fit:cover;" alt="Railing 3"/>
+            </div>
+            <div class="hslide" style="position:absolute;inset:0;transition:opacity 0.8s ease;opacity:0;">
+              <img src="images/slider/slide-4.jpg" onerror="this.src='https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?w=800&h=560&fit=crop&q=85'" style="width:100%;height:100%;object-fit:cover;" alt="Railing 4"/>
+            </div>
+            <div class="hslide" style="position:absolute;inset:0;transition:opacity 0.8s ease;opacity:0;">
+              <img src="images/slider/slide-5.jpg" onerror="this.src='https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=560&fit=crop&q=85'" style="width:100%;height:100%;object-fit:cover;" alt="Railing 5"/>
+            </div>
+            <div class="hslide" style="position:absolute;inset:0;transition:opacity 0.8s ease;opacity:0;">
+              <img src="images/slider/slide-6.jpg" onerror="this.src='https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=800&h=560&fit=crop&q=85'" style="width:100%;height:100%;object-fit:cover;" alt="Railing 6"/>
+            </div>
+            <div class="hslide" style="position:absolute;inset:0;transition:opacity 0.8s ease;opacity:0;">
+              <img src="images/slider/slide-7.jpg" onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=560&fit=crop&q=85'" style="width:100%;height:100%;object-fit:cover;" alt="Railing 7"/>
+            </div>
+            <div class="hslide" style="position:absolute;inset:0;transition:opacity 0.8s ease;opacity:0;">
+              <img src="images/slider/slide-8.jpg" onerror="this.src='https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=800&h=560&fit=crop&q=85'" style="width:100%;height:100%;object-fit:cover;" alt="Railing 8"/>
+            </div>
+            <div class="hslide" style="position:absolute;inset:0;transition:opacity 0.8s ease;opacity:0;">
+              <img src="images/slider/slide-9.jpg" onerror="this.src='https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&h=560&fit=crop&q=85'" style="width:100%;height:100%;object-fit:cover;" alt="Railing 9"/>
+            </div>
+            <div class="hslide" style="position:absolute;inset:0;transition:opacity 0.8s ease;opacity:0;">
+              <img src="images/slider/slide-10.jpg" onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=800&h=560&fit=crop&q=85'" style="width:100%;height:100%;object-fit:cover;" alt="Railing 10"/>
+            </div>
+            <!-- Dots -->
+            <div style="position:absolute;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:6px;z-index:5;" id="sliderDots"></div>
+            <!-- Prev/Next arrows -->
+            <button onclick="slideChange(-1)" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);border:1px solid rgba(201,168,76,0.4);color:var(--gold);width:34px;height:34px;border-radius:50%;font-size:16px;cursor:pointer;z-index:5;display:flex;align-items:center;justify-content:center;">‹</button>
+            <button onclick="slideChange(1)" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,0.5);border:1px solid rgba(201,168,76,0.4);color:var(--gold);width:34px;height:34px;border-radius:50%;font-size:16px;cursor:pointer;z-index:5;display:flex;align-items:center;justify-content:center;">›</button>
+          </div>
           <!-- Badge bottom-left -->
           <div style="position:absolute;bottom:-16px;left:-16px;background:var(--gold);color:var(--dark);padding:14px 22px;border-radius:8px;font-family:'Playfair Display',serif;z-index:2;">
             <span style="font-size:30px;font-weight:900;display:block;line-height:1;"><span data-count="500" data-suffix="+">0+</span></span>
             <span style="font-size:10px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Projects Done</span>
           </div>
           <!-- Badge top-right -->
-          <div style="position:absolute;top:16px;right:16px;background:rgba(0,0,0,0.75);backdrop-filter:blur(8px);border:1px solid rgba(201,168,76,0.35);color:var(--white);padding:10px 16px;border-radius:8px;font-size:13px;">
+          <div style="position:absolute;top:16px;right:16px;background:rgba(0,0,0,0.75);backdrop-filter:blur(8px);border:1px solid rgba(201,168,76,0.35);color:var(--white);padding:10px 16px;border-radius:8px;font-size:13px;z-index:4;">
             📍 Rajendra Nagar, Hyderabad
           </div>
         </div>
+        <script>
+        // Hero Slider
+        (function(){
+          var idx=0, slides, total=10, timer;
+          function init(){
+            slides = document.querySelectorAll('.hslide');
+            total = slides.length;
+            // Build dots
+            var dotsEl = document.getElementById('sliderDots');
+            for(var i=0;i<total;i++){
+              var d=document.createElement('button');
+              d.style.cssText='width:8px;height:8px;border-radius:50%;border:none;cursor:pointer;background:'+(i===0?'#C9A84C':'rgba(255,255,255,0.4)');
+              d.setAttribute('data-i',i);
+              d.onclick=(function(j){return function(){goTo(j);};})(i);
+              dotsEl.appendChild(d);
+            }
+            timer=setInterval(function(){goTo((idx+1)%total);},3500);
+          }
+          function goTo(n){
+            slides[idx].style.opacity='0';
+            document.querySelectorAll('#sliderDots button')[idx].style.background='rgba(255,255,255,0.4)';
+            idx=n;
+            slides[idx].style.opacity='1';
+            document.querySelectorAll('#sliderDots button')[idx].style.background='#C9A84C';
+          }
+          window.slideChange=function(dir){clearInterval(timer);goTo((idx+dir+total)%total);timer=setInterval(function(){goTo((idx+1)%total);},3500);};
+          if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+        })();
+        </script>
 
       </div>
     </div>
