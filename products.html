@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Products – CR PRO RAILING</title>
-  <meta name="description" content="Browse CR PRO RAILING's complete range of Aluminum, Glass & Stainless Steel railings. Custom designs available."/>
+  <title>Products – CR PRO RAILING | Hyderabad</title>
+  <meta name="description" content="Browse CR PRO RAILING products — 35+ Aluminum and Steel railing profiles with detailed specifications."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
 
@@ -813,12 +815,207 @@ footer {
 .ci-text p { color: var(--silver); font-size: 13px; line-height: 1.5; margin: 2px 0; }
 
 
-</style>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+
+/* ── PRODUCT LISTING ── */
+.prod-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+}
+.prod-card {
+  background: var(--dark-3);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px; overflow: hidden;
+  cursor: pointer; transition: all 0.3s;
+}
+.prod-card:hover {
+  border-color: rgba(201,168,76,0.4);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+}
+.prod-card img {
+  width: 100%; height: 200px; object-fit: cover;
+  display: block; transition: transform 0.4s;
+  background: var(--dark-4);
+}
+.prod-card:hover img { transform: scale(1.05); }
+.prod-card-info {
+  padding: 14px 16px;
+}
+.prod-card-id {
+  font-size: 11px; color: var(--gold); font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px;
+}
+.prod-card-cat {
+  font-size: 12px; color: var(--silver); margin-bottom: 6px;
+}
+.prod-card-profile {
+  font-size: 13px; color: var(--light); font-weight: 600;
+}
+.prod-card-enquire {
+  display: block; text-align: center;
+  background: rgba(201,168,76,0.08);
+  border-top: 1px solid rgba(201,168,76,0.12);
+  color: var(--gold); font-size: 12px; font-weight: 600;
+  letter-spacing: 1px; text-transform: uppercase;
+  padding: 10px; text-decoration: none;
+  transition: background 0.2s;
+}
+.prod-card-enquire:hover { background: rgba(201,168,76,0.18); }
+
+/* ── DETAIL MODAL ── */
+.modal-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.88); z-index: 9999;
+  align-items: center; justify-content: center;
+  padding: 20px; overflow-y: auto;
+}
+.modal-overlay.active { display: flex; }
+.modal-box {
+  background: var(--dark-2);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 14px; width: 100%; max-width: 900px;
+  max-height: 90vh; overflow-y: auto;
+  position: relative;
+  animation: modalIn 0.3s ease;
+}
+@keyframes modalIn {
+  from { opacity:0; transform:scale(0.95) translateY(20px); }
+  to   { opacity:1; transform:scale(1) translateY(0); }
+}
+.modal-close {
+  position: sticky; top: 0; float: right;
+  background: var(--dark-3); border: 1px solid rgba(201,168,76,0.2);
+  color: var(--gold); width: 36px; height: 36px;
+  border-radius: 50%; font-size: 20px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  margin: 14px 14px 0 0; z-index: 10;
+  transition: all 0.2s;
+}
+.modal-close:hover { background: var(--gold); color: var(--dark); }
+.modal-body { padding: 0 28px 28px; }
+.modal-grid {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 32px; align-items: start;
+}
+.modal-images { }
+.modal-main-img {
+  width: 100%; height: 320px; object-fit: contain;
+  border-radius: 10px; border: 1px solid rgba(201,168,76,0.15);
+  background: var(--dark-3); display: block; margin-bottom: 12px;
+  cursor: zoom-in;
+}
+.modal-thumbs {
+  display: flex; gap: 10px;
+}
+.modal-thumb {
+  width: 80px; height: 70px; object-fit: contain;
+  border-radius: 6px; border: 2px solid transparent;
+  cursor: pointer; background: var(--dark-3);
+  transition: border-color 0.2s;
+}
+.modal-thumb.active { border-color: var(--gold); }
+.modal-thumb:hover { border-color: rgba(201,168,76,0.5); }
+.modal-info h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px; color: var(--white); margin-bottom: 4px;
+}
+.modal-cat-badge {
+  display: inline-block;
+  background: rgba(201,168,76,0.12);
+  border: 1px solid rgba(201,168,76,0.3);
+  color: var(--gold); font-size: 11px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 4px 12px; border-radius: 100px;
+  margin-bottom: 18px;
+}
+.spec-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+.spec-table tr {
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.spec-table td {
+  padding: 9px 12px; font-size: 13px;
+}
+.spec-table td:first-child {
+  color: var(--silver); width: 40%;
+  font-weight: 600; letter-spacing: 0.5px;
+}
+.spec-table td:last-child {
+  color: var(--white); font-weight: 500;
+}
+.spec-table tr:nth-child(odd) td { background: rgba(255,255,255,0.02); }
+
+/* Tabs */
+.tab-bar {
+  display: flex; gap: 0;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  margin: 20px 0 16px;
+}
+.tab-btn {
+  padding: 10px 18px; font-size: 13px; font-weight: 600;
+  color: var(--silver); background: none; border: none;
+  border-bottom: 2px solid transparent;
+  cursor: pointer; font-family: 'DM Sans', sans-serif;
+  transition: all 0.2s; letter-spacing: 0.5px;
+}
+.tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
+.tab-btn:hover { color: var(--light); }
+.tab-panel { display: none; }
+.tab-panel.active { display: block; }
+.feature-list { list-style: none; padding: 0; }
+.feature-list li {
+  display: flex; align-items: center; gap: 10px;
+  color: var(--light); font-size: 13px;
+  padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+}
+.feature-list li::before {
+  content: '✓';
+  color: var(--gold); font-weight: 700; font-size: 14px; flex-shrink: 0;
+}
+.finish-tags {
+  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;
+}
+.finish-tag {
+  background: rgba(201,168,76,0.08);
+  border: 1px solid rgba(201,168,76,0.2);
+  color: var(--light); font-size: 12px;
+  padding: 5px 12px; border-radius: 100px;
+}
+.modal-cta {
+  display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap;
+}
+.modal-cta a {
+  flex: 1; text-align: center; padding: 12px 20px;
+  border-radius: 6px; text-decoration: none; font-weight: 700;
+  font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase;
+  transition: all 0.3s;
+}
+.modal-cta .cta-primary {
+  background: var(--gold); color: var(--dark);
+}
+.modal-cta .cta-wa {
+  background: rgba(37,211,102,0.12);
+  border: 1.5px solid #25D366; color: #25D366;
+}
+.modal-cta .cta-primary:hover { background: var(--gold-light); }
+.modal-cta .cta-wa:hover { background: rgba(37,211,102,0.2); }
+
+@media(max-width:900px) {
+  .prod-grid { grid-template-columns: repeat(2,1fr); }
+  .modal-grid { grid-template-columns: 1fr; }
+  .modal-main-img { height: 240px; }
+}
+@media(max-width:480px) {
+  .prod-grid { grid-template-columns: 1fr 1fr; }
+}
+  </style>
 </head>
 <body>
-
+<!-- NAV injected -->
 <main style="margin-top:75px;">
 
   <div class="page-banner">
@@ -830,126 +1027,108 @@ footer {
 
   <section class="section">
     <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">✦ Complete Range</span>
+        <h2 class="section-title"><span class="gold">35+</span> Premium Railing Profiles</h2>
+        <p class="section-sub">Click any product to view full specifications, images, features and finishes.</p>
+      </div>
 
       <!-- Filter -->
-      <div class="filter-bar" id="filterBar">
+      <div class="filter-bar" id="filterBar" style="margin-bottom:32px;">
         <button class="filter-btn active" data-cat="all">All Products</button>
-        <button class="filter-btn" data-cat="aluminum">Aluminum</button>
-        <button class="filter-btn" data-cat="glass">Glass</button>
-        <button class="filter-btn" data-cat="steel">Stainless Steel</button>
-        <button class="filter-btn" data-cat="balcony">Balcony</button>
-        <button class="filter-btn" data-cat="stair">Stair</button>
-        <button class="filter-btn" data-cat="deck">Deck</button>
-        <button class="filter-btn" data-cat="modular">Modular</button>
+        <button class="filter-btn" data-cat="Aluminum">Aluminum</button>
+        <button class="filter-btn" data-cat="Steel">Steel / SS</button>
       </div>
 
-      <div class="products-grid" id="productsGrid">
-
-        <a href="contact.html" class="product-card" data-cat="aluminum glass">
-          <img src="https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?w=800&h=300&fit=crop&q=85" alt="Aluminum Glass Railing"/>
-          <div class="product-info">
-            <div class="product-cat">Aluminum · Glass</div>
-            <div class="product-name">Aluminum Glass Railing</div>
-            <div class="product-desc">Frameless glass in precision aluminum channel. Perfect for balconies, terraces and pool areas.</div>
-            <div class="product-footer"><span>Get Quote</span><a href="contact.html">Enquire →</a></div>
-          </div>
-        </a>
-
-        <a href="contact.html" class="product-card" data-cat="modular balcony">
-          <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&h=300&fit=crop&q=85" alt="Modular Balcony Railing"/>
-          <div class="product-info">
-            <div class="product-cat">Modular · Balcony</div>
-            <div class="product-name">Modular Balcony Railing</div>
-            <div class="product-desc">Pre-fabricated modular sections for fast installation. Powder-coated finishes in 20+ colors.</div>
-            <div class="product-footer"><span>Get Quote</span><a href="contact.html">Enquire →</a></div>
-          </div>
-        </a>
-
-        <a href="contact.html" class="product-card" data-cat="steel stair glass">
-          <img src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?w=800&h=300&fit=crop&q=85" alt="SS Glass Stair Railing"/>
-          <div class="product-info">
-            <div class="product-cat">Stainless Steel · Stair</div>
-            <div class="product-name">SS Glass Stair Railing</div>
-            <div class="product-desc">Toughened glass infill with SS 304 posts. Meets building safety standards. Ideal for residential stairs.</div>
-            <div class="product-footer"><span>Get Quote</span><a href="contact.html">Enquire →</a></div>
-          </div>
-        </a>
-
-        <a href="contact.html" class="product-card" data-cat="glass balcony">
-          <img src="https://images.unsplash.com/photo-1600607687939-54fa7f7e9244?w=800&h=300&fit=crop&q=85" alt="Frameless Glass Railing"/>
-          <div class="product-info">
-            <div class="product-cat">Glass</div>
-            <div class="product-name">Frameless Glass Railing</div>
-            <div class="product-desc">Fully frameless 12mm toughened glass. Floor-mounted spigot system for unobstructed views.</div>
-            <div class="product-footer"><span>Get Quote</span><a href="contact.html">Enquire →</a></div>
-          </div>
-        </a>
-
-        <a href="contact.html" class="product-card" data-cat="steel balcony">
-          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=300&fit=crop&q=85" alt="SS Balcony Railing"/>
-          <div class="product-info">
-            <div class="product-cat">Stainless Steel · Balcony</div>
-            <div class="product-name">SS Balcony Railing</div>
-            <div class="product-desc">Mirror-polished SS 316 grade tubes and fittings. Corrosion-resistant for coastal and humid climates.</div>
-            <div class="product-footer"><span>Get Quote</span><a href="contact.html">Enquire →</a></div>
-          </div>
-        </a>
-
-        <a href="contact.html" class="product-card" data-cat="glass deck">
-          <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=800&h=300&fit=crop&q=85" alt="Glass Deck Railing"/>
-          <div class="product-info">
-            <div class="product-cat">Glass · Deck</div>
-            <div class="product-name">Glass Deck Railing</div>
-            <div class="product-desc">Heavy-duty deck glass panels. Suitable for outdoor decks, pool fencing and terraces.</div>
-            <div class="product-footer"><span>Get Quote</span><a href="contact.html">Enquire →</a></div>
-          </div>
-        </a>
-
-        <a href="contact.html" class="product-card" data-cat="aluminum stair">
-          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=300&fit=crop&q=85" alt="Aluminum Stair Railing"/>
-          <div class="product-info">
-            <div class="product-cat">Aluminum · Stair</div>
-            <div class="product-name">Aluminum Stair Railing</div>
-            <div class="product-desc">Lightweight and stylish aluminum stair railing with anodized or powder-coated finish options.</div>
-            <div class="product-footer"><span>Get Quote</span><a href="contact.html">Enquire →</a></div>
-          </div>
-        </a>
-
-        <a href="contact.html" class="product-card" data-cat="steel stair">
-          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=300&fit=crop&q=85" alt="SS Rod Railing"/>
-          <div class="product-info">
-            <div class="product-cat">Stainless Steel</div>
-            <div class="product-name">SS Rod Railing System</div>
-            <div class="product-desc">Horizontal cable/rod infill in SS posts. Contemporary, airy look for modern interiors and exteriors.</div>
-            <div class="product-footer"><span>Get Quote</span><a href="contact.html">Enquire →</a></div>
-          </div>
-        </a>
-
-        <a href="contact.html" class="product-card" data-cat="aluminum balcony glass">
-          <img src="https://images.unsplash.com/photo-1600607687939-54fa7f7e9244?w=800&h=300&fit=crop&q=85" alt="Aluminum Profile Glass Railing"/>
-          <div class="product-info">
-            <div class="product-cat">Aluminum · Glass · Balcony</div>
-            <div class="product-name">Aluminum Profile Glass Railing</div>
-            <div class="product-desc">U-channel aluminum profile holding glass panels. Sleek European-inspired balcony railing design.</div>
-            <div class="product-footer"><span>Get Quote</span><a href="contact.html">Enquire →</a></div>
-          </div>
-        </a>
-
-      </div>
-
+      <!-- Grid -->
+      <div class="prod-grid" id="prodGrid"></div>
     </div>
   </section>
 
   <!-- CTA -->
   <section class="cta-section">
-    <h2>Don't See What You Need?</h2>
-    <p>We manufacture 100% custom railings. Share your requirements and we'll build it for you.</p>
+    <h2>Need a Custom Profile?</h2>
+    <p>We fabricate custom sizes and designs. Share your requirements — free site visit in Hyderabad.</p>
     <div class="cta-btns">
-      <a href="contact.html" class="btn-primary">Request Custom Design →</a>
+      <a href="https://wa.me/919000916120?text=Hi%20CR%20PRO%20RAILING%2C%20I%20need%20a%20quote%20on%20your%20products."
+         target="_blank" class="btn-primary" style="background:#25D366;">💬 WhatsApp Now</a>
+      <a href="contact.html" class="btn-outline">Get Free Quote</a>
+      <a href="images/CR-PRO-RAILING-Catalog.pdf" download class="btn-catalog"><span class="dl-icon">⬇</span> Download Catalog</a>
     </div>
   </section>
 
 </main>
+
+<!-- Product Detail Modal -->
+<div class="modal-overlay" id="productModal" onclick="handleModalClick(event)">
+  <div class="modal-box" id="modalBox">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-body">
+      <div class="modal-grid">
+        <!-- Images -->
+        <div class="modal-images">
+          <img id="modalMainImg" class="modal-main-img" src="" alt="" onclick="zoomImg(this)"/>
+          <div class="modal-thumbs" id="modalThumbs"></div>
+        </div>
+        <!-- Info -->
+        <div class="modal-info">
+          <div class="modal-cat-badge" id="modalCat"></div>
+          <h2 id="modalTitle"></h2>
+          <p style="color:var(--silver);font-size:13px;margin-bottom:16px;">Model: <span id="modalModel" style="color:var(--gold);font-weight:700;"></span></p>
+
+          <table class="spec-table" id="modalSpecTable"></table>
+
+          <!-- Tabs -->
+          <div class="tab-bar">
+            <button class="tab-btn active" onclick="switchTab(event,'features')">Features</button>
+            <button class="tab-btn" onclick="switchTab(event,'specs')">Specification</button>
+            <button class="tab-btn" onclick="switchTab(event,'glass')">Glass</button>
+            <button class="tab-btn" onclick="switchTab(event,'finishes')">Finishes</button>
+          </div>
+
+          <div id="tab-features" class="tab-panel active">
+            <ul class="feature-list">
+              <li>100% Recyclable</li>
+              <li>Easy Cleaning</li>
+              <li>Maintenance Free</li>
+              <li>Weather Proof</li>
+              <li>Robust for Higher Safety</li>
+              <li>UV Resistant Finish</li>
+              <li>Corrosion Resistant</li>
+            </ul>
+          </div>
+
+          <div id="tab-specs" class="tab-panel">
+            <table class="spec-table" id="modalSpecsTab"></table>
+          </div>
+
+          <div id="tab-glass" class="tab-panel">
+            <table class="spec-table">
+              <tr><td>Glass Type</td><td>Toughened / Tempered Safety Glass</td></tr>
+              <tr><td>Thickness</td><td>8mm / 10mm / 12mm</td></tr>
+              <tr><td>Transparency</td><td>Clear / Frosted / Tinted</td></tr>
+              <tr><td>Standard</td><td>IS:2553 Certified</td></tr>
+              <tr><td>Breaking Strength</td><td>5× stronger than normal glass</td></tr>
+              <tr><td>Safety</td><td>Crumbles into small safe pieces on impact</td></tr>
+            </table>
+          </div>
+
+          <div id="tab-finishes" class="tab-panel">
+            <p style="color:var(--silver);font-size:13px;margin-bottom:12px;">Available color & surface finishes:</p>
+            <div class="finish-tags" id="finishTags"></div>
+          </div>
+
+          <div class="modal-cta">
+            <a id="modalWaBtn"
+               href="https://wa.me/919000916120?text=Hi%20CR%20PRO%20RAILING%2C%20I%20am%20interested%20in%20product%20RW-01"
+               target="_blank" class="cta-wa">💬 WhatsApp Enquiry</a>
+            <a href="contact.html" class="cta-primary">Get Free Quote</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
 // ── CR PRO RAILING — SHARED COMPONENTS v5 ──
@@ -1104,27 +1283,563 @@ function injectComponents(activePage) {
 
 </script>
 <script>
-  injectComponents('products.html');
+injectComponents('products.html');
 
-  // Filter logic
-  const filterBtns = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('.product-card');
+// ── PRODUCT DATA ──
+const PRODUCTS = [
+  {
+    "title": "RW-01",
+    "category": "Aluminum",
+    "img": "1",
+    "profileSize": "55 mm X 70 mm",
+    "weight": "0.700 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (1).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (1).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (1).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(1).webp"
+  },
+  {
+    "title": "RW-02",
+    "category": "Aluminum",
+    "img": "2",
+    "profileSize": "71 mm X 81 mm",
+    "weight": "0.850 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (2).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (2).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (2).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(2).webp"
+  },
+  {
+    "title": "RW-03",
+    "category": "Aluminum",
+    "img": "3",
+    "profileSize": "66 mm X 70 mm",
+    "weight": "0.600 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (3).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (3).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (3).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(3).webp"
+  },
+  {
+    "title": "RW-04",
+    "category": "Aluminum",
+    "img": "4",
+    "profileSize": "45 mm X 60 mm",
+    "weight": "0.500 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (4).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (4).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (4).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(4).webp"
+  },
+  {
+    "title": "RW-05",
+    "category": "Aluminum",
+    "img": "5",
+    "profileSize": "37 mm X 81 mm",
+    "weight": "0.950 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (5).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (5).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (5).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(5).webp"
+  },
+  {
+    "title": "RW-06",
+    "category": "Aluminum",
+    "img": "6",
+    "profileSize": "40 mm X 100 mm",
+    "weight": "1.100 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (6).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (6).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (6).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(6).webp"
+  },
+  {
+    "title": "RW-07",
+    "category": "Aluminum",
+    "img": "7",
+    "profileSize": "41 mm X 115 mm",
+    "weight": "1.500 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (7).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (7).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (7).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(7).webp"
+  },
+  {
+    "title": "RW-08",
+    "category": "Aluminum",
+    "img": "8",
+    "profileSize": "60 mm X 100 mm",
+    "weight": "1.100 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (8).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (8).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (8).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(8).webp"
+  },
+  {
+    "title": "RW-09",
+    "category": "Aluminum",
+    "img": "9",
+    "profileSize": "60 mm X 120 mm",
+    "weight": "1.500 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (9).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (9).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (9).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(9).webp"
+  },
+  {
+    "title": "RW-10",
+    "category": "Aluminum",
+    "img": "10",
+    "profileSize": "50 mm X 90 mm",
+    "weight": "0.950 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (10).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (10).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (10).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(10).webp"
+  },
+  {
+    "title": "RW-11",
+    "category": "Aluminum",
+    "img": "11",
+    "profileSize": "70 mm X 125 mm",
+    "weight": "1.800 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (11).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (11).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (11).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(11).webp"
+  },
+  {
+    "title": "RW-12",
+    "category": "Aluminum",
+    "img": "12",
+    "profileSize": "56 mm X 90 mm",
+    "weight": "0.250 gm (1 Feet) & Bracket (65 mm)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (12).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (12).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (12).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(12).webp"
+  },
+  {
+    "title": "RW-13",
+    "category": "Aluminum",
+    "img": "13",
+    "profileSize": "70 mm X 100 mm",
+    "weight": "0.450 gm (1 Feet) & Bracket (65 mm)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (13).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (13).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (13).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(13).webp"
+  },
+  {
+    "title": "RW-14",
+    "category": "Aluminum",
+    "img": "14",
+    "profileSize": "65 mm X 100 mm",
+    "weight": "0.450 gm (1 Feet) & Bracket (65 mm)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (14).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (14).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (14).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(14).webp"
+  },
+  {
+    "title": "RW-15",
+    "category": "Aluminum",
+    "img": "15",
+    "profileSize": "70 mm X 100 mm",
+    "weight": "0.450 gm (1 Feet) & Bracket (65 mm)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (15).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (15).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (15).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(15).webp"
+  },
+  {
+    "title": "RW-16",
+    "category": "Aluminum",
+    "img": "16",
+    "profileSize": "90 mm X 115 mm",
+    "weight": "0.450 gm (1 Feet) & Bracket (65 mm)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (16).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (16).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (16).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(16).webp"
+  },
+  {
+    "title": "RW-17",
+    "category": "Aluminum",
+    "img": "17",
+    "profileSize": "71 mm X 81 mm",
+    "weight": "700 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (17).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (17).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (17).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(17).webp"
+  },
+  {
+    "title": "RW-18",
+    "category": "Aluminum",
+    "img": "18",
+    "profileSize": "37 mm X 81 mm",
+    "weight": "700 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (18).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (18).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (18).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(18).webp"
+  },
+  {
+    "title": "RW-19",
+    "category": "Aluminum",
+    "img": "19",
+    "profileSize": "57 mm X 71 mm",
+    "weight": "750  gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (19).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (19).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (19).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(19).webp"
+  },
+  {
+    "title": "RW-20",
+    "category": "Aluminum",
+    "img": "20",
+    "profileSize": "70 mm X 70 mm",
+    "weight": "650 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (20).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (20).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (20).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(20).webp"
+  },
+  {
+    "title": "RW-21",
+    "category": "Aluminum",
+    "img": "21",
+    "profileSize": "37 mm X 100 mm",
+    "weight": "1200  gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (21).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (21).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (21).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(21).webp"
+  },
+  {
+    "title": "RW-22",
+    "category": "Aluminum",
+    "img": "22",
+    "profileSize": "40 mm X 80 mm",
+    "weight": "900 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (22).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (22).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (22).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(22).webp"
+  },
+  {
+    "title": "RW-23",
+    "category": "Aluminum",
+    "img": "23",
+    "profileSize": "64 mm X 85 mm",
+    "weight": "900 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (23).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (23).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (23).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(23).webp"
+  },
+  {
+    "title": "RW-24",
+    "category": "Aluminum",
+    "img": "24",
+    "profileSize": "50 mm X 75 mm",
+    "weight": "700 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (24).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (24).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (24).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(24).webp"
+  },
+  {
+    "title": "RW-25",
+    "category": "Aluminum",
+    "img": "25",
+    "profileSize": "55 mm X 100 mm",
+    "weight": "1150 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (25).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (25).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (25).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(25).webp"
+  },
+  {
+    "title": "RW-26",
+    "category": "Aluminum",
+    "img": "26",
+    "profileSize": "60 mm X 105 mm",
+    "weight": "1200 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (26).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (26).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (26).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(26).webp"
+  },
+  {
+    "title": "RW-27",
+    "category": "Aluminum",
+    "img": "27",
+    "profileSize": "60 mm X 120 mm",
+    "weight": "1.500 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (27).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (27).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (27).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(27).webp"
+  },
+  {
+    "title": "RW-28",
+    "category": "Aluminum",
+    "img": "28",
+    "profileSize": "60 mm X 100 mm",
+    "weight": "1300 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (28).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (28).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (28).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(28).webp"
+  },
+  {
+    "title": "RW-29",
+    "category": "Aluminum",
+    "img": "29",
+    "profileSize": "65 mm X 120 mm",
+    "weight": "1800 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (29).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (29).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (29).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(29).webp"
+  },
+  {
+    "title": "RW-30",
+    "category": "Aluminum",
+    "img": "30",
+    "profileSize": "70 mm X 150 mm",
+    "weight": "2000 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (30).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (30).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (30).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(30).webp"
+  },
+  {
+    "title": "RW-31",
+    "category": "Aluminum",
+    "img": "31",
+    "profileSize": "81 mm X 110 mm",
+    "weight": "1100 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (31).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (31).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (31).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(31).webp"
+  },
+  {
+    "title": "RW-32",
+    "category": "Aluminum",
+    "img": "32",
+    "profileSize": "81 mm X 110 mm",
+    "weight": "1100 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (32).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (32).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (32).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(32).webp"
+  },
+  {
+    "title": "RW-33",
+    "category": "Aluminum",
+    "img": "33",
+    "profileSize": "55 mm X 90 mm",
+    "weight": "160 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (33).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (33).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (33).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(33).webp"
+  },
+  {
+    "title": "RW-34",
+    "category": "Aluminum",
+    "img": "34",
+    "profileSize": "60 mm X 115 mm",
+    "weight": "270 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (34).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (34).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (34).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(34).webp"
+  },
+  {
+    "title": "RW-35",
+    "category": "Steel",
+    "img": "35",
+    "profileSize": "40 mm X 200 mm",
+    "weight": "160 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "mainImage": "https://www.railingworld.in/images/MainProduct/Main/MainImage (35).jpg",
+    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (35).jpg",
+    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (35).jpg",
+    "thumbImage": "https://railingworld.in/images/ProductCat/whole/RW%20(35).webp"
+  }
+];
 
-  filterBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      filterBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const cat = btn.dataset.cat;
-      cards.forEach(card => {
-        if (cat === 'all' || card.dataset.cat.includes(cat)) {
-          card.style.display = 'flex';
-        } else {
-          card.style.display = 'none';
-        }
-      });
-    });
+const FINISHES_AL = ["Matt Black","Silver Anodized","Champagne Gold","White Matt","Bronze","Wooden Texture","Custom RAL Colors"];
+const FINISHES_ST = ["Mirror Polish","Hairline Finish","Satin Finish","Powder Coat Black","Champagne Gold"];
+
+const SPECS_AL = [
+  ["Material", "High Grade Aluminum Alloy"],
+  ["Alloy Grade", "6063-T5 / 6061-T6"],
+  ["Finish Type", "Powder Coat / Anodized"],
+  ["Surface", "Smooth / Textured"],
+  ["Coating", "PVDF / Electrostatic Powder Coat"],
+  ["Colors Available", "30+ Color Options"],
+];
+const SPECS_ST = [
+  ["Material", "Stainless Steel"],
+  ["Grade", "SS 304 / SS 316"],
+  ["Finish", "Mirror Polish / Matte / Brushed"],
+  ["Corrosion Resistance", "High"],
+  ["Surface", "Polished"],
+  ["Coating", "Anti-corrosion Treatment"],
+];
+
+// ── RENDER CARDS ──
+function renderCards(filter) {
+  const grid = document.getElementById('prodGrid');
+  grid.innerHTML = '';
+  PRODUCTS.filter(p => filter === 'all' || p.category === filter).forEach((p, i) => {
+    const card = document.createElement('div');
+    card.className = 'prod-card';
+    card.onclick = () => openProduct(p);
+    card.innerHTML = `
+      <img src="${p.thumbImage}"
+           onerror="this.src='${p.mainImage}'"
+           alt="${p.title}" loading="lazy"/>
+      <div class="prod-card-info">
+        <div class="prod-card-id">${p.title}</div>
+        <div class="prod-card-cat">${p.category} Railing</div>
+        <div class="prod-card-profile">Profile: ${p.profileSize}</div>
+      </div>
+      <span class="prod-card-enquire">View Details →</span>
+    `;
+    grid.appendChild(card);
   });
-</script>
+}
+renderCards('all');
 
+// Filter buttons
+document.querySelectorAll('#filterBar .filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('#filterBar .filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    renderCards(btn.dataset.cat);
+  });
+});
+
+// ── OPEN PRODUCT MODAL ──
+function openProduct(p) {
+  // Main image
+  document.getElementById('modalMainImg').src = p.mainImage;
+  document.getElementById('modalMainImg').alt = p.title;
+
+  // Thumbs
+  const thumbs = document.getElementById('modalThumbs');
+  thumbs.innerHTML = '';
+  [p.mainImage, p.image3d, p.image2d].filter(Boolean).forEach((src, i) => {
+    const img = document.createElement('img');
+    img.src = src;
+    img.className = 'modal-thumb' + (i===0?' active':'');
+    img.onclick = () => {
+      document.getElementById('modalMainImg').src = src;
+      document.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
+      img.classList.add('active');
+    };
+    thumbs.appendChild(img);
+  });
+
+  document.getElementById('modalCat').textContent = p.category;
+  document.getElementById('modalTitle').textContent = p.title + ' — ' + p.category + ' Railing';
+  document.getElementById('modalModel').textContent = p.title;
+
+  // Main spec table
+  document.getElementById('modalSpecTable').innerHTML = `
+    <tr><td>Model Name</td><td>${p.title}</td></tr>
+    <tr><td>Weight</td><td>${p.weight}</td></tr>
+    <tr><td>Length</td><td>${p.length}</td></tr>
+    <tr><td>Profile Size</td><td>${p.profileSize}</td></tr>
+  `;
+
+  // Specs tab
+  const specRows = p.category === 'Steel' ? SPECS_ST : SPECS_AL;
+  document.getElementById('modalSpecsTab').innerHTML = specRows.map(([k,v]) =>
+    `<tr><td>${k}</td><td>${v}</td></tr>`).join('');
+
+  // Finishes
+  const finishes = p.category === 'Steel' ? FINISHES_ST : FINISHES_AL;
+  document.getElementById('finishTags').innerHTML = finishes.map(f =>
+    `<span class="finish-tag">${f}</span>`).join('');
+
+  // WA button
+  document.getElementById('modalWaBtn').href =
+    `https://wa.me/919000916120?text=Hi%20CR%20PRO%20RAILING%2C%20I%20am%20interested%20in%20${encodeURIComponent(p.title)}%20(${encodeURIComponent(p.category)}%20Railing).%20Please%20share%20pricing.`;
+
+  // Reset tabs
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  document.querySelector('.tab-btn').classList.add('active');
+  document.getElementById('tab-features').classList.add('active');
+
+  document.getElementById('productModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('productModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+function handleModalClick(e) {
+  if (e.target.id === 'productModal') closeModal();
+}
+
+function switchTab(e, name) {
+  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+  e.target.classList.add('active');
+  document.getElementById('tab-' + name).classList.add('active');
+}
+
+function zoomImg(img) {
+  window.open(img.src, '_blank');
+}
+
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+</script>
 </body>
 </html>
