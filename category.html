@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Categories – CR PRO RAILING</title>
-  <meta name="description" content="Explore CR PRO RAILING's railing categories — Aluminum, Glass, Stainless Steel, Balcony, Stair, Deck, Modular railings."/>
+  <title>Product Category – CR PRO RAILING | Hyderabad</title>
+  <meta name="description" content="Browse CR PRO RAILING product categories — Hand Rails, Brackets, Accessories, SS Glass Brackets, Glass Pipes and more."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
 
@@ -813,193 +815,241 @@ footer {
 .ci-text p { color: var(--silver); font-size: 13px; line-height: 1.5; margin: 2px 0; }
 
 
-</style>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <style>
-    .cat-section { padding: 70px 5%; }
-    .cat-section:nth-child(even) { background: var(--dark-3); }
-    .cat-section-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    .cat-section:nth-child(even) .cat-section-inner { direction: rtl; }
-    .cat-section:nth-child(even) .cat-section-inner > * { direction: ltr; }
-    .cat-img { width: 100%; height: 420px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(201,168,76,0.15); }
-    .cat-info h2 { font-family: 'Playfair Display', serif; font-size: 34px; color: var(--white); margin-bottom: 16px; }
-    .cat-info p { color: var(--silver); font-size: 15px; line-height: 1.8; margin-bottom: 16px; }
-    .cat-features { display: flex; flex-direction: column; gap: 10px; margin: 20px 0 28px; }
-    .cat-feature { display: flex; align-items: center; gap: 10px; color: var(--light); font-size: 14px; }
-    .cat-feature::before { content: '✦'; color: var(--gold); font-size: 10px; flex-shrink: 0; }
-    @media(max-width:768px) {
-      .cat-section-inner { grid-template-columns: 1fr; direction: ltr !important; }
-      .cat-img { height: 260px; }
-    }
+
+/* ── CATEGORY PAGE ── */
+.cat-page-wrap {
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 5% 80px;
+}
+
+/* Sidebar */
+.cat-sidebar {
+  position: sticky;
+  top: 90px;
+  align-self: start;
+}
+.cat-sidebar-title {
+  font-size: 11px; color: var(--silver);
+  font-weight: 700; letter-spacing: 2px;
+  text-transform: uppercase; margin-bottom: 8px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid rgba(201,168,76,0.15);
+}
+.sidebar-nav {
+  list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.sidebar-nav li button {
+  width: 100%; text-align: left;
+  background: none; border: none;
+  color: var(--silver); font-family: 'DM Sans', sans-serif;
+  font-size: 14px; font-weight: 500;
+  padding: 11px 14px; border-radius: 7px;
+  cursor: pointer; transition: all 0.2s;
+  display: flex; align-items: center; gap: 10px;
+  border-left: 3px solid transparent;
+}
+.sidebar-nav li button:hover {
+  background: rgba(201,168,76,0.07);
+  color: var(--light);
+}
+.sidebar-nav li button.active {
+  background: rgba(201,168,76,0.1);
+  color: var(--gold); font-weight: 600;
+  border-left-color: var(--gold);
+}
+.sidebar-count {
+  margin-left: auto;
+  background: rgba(201,168,76,0.15);
+  color: var(--gold); font-size: 11px; font-weight: 700;
+  padding: 2px 8px; border-radius: 100px;
+}
+
+/* Right panel */
+.cat-panel-header {
+  margin-bottom: 24px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid rgba(201,168,76,0.1);
+}
+.cat-panel-header h2 {
+  font-family: 'Playfair Display', serif;
+  font-size: 26px; color: var(--white); margin-bottom: 6px;
+}
+.cat-panel-header p {
+  color: var(--silver); font-size: 14px;
+}
+
+/* Product mini-grid */
+.cat-prod-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+.cat-prod-card {
+  background: var(--dark-3);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px; overflow: hidden;
+  cursor: pointer; transition: all 0.25s;
+  text-align: center;
+}
+.cat-prod-card:hover {
+  border-color: rgba(201,168,76,0.4);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+}
+.cat-prod-card img {
+  width: 100%; height: 150px;
+  object-fit: cover; display: block;
+  background: var(--dark-4);
+  transition: transform 0.3s;
+}
+.cat-prod-card:hover img { transform: scale(1.06); }
+.cat-prod-label {
+  background: var(--dark-4);
+  padding: 8px 10px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+.cat-prod-id {
+  font-size: 12px; color: var(--white);
+  font-weight: 700; letter-spacing: 0.5px;
+}
+.cat-prod-size {
+  font-size: 11px; color: var(--silver); margin-top: 2px;
+}
+
+/* Detail modal (same as products) */
+.modal-overlay {
+  display: none; position: fixed; inset: 0;
+  background: rgba(0,0,0,0.88); z-index: 9999;
+  align-items: center; justify-content: center;
+  padding: 20px;
+}
+.modal-overlay.active { display: flex; }
+.modal-box {
+  background: var(--dark-2);
+  border: 1px solid rgba(201,168,76,0.2);
+  border-radius: 14px; width: 100%; max-width: 720px;
+  max-height: 88vh; overflow-y: auto;
+  animation: modalIn 0.25s ease;
+  position: relative;
+}
+@keyframes modalIn {
+  from { opacity:0; transform:scale(0.95) translateY(16px); }
+  to   { opacity:1; transform:scale(1) translateY(0); }
+}
+.modal-close {
+  position: sticky; top: 0; float: right;
+  background: var(--dark-3); border: 1px solid rgba(201,168,76,0.2);
+  color: var(--gold); width: 36px; height: 36px;
+  border-radius: 50%; font-size: 20px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  margin: 14px 14px 0 0; z-index: 10; transition: all 0.2s;
+}
+.modal-close:hover { background: var(--gold); color: var(--dark); }
+.modal-body { padding: 0 28px 28px; }
+.modal-img-big {
+  width: 100%; height: 280px; object-fit: contain;
+  border-radius: 10px; border: 1px solid rgba(201,168,76,0.15);
+  background: var(--dark-3); margin-bottom: 20px; display: block;
+}
+.spec-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
+.spec-table tr { border-bottom: 1px solid rgba(255,255,255,0.05); }
+.spec-table td { padding: 9px 12px; font-size: 13px; }
+.spec-table td:first-child { color: var(--silver); width: 40%; font-weight: 600; }
+.spec-table td:last-child { color: var(--white); }
+.spec-table tr:nth-child(odd) td { background: rgba(255,255,255,0.02); }
+.modal-cta { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
+.modal-cta a {
+  flex: 1; text-align: center; padding: 12px 20px;
+  border-radius: 6px; text-decoration: none; font-weight: 700;
+  font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; transition: all 0.3s;
+}
+.cta-primary { background: var(--gold); color: var(--dark); }
+.cta-wa { background: rgba(37,211,102,0.1); border: 1.5px solid #25D366; color: #25D366; }
+.cta-primary:hover { background: var(--gold-light); }
+.cta-wa:hover { background: rgba(37,211,102,0.2); }
+
+@media(max-width:900px) {
+  .cat-page-wrap { grid-template-columns: 1fr; }
+  .cat-sidebar { position: static; }
+  .sidebar-nav { flex-direction: row; flex-wrap: wrap; }
+  .sidebar-nav li { flex: 1 1 auto; }
+  .cat-prod-grid { grid-template-columns: repeat(3,1fr); }
+}
+@media(max-width:600px) {
+  .cat-prod-grid { grid-template-columns: repeat(2,1fr); }
+}
   </style>
 </head>
 <body>
-
+<!-- NAV injected -->
 <main style="margin-top:75px;">
 
   <div class="page-banner">
-    <h1>Product <span>Categories</span></h1>
+    <h1>Product <span>Category</span></h1>
     <div class="breadcrumb">
-      <a href="index.html">Home</a> <span>/</span> <span>Categories</span>
+      <a href="index.html">Home</a> <span>/</span> <span>Category</span>
     </div>
   </div>
 
-  <!-- Aluminum -->
-  <section class="cat-section" id="aluminum">
-    <div class="cat-section-inner">
-      <img class="cat-img"
-        src="https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?w=800&h=500&fit=crop&q=85"
-        alt="Aluminum Railing"
-      />
-      <div class="cat-info">
-        <span class="section-tag">✦ Category 01</span>
-        <h2>Aluminum <span style="color:var(--gold)">Railings</span></h2>
-        <p>Aluminum railings are the ideal choice for modern homes, commercial buildings, and outdoor spaces. Lightweight, rust-proof, and incredibly versatile — aluminum can be shaped into virtually any design.</p>
-        <p>Our aluminum railings come with glass infills, rod infills, or solid panel options. Available in anodized silver, matte black, champagne gold, and custom powder-coat colors.</p>
-        <div class="cat-features">
-          <div class="cat-feature">Lightweight — easy to install and handle</div>
-          <div class="cat-feature">100% rust-proof and corrosion-resistant</div>
-          <div class="cat-feature">Powder coat in 30+ colors</div>
-          <div class="cat-feature">Suitable for indoor and outdoor use</div>
-          <div class="cat-feature">Custom profiles and designs available</div>
-        </div>
-        <a href="products.html" class="btn-primary">View Aluminum Products →</a>
-      </div>
-    </div>
-  </section>
+  <section style="padding:48px 0 0;">
+    <div class="cat-page-wrap">
 
-  <!-- Glass -->
-  <section class="cat-section" id="glass">
-    <div class="cat-section-inner">
-      <img class="cat-img"
-        src="https://images.unsplash.com/photo-1600607687939-54fa7f7e9244?w=800&h=500&fit=crop&q=85"
-        alt="Glass Railing"
-      />
-      <div class="cat-info">
-        <span class="section-tag">✦ Category 02</span>
-        <h2>Glass <span style="color:var(--gold)">Railings</span></h2>
-        <p>Glass railings bring unparalleled elegance and an open, airy feel to any space. Our glass railings use ISI-certified toughened/tempered glass panels (8mm, 10mm, 12mm options) that are extremely safe and durable.</p>
-        <p>Choose from frameless (spigot-mounted), semi-frameless, or full-framed glass railing systems. Perfect for balconies, swimming pools, offices, staircases, and more.</p>
-        <div class="cat-features">
-          <div class="cat-feature">ISI-certified toughened safety glass</div>
-          <div class="cat-feature">Available in clear, frosted, and tinted</div>
-          <div class="cat-feature">Frameless, semi-frame & full-frame options</div>
-          <div class="cat-feature">Maximum unobstructed view</div>
-          <div class="cat-feature">Easy to clean and maintain</div>
+      <!-- SIDEBAR -->
+      <aside class="cat-sidebar">
+        <div class="cat-sidebar-title">Product Categories</div>
+        <ul class="sidebar-nav" id="sidebarNav"></ul>
+        <div style="margin-top:24px;">
+          <a href="images/CR-PRO-RAILING-Catalog.pdf" download class="btn-catalog" style="width:100%;justify-content:center;font-size:12px;">
+            <span class="dl-icon">⬇</span> Download Catalog
+          </a>
         </div>
-        <a href="products.html" class="btn-primary">View Glass Products →</a>
-      </div>
-    </div>
-  </section>
+      </aside>
 
-  <!-- SS -->
-  <section class="cat-section" id="steel">
-    <div class="cat-section-inner">
-      <img class="cat-img"
-        src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=500&fit=crop&q=85"
-        alt="Stainless Steel Railing"
-      />
-      <div class="cat-info">
-        <span class="section-tag">✦ Category 03</span>
-        <h2>Stainless Steel <span style="color:var(--gold)">Railings</span></h2>
-        <p>Stainless Steel railings offer unbeatable strength, a sleek appearance, and exceptional longevity. We use SS 304 and SS 316 grade steel for different environments.</p>
-        <p>Available as tube railings, cable railings, rod railings, and combination glass-SS systems. SS 316 is recommended for coastal and humid areas due to superior corrosion resistance.</p>
-        <div class="cat-features">
-          <div class="cat-feature">SS 304 & SS 316 grade options</div>
-          <div class="cat-feature">Mirror polish or matte finish</div>
-          <div class="cat-feature">Cable, rod, tube and glass infill options</div>
-          <div class="cat-feature">Ideal for coastal environments (SS 316)</div>
-          <div class="cat-feature">Long-lasting with minimal maintenance</div>
-        </div>
-        <a href="products.html" class="btn-primary">View SS Products →</a>
+      <!-- MAIN PANEL -->
+      <div>
+        <div class="cat-panel-header" id="panelHeader"></div>
+        <div class="cat-prod-grid" id="prodGrid"></div>
       </div>
-    </div>
-  </section>
 
-  <!-- Balcony -->
-  <section class="cat-section" id="balcony">
-    <div class="cat-section-inner">
-      <img class="cat-img"
-        src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&h=500&fit=crop&q=85"
-        alt="Balcony Railing"
-      />
-      <div class="cat-info">
-        <span class="section-tag">✦ Category 04</span>
-        <h2>Balcony <span style="color:var(--gold)">Railings</span></h2>
-        <p>Our balcony railings are designed to withstand outdoor elements while looking stunning. Choose from glass, aluminum, or stainless steel — all engineered to meet IS safety standards for balcony height and load.</p>
-        <p>We manufacture balcony railings for residential apartments, bungalows, commercial buildings, hotels, and resorts. Custom widths and heights available.</p>
-        <div class="cat-features">
-          <div class="cat-feature">Weather-resistant and UV-stable</div>
-          <div class="cat-feature">Meets IS:2750 & NBC safety standards</div>
-          <div class="cat-feature">Custom height from 900mm to 1200mm+</div>
-          <div class="cat-feature">Multiple material and infill combinations</div>
-          <div class="cat-feature">Available with top handrail in wood, SS or aluminum</div>
-        </div>
-        <a href="products.html" class="btn-primary">View Balcony Products →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stair -->
-  <section class="cat-section" id="stair">
-    <div class="cat-section-inner">
-      <img class="cat-img"
-        src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?w=800&h=500&fit=crop&q=85"
-        alt="Stair Railing"
-      />
-      <div class="cat-info">
-        <span class="section-tag">✦ Category 05</span>
-        <h2>Stair <span style="color:var(--gold)">Railings</span></h2>
-        <p>Stair railings need to be both safe and beautiful. CR PRO RAILING's stair railings are engineered for smooth inclined runs, landings, and complex stair configurations.</p>
-        <p>We handle straight stairs, curved stairs, spiral stairs, and cantilever stairs. Our installation team precisely measures and fits railings to any staircase profile.</p>
-        <div class="cat-features">
-          <div class="cat-feature">Fits straight, curved & spiral staircases</div>
-          <div class="cat-feature">Glass, SS, aluminum infill options</div>
-          <div class="cat-feature">Inclined top rails for continuous handrail</div>
-          <div class="cat-feature">Post-and-base or core-drilled installation</div>
-          <div class="cat-feature">ADA/NBC compliant handrail heights</div>
-        </div>
-        <a href="products.html" class="btn-primary">View Stair Products →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Deck -->
-  <section class="cat-section" id="deck">
-    <div class="cat-section-inner">
-      <img class="cat-img"
-        src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=800&h=500&fit=crop&q=85"
-        alt="Deck Railing"
-      />
-      <div class="cat-info">
-        <span class="section-tag">✦ Category 06</span>
-        <h2>Deck <span style="color:var(--gold)">Railings</span></h2>
-        <p>Deck railings must be tough enough for outdoor exposure while complementing the overall aesthetic. Our deck railings are built with heavy-duty materials and corrosion-resistant coatings.</p>
-        <p>Whether it's a rooftop deck, poolside deck, or garden terrace — we design railings that withstand the elements and look great year after year.</p>
-        <div class="cat-features">
-          <div class="cat-feature">Weatherproof for year-round outdoor use</div>
-          <div class="cat-feature">Anti-corrosion powder coat or anodizing</div>
-          <div class="cat-feature">Heavy-duty posts for structural strength</div>
-          <div class="cat-feature">Pool-safe glass and infill options</div>
-          <div class="cat-feature">Custom colors to match deck aesthetics</div>
-        </div>
-        <a href="products.html" class="btn-primary">View Deck Products →</a>
-      </div>
     </div>
   </section>
 
   <!-- CTA -->
-  <section class="cta-section">
-    <h2>Need a Custom Category?</h2>
-    <p>We manufacture railings for hospitals, airports, malls, schools and more. Just ask.</p>
+  <section class="cta-section" style="margin-top:40px;">
+    <h2>Need a Custom Size or Design?</h2>
+    <p>We manufacture custom profiles. Free site visit anywhere in Hyderabad.</p>
     <div class="cta-btns">
-      <a href="contact.html" class="btn-primary">Get Custom Quote →</a>
-      <a href="products.html" class="btn-outline">All Products</a>
+      <a href="https://wa.me/919000916120?text=Hi%20CR%20PRO%20RAILING%2C%20I%20need%20a%20quote%20on%20your%20products."
+         target="_blank" class="btn-primary" style="background:#25D366;">💬 WhatsApp Now</a>
+      <a href="contact.html" class="btn-outline">Get Free Quote</a>
     </div>
   </section>
 
 </main>
+
+<!-- Detail Modal -->
+<div class="modal-overlay" id="detailModal" onclick="if(event.target.id==='detailModal')closeModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-body">
+      <img id="modalImg" class="modal-img-big" src="" alt=""/>
+      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
+        <span class="modal-cat-badge" id="mBadge" style="display:inline-block;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);color:var(--gold);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:100px;"></span>
+        <h2 id="mTitle" style="font-family:'Playfair Display',serif;font-size:22px;color:var(--white);margin:0;"></h2>
+      </div>
+      <table class="spec-table" id="mSpecTable"></table>
+      <div class="modal-cta">
+        <a id="mWaBtn" href="#" target="_blank" class="cta-wa">💬 WhatsApp Enquiry</a>
+        <a href="contact.html" class="cta-primary">Get Free Quote</a>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
 // ── CR PRO RAILING — SHARED COMPONENTS v5 ──
@@ -1154,16 +1204,120 @@ function injectComponents(activePage) {
 
 </script>
 <script>
-  injectComponents('category.html');
+injectComponents('category.html');
 
-  // Scroll to anchor if hash in URL
-  window.addEventListener('load', () => {
-    if (location.hash) {
-      const el = document.querySelector(location.hash);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+const CATS = [{"id": "tab-1", "title": "Aluminium Hand Rail", "icon": "\ud83d\udd27", "desc": "Premium aluminum hand rail pipes in round, square and special profiles", "products": [{"modelId": "RW-43", "size": "65 mm Round Pipe", "weight": "0.450 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "1"}, {"modelId": "RW-44", "size": "50 mm Round Pipe", "weight": "0.330 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "2"}, {"modelId": "RW-45", "size": "38 mm Round Pipe", "weight": "0.170 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "3"}, {"modelId": "RW-46", "size": "50 x 50 Square Pipe", "weight": "0.370 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "4"}, {"modelId": "RW-47", "size": "40 x 40 Square Pipe", "weight": "0.300 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "5"}, {"modelId": "RW-48", "size": "32 x 32 Square Pipe", "weight": "0.200 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "6"}, {"modelId": "RW-49", "size": "25 x 25 Square Pipe", "weight": "0.170 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "7"}, {"modelId": "RW-50", "size": "60 x 40 mm Pipe", "weight": "0.380 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "8"}, {"modelId": "RW-51", "size": "Triangle Pipe", "weight": "0.330 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "9"}, {"modelId": "RW-52", "size": "65 x 38 mm Pipe", "weight": "0.330 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "10"}, {"modelId": "RW-53", "size": "Small Right Angle Pipe", "weight": "0.230 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "11"}, {"modelId": "RW-54", "size": "Right Angle Pipe", "weight": "0.400 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "12"}, {"modelId": "RW-55", "size": "Incline Pipe", "weight": "0.380 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "13"}, {"modelId": "RW-56", "size": "Rajwadi Pipe", "weight": "0.330 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "14"}, {"modelId": "RW-57", "size": "60 x 60 Pipe", "weight": "0.400 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "15"}, {"modelId": "RW-58", "size": "Diamond Pipe", "weight": "0.380 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "16"}]}, {"id": "tab-2", "title": "Aluminium Railing Bracket", "icon": "\u2699\ufe0f", "desc": "L, T, V and specialty brackets for aluminum railing installation", "products": [{"modelId": "RW-75", "name": "L-Bracket", "size": "65 mm x 100 mm", "img": "17"}, {"modelId": "RW-76", "name": "T-Bracket", "size": "55 mm x 100 mm", "img": "18"}, {"modelId": "RW-77", "name": "V-Bracket", "size": "50 mm x 100 mm", "img": "19"}, {"modelId": "RW-78", "name": "Owel Bracket", "size": "50 mm x 100 mm", "img": "20"}, {"modelId": "RW-79", "name": "Tower Bracket", "size": "50 mm x 100 mm", "img": "21"}, {"modelId": "RW-80", "name": "Small Diamond Bracket", "size": "70 mm x 100 mm", "img": "22"}, {"modelId": "RW-81", "name": "V-Bracket", "size": "50 mm x 100 mm", "img": "23"}, {"modelId": "RW-82", "name": "Diamond Bracket", "size": "80 mm x 100 mm", "img": "24"}, {"modelId": "RW-83", "name": "Side Mount Bracket", "size": "70 mm x 100 mm", "img": "25"}]}, {"id": "tab-3", "title": "Aluminium Railing Accessories", "icon": "\ud83d\udd29", "desc": "Essential accessories for aluminum glass railing systems", "products": [{"modelId": "ARA-1", "size": "50 * 10 mm", "weight": "60gm", "length": "60cm", "img": "26"}, {"modelId": "ARA-2", "size": "60 * 12 mm", "weight": "70gm", "length": "70cm", "img": "27"}, {"modelId": "ARA-3", "size": "55 * 11 mm", "weight": "65gm", "length": "65cm", "img": "28"}, {"modelId": "ARA-4", "size": "55 * 11 mm", "weight": "65gm", "length": "65cm", "img": "29"}, {"modelId": "ARA-5", "size": "55 * 11 mm", "weight": "65gm", "length": "65cm", "img": "30"}, {"modelId": "ARA-6", "size": "55 * 11 mm", "weight": "65gm", "length": "65cm", "img": "31"}, {"modelId": "ARA-7", "size": "55 * 11 mm", "weight": "65gm", "length": "65cm", "img": "32"}, {"modelId": "ARA-8", "size": "55 * 11 mm", "weight": "65gm", "length": "65cm", "img": "33"}, {"modelId": "ARA-9", "size": "55 * 11 mm", "weight": "65gm", "length": "65cm", "img": "34"}, {"modelId": "ARA-10", "size": "55 * 11 mm", "weight": "65gm", "length": "65cm", "img": "35"}]}, {"id": "tab-4", "title": "S.S. Glass Railing Bracket", "icon": "\ud83e\ude9f", "desc": "Stainless steel brackets for glass railing systems", "products": [{"modelId": "SGRC-1", "size": "70 * 15 mm", "weight": "80gm", "length": "90cm", "img": "36"}, {"modelId": "SGRC-2", "size": "75 * 17 mm", "weight": "85gm", "length": "95cm", "img": "37"}, {"modelId": "SGRC-3", "size": "80 * 20 mm", "weight": "90gm", "length": "100cm", "img": "38"}, {"modelId": "SGRC-4", "size": "85 * 22 mm", "weight": "95gm", "length": "105cm", "img": "39"}, {"modelId": "SGRC-5", "size": "90 * 25 mm", "weight": "100gm", "length": "110cm", "img": "40"}, {"modelId": "SGRC-6", "size": "90 * 25 mm", "weight": "100gm", "length": "110cm", "img": "41"}, {"modelId": "SGRC-7", "size": "90 * 25 mm", "weight": "100gm", "length": "110cm", "img": "42"}, {"modelId": "SGRC-8", "size": "90 * 25 mm", "weight": "100gm", "length": "110cm", "img": "43"}, {"modelId": "SGRC-9", "size": "90 * 25 mm", "weight": "100gm", "length": "110cm", "img": "44"}, {"modelId": "SGRC-10", "size": "90 * 25 mm", "weight": "100gm", "length": "110cm", "img": "45"}]}, {"id": "tab-5", "title": "Glass Railing Pipe", "icon": "\ud83d\udd32", "desc": "Aluminum pipes for glass railing channels and frames", "products": [{"modelId": "GRP-1", "size": "200 * 40 mm", "weight": "200gm", "length": "200cm", "img": "46"}, {"modelId": "GRP-2", "size": "220 * 45 mm", "weight": "220gm", "length": "220cm", "img": "47"}, {"modelId": "GRP-3", "size": "240 * 50 mm", "weight": "240gm", "length": "240cm", "img": "48"}, {"modelId": "GRP-4", "size": "240 * 50 mm", "weight": "240gm", "length": "240cm", "img": "49"}, {"modelId": "GRP-5", "size": "240 * 50 mm", "weight": "240gm", "length": "240cm", "img": "50"}, {"modelId": "GRP-6", "size": "240 * 50 mm", "weight": "240gm", "length": "240cm", "img": "51"}, {"modelId": "GRP-7", "size": "240 * 50 mm", "weight": "240gm", "length": "240cm", "img": "52"}, {"modelId": "GRP-8", "size": "240 * 50 mm", "weight": "240gm", "length": "240cm", "img": "53"}, {"modelId": "GRP-9", "size": "240 * 50 mm", "weight": "240gm", "length": "240cm", "img": "54"}]}, {"id": "tab-6", "title": "Invisible Grill Accessories", "icon": "\ud83d\udd17", "desc": "Components for invisible grill and balcony safety systems", "products": [{"modelId": "IGA-1", "size": "30 * 5 mm", "weight": "40gm", "length": "40cm", "img": "55"}, {"modelId": "IGA-2", "size": "35 * 6 mm", "weight": "45gm", "length": "45cm", "img": "56"}, {"modelId": "IGA-3", "size": "40 * 8 mm", "weight": "50gm", "length": "50cm", "img": "57"}, {"modelId": "IGA-4", "size": "45 * 9 mm", "weight": "55gm", "length": "55cm", "img": "58"}, {"modelId": "IGA-5", "size": "45 * 9 mm", "weight": "55gm", "length": "55cm", "img": "59"}, {"modelId": "IGA-6", "size": "45 * 9 mm", "weight": "55gm", "length": "55cm", "img": "60"}, {"modelId": "IGA-7", "size": "45 * 9 mm", "weight": "55gm", "length": "55cm", "img": "61"}, {"modelId": "IGA-8", "size": "45 * 9 mm", "weight": "55gm", "length": "55cm", "img": "62"}]}];
+
+let activeIdx = 0;
+
+// Build sidebar
+function buildSidebar() {
+  const nav = document.getElementById('sidebarNav');
+  nav.innerHTML = '';
+  CATS.forEach((cat, i) => {
+    const li = document.createElement('li');
+    li.innerHTML = `<button onclick="selectCat(${i})" id="sBtn-${i}">
+      <span>${cat.icon}</span>
+      <span style="flex:1;">${cat.title}</span>
+      <span class="sidebar-count">${cat.products.length}</span>
+    </button>`;
+    nav.appendChild(li);
   });
-</script>
+  updateActive();
+}
 
+function selectCat(idx) {
+  activeIdx = idx;
+  updateActive();
+  renderProducts();
+}
+
+function updateActive() {
+  document.querySelectorAll('.sidebar-nav button').forEach((btn,i) => {
+    btn.classList.toggle('active', i === activeIdx);
+  });
+}
+
+function getImgUrl(imgNum) {
+  return `https://images.unsplash.com/photo-1600607687939-54fa7f7e9244?w=800&h=500&fit=crop&q=85
+}
+
+function renderProducts() {
+  const cat = CATS[activeIdx];
+  
+  // Header
+  document.getElementById('panelHeader').innerHTML = `
+    <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px;">
+      <span style="font-size:28px;">${cat.icon}</span>
+      <h2 style="font-family:'Playfair Display',serif;font-size:26px;color:var(--white);margin:0;">${cat.title}</h2>
+      <span style="background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.25);color:var(--gold);font-size:12px;font-weight:700;padding:4px 12px;border-radius:100px;">${cat.products.length} products</span>
+    </div>
+    <p style="color:var(--silver);font-size:14px;">${cat.desc}</p>
+  `;
+
+  // Grid
+  const grid = document.getElementById('prodGrid');
+  grid.innerHTML = '';
+  cat.products.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'cat-prod-card';
+    card.onclick = () => openDetail(p, cat);
+    const imgUrl = getImgUrl(p.img);
+    card.innerHTML = `
+      <img src="${imgUrl}" alt="${p.modelId}" loading="lazy"
+           onerror="this.style.opacity=0.3"/>
+      <div class="cat-prod-label">
+        <div class="cat-prod-id">${p.modelId}${p.name ? ' — '+p.name : ''}</div>
+        <div class="cat-prod-size">Size: ${p.size}</div>
+      </div>
+    `;
+    grid.appendChild(card);
+  });
+}
+
+function openDetail(p, cat) {
+  document.getElementById('modalImg').src = getImgUrl(p.img);
+  document.getElementById('modalImg').alt = p.modelId;
+  document.getElementById('mBadge').textContent = cat.title;
+  document.getElementById('mTitle').textContent = p.modelId + (p.name ? ' — ' + p.name : '');
+
+  let rows = `<tr><td>Model ID</td><td>${p.modelId}</td></tr>`;
+  if(p.name) rows += `<tr><td>Name</td><td>${p.name}</td></tr>`;
+  rows += `<tr><td>Size / Profile</td><td>${p.size}</td></tr>`;
+  if(p.weight) rows += `<tr><td>Weight</td><td>${p.weight}</td></tr>`;
+  if(p.length) {
+    const len = Array.isArray(p.length) ? p.length.join(' / ') : p.length;
+    rows += `<tr><td>Length</td><td>${len}</td></tr>`;
+  }
+  rows += `<tr><td>Category</td><td>${cat.title}</td></tr>`;
+  rows += `<tr><td>Material</td><td>High Grade Aluminum / SS</td></tr>`;
+  
+  document.getElementById('mSpecTable').innerHTML = rows;
+
+  document.getElementById('mWaBtn').href =
+    `https://wa.me/919000916120?text=Hi%20CR%20PRO%20RAILING%2C%20I%20am%20interested%20in%20${encodeURIComponent(p.modelId)}%20(${encodeURIComponent(p.size)}).%20Please%20share%20pricing.`;
+
+  document.getElementById('detailModal').classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeModal() {
+  document.getElementById('detailModal').classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+
+// URL hash routing
+function checkHash() {
+  const hash = location.hash.replace('#','');
+  const idx = CATS.findIndex(c => c.id === hash || c.title.toLowerCase().replace(/\s+/g,'-') === hash);
+  if(idx >= 0) activeIdx = idx;
+}
+
+checkHash();
+buildSidebar();
+renderProducts();
+</script>
 </body>
 </html>
