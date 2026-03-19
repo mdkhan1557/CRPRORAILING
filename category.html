@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Categories – RailingWorld</title>
+  <meta name="description" content="Explore RailingWorld's railing categories — Aluminum, Glass, Stainless Steel, Balcony, Stair, Deck, Modular railings."/>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+  <style>
+    .cat-section { padding: 70px 5%; }
+    .cat-section:nth-child(even) { background: var(--dark-3); }
+    .cat-section-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+    .cat-section:nth-child(even) .cat-section-inner { direction: rtl; }
+    .cat-section:nth-child(even) .cat-section-inner > * { direction: ltr; }
+    .cat-img { width: 100%; height: 420px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(201,168,76,0.15); }
+    .cat-info h2 { font-family: 'Playfair Display', serif; font-size: 34px; color: var(--white); margin-bottom: 16px; }
+    .cat-info p { color: var(--silver); font-size: 15px; line-height: 1.8; margin-bottom: 16px; }
+    .cat-features { display: flex; flex-direction: column; gap: 10px; margin: 20px 0 28px; }
+    .cat-feature { display: flex; align-items: center; gap: 10px; color: var(--light); font-size: 14px; }
+    .cat-feature::before { content: '✦'; color: var(--gold); font-size: 10px; flex-shrink: 0; }
+    @media(max-width:768px) {
+      .cat-section-inner { grid-template-columns: 1fr; direction: ltr !important; }
+      .cat-img { height: 260px; }
+    }
+  </style>
+</head>
+<body>
+
+<main style="margin-top:75px;">
+
+  <div class="page-banner">
+    <h1>Product <span>Categories</span></h1>
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> <span>/</span> <span>Categories</span>
+    </div>
+  </div>
+
+  <!-- Aluminum -->
+  <section class="cat-section" id="aluminum">
+    <div class="cat-section-inner">
+      <img class="cat-img"
+        src="https://www.railingworld.in/public/uploaded/category/aluminum_railing.webp"
+        onerror="this.src='https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=700&q=80'"
+        alt="Aluminum Railing"
+      />
+      <div class="cat-info">
+        <span class="section-tag">✦ Category 01</span>
+        <h2>Aluminum <span style="color:var(--gold)">Railings</span></h2>
+        <p>Aluminum railings are the ideal choice for modern homes, commercial buildings, and outdoor spaces. Lightweight, rust-proof, and incredibly versatile — aluminum can be shaped into virtually any design.</p>
+        <p>Our aluminum railings come with glass infills, rod infills, or solid panel options. Available in anodized silver, matte black, champagne gold, and custom powder-coat colors.</p>
+        <div class="cat-features">
+          <div class="cat-feature">Lightweight — easy to install and handle</div>
+          <div class="cat-feature">100% rust-proof and corrosion-resistant</div>
+          <div class="cat-feature">Powder coat in 30+ colors</div>
+          <div class="cat-feature">Suitable for indoor and outdoor use</div>
+          <div class="cat-feature">Custom profiles and designs available</div>
+        </div>
+        <a href="products.html" class="btn-primary">View Aluminum Products →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Glass -->
+  <section class="cat-section" id="glass">
+    <div class="cat-section-inner">
+      <img class="cat-img"
+        src="https://www.railingworld.in/public/uploaded/category/glass_railing.webp"
+        onerror="this.src='https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=700&q=80'"
+        alt="Glass Railing"
+      />
+      <div class="cat-info">
+        <span class="section-tag">✦ Category 02</span>
+        <h2>Glass <span style="color:var(--gold)">Railings</span></h2>
+        <p>Glass railings bring unparalleled elegance and an open, airy feel to any space. Our glass railings use ISI-certified toughened/tempered glass panels (8mm, 10mm, 12mm options) that are extremely safe and durable.</p>
+        <p>Choose from frameless (spigot-mounted), semi-frameless, or full-framed glass railing systems. Perfect for balconies, swimming pools, offices, staircases, and more.</p>
+        <div class="cat-features">
+          <div class="cat-feature">ISI-certified toughened safety glass</div>
+          <div class="cat-feature">Available in clear, frosted, and tinted</div>
+          <div class="cat-feature">Frameless, semi-frame & full-frame options</div>
+          <div class="cat-feature">Maximum unobstructed view</div>
+          <div class="cat-feature">Easy to clean and maintain</div>
+        </div>
+        <a href="products.html" class="btn-primary">View Glass Products →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SS -->
+  <section class="cat-section" id="steel">
+    <div class="cat-section-inner">
+      <img class="cat-img"
+        src="https://www.railingworld.in/public/uploaded/category/ss_railing.webp"
+        onerror="this.src='https://images.unsplash.com/photo-1557804506-669a67965ba0?w=700&q=80'"
+        alt="Stainless Steel Railing"
+      />
+      <div class="cat-info">
+        <span class="section-tag">✦ Category 03</span>
+        <h2>Stainless Steel <span style="color:var(--gold)">Railings</span></h2>
+        <p>Stainless Steel railings offer unbeatable strength, a sleek appearance, and exceptional longevity. We use SS 304 and SS 316 grade steel for different environments.</p>
+        <p>Available as tube railings, cable railings, rod railings, and combination glass-SS systems. SS 316 is recommended for coastal and humid areas due to superior corrosion resistance.</p>
+        <div class="cat-features">
+          <div class="cat-feature">SS 304 & SS 316 grade options</div>
+          <div class="cat-feature">Mirror polish or matte finish</div>
+          <div class="cat-feature">Cable, rod, tube and glass infill options</div>
+          <div class="cat-feature">Ideal for coastal environments (SS 316)</div>
+          <div class="cat-feature">Long-lasting with minimal maintenance</div>
+        </div>
+        <a href="products.html" class="btn-primary">View SS Products →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Balcony -->
+  <section class="cat-section" id="balcony">
+    <div class="cat-section-inner">
+      <img class="cat-img"
+        src="https://www.railingworld.in/public/uploaded/category/balcony_railing.webp"
+        onerror="this.src='https://images.unsplash.com/photo-1572120360610-d971b9d7767c?w=700&q=80'"
+        alt="Balcony Railing"
+      />
+      <div class="cat-info">
+        <span class="section-tag">✦ Category 04</span>
+        <h2>Balcony <span style="color:var(--gold)">Railings</span></h2>
+        <p>Our balcony railings are designed to withstand outdoor elements while looking stunning. Choose from glass, aluminum, or stainless steel — all engineered to meet IS safety standards for balcony height and load.</p>
+        <p>We manufacture balcony railings for residential apartments, bungalows, commercial buildings, hotels, and resorts. Custom widths and heights available.</p>
+        <div class="cat-features">
+          <div class="cat-feature">Weather-resistant and UV-stable</div>
+          <div class="cat-feature">Meets IS:2750 & NBC safety standards</div>
+          <div class="cat-feature">Custom height from 900mm to 1200mm+</div>
+          <div class="cat-feature">Multiple material and infill combinations</div>
+          <div class="cat-feature">Available with top handrail in wood, SS or aluminum</div>
+        </div>
+        <a href="products.html" class="btn-primary">View Balcony Products →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stair -->
+  <section class="cat-section" id="stair">
+    <div class="cat-section-inner">
+      <img class="cat-img"
+        src="https://www.railingworld.in/public/uploaded/category/stair_railing.webp"
+        onerror="this.src='https://images.unsplash.com/photo-1611028828426-0f7e21b9f9e3?w=700&q=80'"
+        alt="Stair Railing"
+      />
+      <div class="cat-info">
+        <span class="section-tag">✦ Category 05</span>
+        <h2>Stair <span style="color:var(--gold)">Railings</span></h2>
+        <p>Stair railings need to be both safe and beautiful. RailingWorld's stair railings are engineered for smooth inclined runs, landings, and complex stair configurations.</p>
+        <p>We handle straight stairs, curved stairs, spiral stairs, and cantilever stairs. Our installation team precisely measures and fits railings to any staircase profile.</p>
+        <div class="cat-features">
+          <div class="cat-feature">Fits straight, curved & spiral staircases</div>
+          <div class="cat-feature">Glass, SS, aluminum infill options</div>
+          <div class="cat-feature">Inclined top rails for continuous handrail</div>
+          <div class="cat-feature">Post-and-base or core-drilled installation</div>
+          <div class="cat-feature">ADA/NBC compliant handrail heights</div>
+        </div>
+        <a href="products.html" class="btn-primary">View Stair Products →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Deck -->
+  <section class="cat-section" id="deck">
+    <div class="cat-section-inner">
+      <img class="cat-img"
+        src="https://www.railingworld.in/public/uploaded/category/deck_railing.webp"
+        onerror="this.src='https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=700&q=80'"
+        alt="Deck Railing"
+      />
+      <div class="cat-info">
+        <span class="section-tag">✦ Category 06</span>
+        <h2>Deck <span style="color:var(--gold)">Railings</span></h2>
+        <p>Deck railings must be tough enough for outdoor exposure while complementing the overall aesthetic. Our deck railings are built with heavy-duty materials and corrosion-resistant coatings.</p>
+        <p>Whether it's a rooftop deck, poolside deck, or garden terrace — we design railings that withstand the elements and look great year after year.</p>
+        <div class="cat-features">
+          <div class="cat-feature">Weatherproof for year-round outdoor use</div>
+          <div class="cat-feature">Anti-corrosion powder coat or anodizing</div>
+          <div class="cat-feature">Heavy-duty posts for structural strength</div>
+          <div class="cat-feature">Pool-safe glass and infill options</div>
+          <div class="cat-feature">Custom colors to match deck aesthetics</div>
+        </div>
+        <a href="products.html" class="btn-primary">View Deck Products →</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section">
+    <h2>Need a Custom Category?</h2>
+    <p>We manufacture railings for hospitals, airports, malls, schools and more. Just ask.</p>
+    <div class="cta-btns">
+      <a href="contact.html" class="btn-primary">Get Custom Quote →</a>
+      <a href="products.html" class="btn-outline">All Products</a>
+    </div>
+  </section>
+
+</main>
+
+<script src="components.js"></script>
+<script>
+  injectComponents('category.html');
+
+  // Scroll to anchor if hash in URL
+  window.addEventListener('load', () => {
+    if (location.hash) {
+      const el = document.querySelector(location.hash);
+      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+</script>
+
+</body>
+</html>
