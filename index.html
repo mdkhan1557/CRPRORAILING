@@ -991,12 +991,48 @@ footer {
           </div>
         </div>
         <script>
-        // Hero Slider
+        // Hero Slider — auto-detects file extensions
         (function(){
-          var idx=0, slides, total=10, timer;
+          var idx=0, total=10, timer;
+          var exts = ['jpg','jpeg','jpg.jpeg','jpg.jpg','jpg.png','png','webp','JPG','JPEG'];
+          
+          function tryLoad(imgEl, base, extIdx) {
+            if(extIdx >= exts.length) return;
+            imgEl.onerror = function(){ tryLoad(imgEl, base, extIdx+1); };
+            imgEl.src = 'images/slider/' + base + '.' + exts[extIdx];
+          }
+
           function init(){
-            slides = document.querySelectorAll('.hslide');
+            var slides = document.querySelectorAll('.hslide');
             total = slides.length;
+            
+            // Try all extensions for each slide
+            slides.forEach(function(slide, i){
+              var img = slide.querySelector('img');
+              if(img){
+                var num = i+1;
+                // Try common patterns people use when uploading
+                var attempts = [
+                  'images/slider/slide-'+num+'.jpg',
+                  'images/slider/slide-'+num+'.jpeg',
+                  'images/slider/slide-'+num+'.jpg.jpeg',
+                  'images/slider/slide-'+num+'.jpg.jpg',
+                  'images/slider/slide-'+num+'.jpg.png',
+                  'images/slider/slide-'+num+'.png',
+                  'images/slider/slide-'+num+'.webp',
+                  'images/slider/slide-0'+num+'.jpg',
+                  'images/slider/slide-0'+num+'.jpeg',
+                ];
+                var atIdx = 0;
+                function tryNext(){
+                  if(atIdx >= attempts.length) return;
+                  img.onerror = function(){ atIdx++; tryNext(); };
+                  img.src = attempts[atIdx];
+                }
+                tryNext();
+              }
+            });
+
             // Build dots
             var dotsEl = document.getElementById('sliderDots');
             for(var i=0;i<total;i++){
@@ -1008,15 +1044,23 @@ footer {
             }
             timer=setInterval(function(){goTo((idx+1)%total);},3500);
           }
+          
           function goTo(n){
+            var slides=document.querySelectorAll('.hslide');
+            var dots=document.querySelectorAll('#sliderDots button');
             slides[idx].style.opacity='0';
-            document.querySelectorAll('#sliderDots button')[idx].style.background='rgba(255,255,255,0.4)';
+            if(dots[idx]) dots[idx].style.background='rgba(255,255,255,0.4)';
             idx=n;
             slides[idx].style.opacity='1';
-            document.querySelectorAll('#sliderDots button')[idx].style.background='#C9A84C';
+            if(dots[idx]) dots[idx].style.background='#C9A84C';
           }
-          window.slideChange=function(dir){clearInterval(timer);goTo((idx+dir+total)%total);timer=setInterval(function(){goTo((idx+1)%total);},3500);};
-          if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{init();}
+          window.slideChange=function(dir){
+            var slides=document.querySelectorAll('.hslide');
+            clearInterval(timer);
+            goTo((idx+dir+slides.length)%slides.length);
+            timer=setInterval(function(){goTo((idx+1)%slides.length);},3500);
+          };
+          if(document.readyState==='loading'){document.addEventListener('DOMContentLoaded',init);}else{setTimeout(init,100);}
         })();
         </script>
 
