@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Products – CR PRO RAILING | Hyderabad</title>
-  <meta name="description" content="Browse CR PRO RAILING products — 35+ Aluminum and Steel railing profiles with detailed specifications."/>
+  <meta name="description" content="Browse CR PRO RAILING — Aluminum & Steel railing profiles with full 3D view, 2D diagrams and specifications."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <style>
@@ -816,11 +816,11 @@ footer {
 
 
 
-/* ── PRODUCT LISTING ── */
+/* ── PRODUCT GRID ── */
 .prod-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
+  grid-template-columns: repeat(4,1fr);
+  gap: 18px;
 }
 .prod-card {
   background: var(--dark-3);
@@ -833,297 +833,254 @@ footer {
   transform: translateY(-4px);
   box-shadow: 0 16px 40px rgba(0,0,0,0.5);
 }
-.prod-card img {
-  width: 100%; height: 200px; object-fit: cover;
-  display: block; transition: transform 0.4s;
-  background: var(--dark-4);
+.prod-card-img {
+  width:100%; height:200px; object-fit:contain;
+  background:#fff; display:block; padding:10px;
+  transition: transform 0.3s;
 }
-.prod-card:hover img { transform: scale(1.05); }
-.prod-card-info {
-  padding: 14px 16px;
+.prod-card:hover .prod-card-img { transform: scale(1.05); }
+.prod-card-body { padding:12px 14px; }
+.prod-card-id { font-size:11px; color:var(--gold); font-weight:700; letter-spacing:1.5px; text-transform:uppercase; margin-bottom:4px; }
+.prod-card-cat { font-size:12px; color:var(--silver); margin-bottom:5px; }
+.prod-card-profile { font-size:13px; color:var(--light); font-weight:600; }
+.prod-view-btn {
+  display:block; text-align:center;
+  background:rgba(201,168,76,0.08);
+  border-top:1px solid rgba(201,168,76,0.1);
+  color:var(--gold); font-size:12px; font-weight:700;
+  letter-spacing:1px; text-transform:uppercase;
+  padding:9px; transition:background 0.2s;
 }
-.prod-card-id {
-  font-size: 11px; color: var(--gold); font-weight: 700;
-  letter-spacing: 1.5px; text-transform: uppercase; margin-bottom: 4px;
-}
-.prod-card-cat {
-  font-size: 12px; color: var(--silver); margin-bottom: 6px;
-}
-.prod-card-profile {
-  font-size: 13px; color: var(--light); font-weight: 600;
-}
-.prod-card-enquire {
-  display: block; text-align: center;
-  background: rgba(201,168,76,0.08);
-  border-top: 1px solid rgba(201,168,76,0.12);
-  color: var(--gold); font-size: 12px; font-weight: 600;
-  letter-spacing: 1px; text-transform: uppercase;
-  padding: 10px; text-decoration: none;
-  transition: background 0.2s;
-}
-.prod-card-enquire:hover { background: rgba(201,168,76,0.18); }
+.prod-card:hover .prod-view-btn { background:rgba(201,168,76,0.18); }
 
-/* ── DETAIL MODAL ── */
-.modal-overlay {
-  display: none; position: fixed; inset: 0;
-  background: rgba(0,0,0,0.88); z-index: 9999;
-  align-items: center; justify-content: center;
-  padding: 20px; overflow-y: auto;
+/* ── MODAL ── */
+.prod-modal {
+  display:none; position:fixed; inset:0;
+  background:rgba(0,0,0,0.92); z-index:9999;
+  align-items:center; justify-content:center; padding:16px;
+  overflow-y: auto;
 }
-.modal-overlay.active { display: flex; }
-.modal-box {
-  background: var(--dark-2);
-  border: 1px solid rgba(201,168,76,0.2);
-  border-radius: 14px; width: 100%; max-width: 900px;
-  max-height: 90vh; overflow-y: auto;
-  position: relative;
-  animation: modalIn 0.3s ease;
+.prod-modal.active { display:flex; }
+.prod-modal-box {
+  background:var(--dark-2);
+  border:1px solid rgba(201,168,76,0.2);
+  border-radius:14px; width:100%; max-width:920px;
+  position:relative; overflow:hidden;
+  animation: mIn 0.3s ease;
 }
-@keyframes modalIn {
-  from { opacity:0; transform:scale(0.95) translateY(20px); }
-  to   { opacity:1; transform:scale(1) translateY(0); }
+@keyframes mIn { from{opacity:0;transform:scale(0.95)} to{opacity:1;transform:scale(1)} }
+.prod-modal-close {
+  position:absolute; top:14px; right:14px; z-index:10;
+  background:var(--dark-3); border:1px solid rgba(201,168,76,0.25);
+  color:var(--gold); width:34px; height:34px; border-radius:50%;
+  font-size:18px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition:all 0.2s;
 }
-.modal-close {
-  position: sticky; top: 0; float: right;
-  background: var(--dark-3); border: 1px solid rgba(201,168,76,0.2);
-  color: var(--gold); width: 36px; height: 36px;
-  border-radius: 50%; font-size: 20px; cursor: pointer;
-  display: flex; align-items: center; justify-content: center;
-  margin: 14px 14px 0 0; z-index: 10;
-  transition: all 0.2s;
+.prod-modal-close:hover { background:var(--gold); color:var(--dark); }
+.prod-modal-inner {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:0; min-height:480px;
 }
-.modal-close:hover { background: var(--gold); color: var(--dark); }
-.modal-body { padding: 0 28px 28px; }
-.modal-grid {
-  display: grid; grid-template-columns: 1fr 1fr;
-  gap: 32px; align-items: start;
-}
-.modal-images { }
-.modal-main-img {
-  width: 100%; height: 320px; object-fit: contain;
-  border-radius: 10px; border: 1px solid rgba(201,168,76,0.15);
-  background: var(--dark-3); display: block; margin-bottom: 12px;
-  cursor: zoom-in;
-}
-.modal-thumbs {
-  display: none;
-}
-.modal-thumb {
-  width: 80px; height: 70px; object-fit: contain;
-  border-radius: 6px; border: 2px solid transparent;
-  cursor: pointer; background: var(--dark-3);
-  transition: border-color 0.2s;
-}
-.modal-thumb.active { border-color: var(--gold); }
-.modal-thumb:hover { border-color: rgba(201,168,76,0.5); }
-.modal-info h2 {
-  font-family: 'Playfair Display', serif;
-  font-size: 26px; color: var(--white); margin-bottom: 4px;
-}
-.modal-cat-badge {
-  display: inline-block;
-  background: rgba(201,168,76,0.12);
-  border: 1px solid rgba(201,168,76,0.3);
-  color: var(--gold); font-size: 11px; font-weight: 700;
-  letter-spacing: 1.5px; text-transform: uppercase;
-  padding: 4px 12px; border-radius: 100px;
-  margin-bottom: 18px;
-}
-.spec-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 20px;
-}
-.spec-table tr {
-  border-bottom: 1px solid rgba(255,255,255,0.05);
-}
-.spec-table td {
-  padding: 9px 12px; font-size: 13px;
-}
-.spec-table td:first-child {
-  color: var(--silver); width: 40%;
-  font-weight: 600; letter-spacing: 0.5px;
-}
-.spec-table td:last-child {
-  color: var(--white); font-weight: 500;
-}
-.spec-table tr:nth-child(odd) td { background: rgba(255,255,255,0.02); }
 
-/* Tabs */
-.tab-bar {
-  display: flex; gap: 0;
-  border-bottom: 1px solid rgba(255,255,255,0.08);
-  margin: 20px 0 16px;
+/* Image panel */
+.prod-img-panel {
+  background:#f8f8f8;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  padding:24px; position:relative;
+  border-right:1px solid rgba(0,0,0,0.06);
 }
-.tab-btn {
-  padding: 10px 18px; font-size: 13px; font-weight: 600;
-  color: var(--silver); background: none; border: none;
-  border-bottom: 2px solid transparent;
-  cursor: pointer; font-family: 'DM Sans', sans-serif;
-  transition: all 0.2s; letter-spacing: 0.5px;
+.prod-img-main {
+  max-width:100%; max-height:320px;
+  object-fit:contain; display:block; margin-bottom:14px;
 }
-.tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
-.tab-btn:hover { color: var(--light); }
-.tab-panel { display: none; }
-.tab-panel.active { display: block; }
-.feature-list { list-style: none; padding: 0; }
-.feature-list li {
-  display: flex; align-items: center; gap: 10px;
-  color: var(--light); font-size: 13px;
-  padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+.prod-img-tabs {
+  display:flex; gap:8px; justify-content:center;
 }
-.feature-list li::before {
-  content: '✓';
-  color: var(--gold); font-weight: 700; font-size: 14px; flex-shrink: 0;
+.prod-img-tab {
+  padding:5px 14px; border-radius:100px; font-size:11px; font-weight:700;
+  border:1.5px solid #ddd; background:#fff; cursor:pointer;
+  color:#555; font-family:'DM Sans',sans-serif; transition:all 0.2s;
+  text-transform:uppercase; letter-spacing:0.5px;
 }
-.finish-tags {
-  display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px;
+.prod-img-tab.active {
+  border-color:var(--gold); background:var(--gold); color:var(--dark);
 }
-.finish-tag {
-  background: rgba(201,168,76,0.08);
-  border: 1px solid rgba(201,168,76,0.2);
-  color: var(--light); font-size: 12px;
-  padding: 5px 12px; border-radius: 100px;
-}
-.modal-cta {
-  display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap;
-}
-.modal-cta a {
-  flex: 1; text-align: center; padding: 12px 20px;
-  border-radius: 6px; text-decoration: none; font-weight: 700;
-  font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase;
-  transition: all 0.3s;
-}
-.modal-cta .cta-primary {
-  background: var(--gold); color: var(--dark);
-}
-.modal-cta .cta-wa {
-  background: rgba(37,211,102,0.12);
-  border: 1.5px solid #25D366; color: #25D366;
-}
-.modal-cta .cta-primary:hover { background: var(--gold-light); }
-.modal-cta .cta-wa:hover { background: rgba(37,211,102,0.2); }
 
-@media(max-width:900px) {
-  .prod-grid { grid-template-columns: repeat(2,1fr); }
-  .modal-grid { grid-template-columns: 1fr; }
-  .modal-main-img { height: 240px; }
+/* Info panel */
+.prod-info-panel {
+  padding:28px 28px 24px;
+  display:flex; flex-direction:column;
+  background:var(--dark-2);
+  overflow-y:auto; max-height:560px;
+}
+.prod-cat-badge {
+  display:inline-block;
+  background:rgba(201,168,76,0.1); border:1px solid rgba(201,168,76,0.3);
+  color:var(--gold); font-size:10px; font-weight:700;
+  letter-spacing:2px; text-transform:uppercase;
+  padding:3px 10px; border-radius:100px; margin-bottom:10px;
+}
+.prod-modal-title {
+  font-family:'Playfair Display',serif;
+  font-size:22px; color:var(--white); margin-bottom:16px; line-height:1.2;
+}
+.spec-tbl { width:100%; border-collapse:collapse; margin-bottom:16px; }
+.spec-tbl tr { border-bottom:1px solid rgba(255,255,255,0.05); }
+.spec-tbl td { padding:8px 0; font-size:13px; }
+.spec-tbl td:first-child { color:var(--silver); font-weight:600; width:42%; }
+.spec-tbl td:last-child { color:var(--white); font-weight:500; }
+.spec-tbl tr:nth-child(odd) td { background:rgba(255,255,255,0.015); padding-left:6px; }
+
+/* Feature/Spec tabs */
+.info-tab-bar {
+  display:flex; gap:0; border-bottom:1px solid rgba(255,255,255,0.08);
+  margin:14px 0 12px;
+}
+.info-tab {
+  padding:8px 14px; font-size:12px; font-weight:600;
+  color:var(--silver); background:none; border:none;
+  border-bottom:2px solid transparent; cursor:pointer;
+  font-family:'DM Sans',sans-serif; transition:all 0.2s;
+  letter-spacing:0.5px;
+}
+.info-tab.active { color:var(--gold); border-bottom-color:var(--gold); }
+.info-tab-panel { display:none; }
+.info-tab-panel.active { display:block; }
+.feat-list { list-style:none; padding:0; }
+.feat-list li {
+  display:flex; align-items:center; gap:8px;
+  color:var(--light); font-size:12px;
+  padding:5px 0; border-bottom:1px solid rgba(255,255,255,0.04);
+}
+.feat-list li::before { content:'✓'; color:var(--gold); font-weight:700; }
+.finish-wrap { display:flex; flex-wrap:wrap; gap:6px; margin-top:4px; }
+.finish-chip {
+  background:rgba(201,168,76,0.08); border:1px solid rgba(201,168,76,0.2);
+  color:var(--light); font-size:11px; padding:4px 10px; border-radius:100px;
+}
+.prod-cta-row {
+  display:flex; gap:10px; margin-top:16px; flex-wrap:wrap;
+}
+.prod-cta-row a {
+  flex:1; text-align:center; padding:10px 14px; border-radius:6px;
+  text-decoration:none; font-weight:700; font-size:12px;
+  letter-spacing:0.5px; text-transform:uppercase; transition:all 0.3s;
+  min-width:120px;
+}
+.cta-wa { background:rgba(37,211,102,0.1); border:1.5px solid #25D366; color:#25D366; }
+.cta-gold { background:var(--gold); color:var(--dark); }
+.cta-wa:hover { background:rgba(37,211,102,0.2); }
+.cta-gold:hover { background:var(--gold-light); }
+
+@media(max-width:800px) {
+  .prod-grid { grid-template-columns:repeat(2,1fr); }
+  .prod-modal-inner { grid-template-columns:1fr; }
+  .prod-img-panel { min-height:240px; padding:16px; }
+  .prod-info-panel { max-height:none; }
 }
 @media(max-width:480px) {
-  .prod-grid { grid-template-columns: 1fr 1fr; }
+  .prod-grid { grid-template-columns:repeat(2,1fr); gap:10px; }
 }
   </style>
 </head>
 <body>
-<!-- NAV injected -->
+<!-- NAV -->
 <main style="margin-top:75px;">
-
   <div class="page-banner">
     <h1>Our <span>Products</span></h1>
-    <div class="breadcrumb">
-      <a href="index.html">Home</a> <span>/</span> <span>Products</span>
-    </div>
+    <div class="breadcrumb"><a href="index.html">Home</a> <span>/</span> <span>Products</span></div>
   </div>
 
   <section class="section">
     <div class="section-inner">
       <div class="section-header">
-        <span class="section-tag">✦ Complete Range</span>
-        <h2 class="section-title"><span class="gold">35+</span> Premium Railing Profiles</h2>
-        <p class="section-sub">Click any product to view full specifications, images, features and finishes.</p>
+        <span class="section-tag">✦ Full Range</span>
+        <h2 class="section-title">Aluminum, Steel &amp; <span class="gold">Glass</span> Products</h2>
+        <p class="section-sub">41+ Products — Railing profiles, Glass fittings, Spigots & Accessories. Click for full details.</p>
       </div>
 
-      <!-- Filter -->
-      <div class="filter-bar" id="filterBar" style="margin-bottom:32px;">
+      <div class="filter-bar" id="filterBar" style="margin-bottom:28px;">
         <button class="filter-btn active" data-cat="all">All Products</button>
         <button class="filter-btn" data-cat="Aluminum">Aluminum</button>
         <button class="filter-btn" data-cat="Steel">Steel / SS</button>
+        <button class="filter-btn" data-cat="Glass">Glass</button>
+        <button class="filter-btn" data-cat="Glass Fitting">Glass Fittings</button>
       </div>
 
-      <!-- Grid -->
       <div class="prod-grid" id="prodGrid"></div>
     </div>
   </section>
 
-  <!-- CTA -->
   <section class="cta-section">
     <h2>Need a Custom Profile?</h2>
-    <p>We fabricate custom sizes and designs. Share your requirements — free site visit in Hyderabad.</p>
+    <p>We fabricate custom sizes. Free site visit in Hyderabad.</p>
     <div class="cta-btns">
-      <a href="https://wa.me/919000916120?text=Hi%20CR%20PRO%20RAILING%2C%20I%20need%20a%20quote%20on%20your%20products."
-         target="_blank" class="btn-primary" style="background:#25D366;">💬 WhatsApp Now</a>
+      <a href="https://wa.me/919000916120?text=Hi%20CR%20PRO%20RAILING%2C%20I%20need%20a%20quote." target="_blank" class="btn-primary" style="background:#25D366;">💬 WhatsApp Now</a>
       <a href="contact.html" class="btn-outline">Get Free Quote</a>
-      <a href="images/CR-PRO-RAILING-Catalog.pdf" download class="btn-catalog"><span class="dl-icon">⬇</span> Download Catalog</a>
+      <a href="images/CR-PRO-RAILING-Catalog.pdf" download class="btn-catalog"><span class="dl-icon">⬇</span> Catalog</a>
     </div>
   </section>
-
 </main>
 
-<!-- Product Detail Modal -->
-<div class="modal-overlay" id="productModal" onclick="handleModalClick(event)">
-  <div class="modal-box" id="modalBox">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <div class="modal-body">
-      <div class="modal-grid">
-        <!-- Images -->
-        <div class="modal-images">
-          <img id="modalMainImg" class="modal-main-img" src="" alt="" onclick="zoomImg(this)"/>
-          <div class="modal-thumbs" id="modalThumbs"></div>
+<!-- Modal -->
+<div class="prod-modal" id="prodModal" onclick="handleMClick(event)">
+  <div class="prod-modal-box" id="prodModalBox">
+    <button class="prod-modal-close" onclick="closeModal()">✕</button>
+    <div class="prod-modal-inner">
+
+      <!-- LEFT: Image -->
+      <div class="prod-img-panel">
+        <img id="mImg" class="prod-img-main" src="" alt=""/>
+        <div class="prod-img-tabs">
+          <button class="prod-img-tab active" onclick="switchImg(event,'3d')">3D View</button>
+          <button class="prod-img-tab" onclick="switchImg(event,'2d')">2D Diagram</button>
+          <button class="prod-img-tab" onclick="switchImg(event,'main')">Photo</button>
         </div>
-        <!-- Info -->
-        <div class="modal-info">
-          <div class="modal-cat-badge" id="modalCat"></div>
-          <h2 id="modalTitle"></h2>
-          <p style="color:var(--silver);font-size:13px;margin-bottom:16px;">Model: <span id="modalModel" style="color:var(--gold);font-weight:700;"></span></p>
+      </div>
 
-          <table class="spec-table" id="modalSpecTable"></table>
+      <!-- RIGHT: Info -->
+      <div class="prod-info-panel">
+        <div class="prod-cat-badge" id="mCat"></div>
+        <div class="prod-modal-title" id="mTitle"></div>
 
-          <!-- Tabs -->
-          <div class="tab-bar">
-            <button class="tab-btn active" onclick="switchTab(event,'features')">Features</button>
-            <button class="tab-btn" onclick="switchTab(event,'specs')">Specification</button>
-            <button class="tab-btn" onclick="switchTab(event,'glass')">Glass</button>
-            <button class="tab-btn" onclick="switchTab(event,'finishes')">Finishes</button>
-          </div>
+        <table class="spec-tbl" id="mSpecs"></table>
 
-          <div id="tab-features" class="tab-panel active">
-            <ul class="feature-list">
-              <li>100% Recyclable</li>
-              <li>Easy Cleaning</li>
-              <li>Maintenance Free</li>
-              <li>Weather Proof</li>
-              <li>Robust for Higher Safety</li>
-              <li>UV Resistant Finish</li>
-              <li>Corrosion Resistant</li>
-            </ul>
-          </div>
+        <div class="info-tab-bar">
+          <button class="info-tab active" onclick="switchInfoTab(event,'features')">Features</button>
+          <button class="info-tab" onclick="switchInfoTab(event,'spec')">Specification</button>
+          <button class="info-tab" onclick="switchInfoTab(event,'glass')">Glass</button>
+          <button class="info-tab" onclick="switchInfoTab(event,'finishes')">Finishes</button>
+        </div>
 
-          <div id="tab-specs" class="tab-panel">
-            <table class="spec-table" id="modalSpecsTab"></table>
-          </div>
+        <div id="info-features" class="info-tab-panel active">
+          <ul class="feat-list">
+            <li>100% Recyclable</li><li>Easy Cleaning</li>
+            <li>Maintenance Free</li><li>Weather Proof</li>
+            <li>Robust for Higher Safety</li><li>UV Resistant Finish</li>
+            <li>Corrosion Resistant</li>
+          </ul>
+        </div>
+        <div id="info-spec" class="info-tab-panel">
+          <table class="spec-tbl" id="mSpecTab"></table>
+        </div>
+        <div id="info-glass" class="info-tab-panel">
+          <table class="spec-tbl">
+            <tr><td>Glass Type</td><td>Toughened / Tempered Safety Glass</td></tr>
+            <tr><td>Thickness</td><td>8mm / 10mm / 12mm</td></tr>
+            <tr><td>Transparency</td><td>Clear / Frosted / Tinted</td></tr>
+            <tr><td>Standard</td><td>IS:2553 Certified</td></tr>
+            <tr><td>Safety</td><td>5× stronger than normal glass</td></tr>
+          </table>
+        </div>
+        <div id="info-finishes" class="info-tab-panel">
+          <div class="finish-wrap" id="mFinishes"></div>
+        </div>
 
-          <div id="tab-glass" class="tab-panel">
-            <table class="spec-table">
-              <tr><td>Glass Type</td><td>Toughened / Tempered Safety Glass</td></tr>
-              <tr><td>Thickness</td><td>8mm / 10mm / 12mm</td></tr>
-              <tr><td>Transparency</td><td>Clear / Frosted / Tinted</td></tr>
-              <tr><td>Standard</td><td>IS:2553 Certified</td></tr>
-              <tr><td>Breaking Strength</td><td>5× stronger than normal glass</td></tr>
-              <tr><td>Safety</td><td>Crumbles into small safe pieces on impact</td></tr>
-            </table>
-          </div>
-
-          <div id="tab-finishes" class="tab-panel">
-            <p style="color:var(--silver);font-size:13px;margin-bottom:12px;">Available color & surface finishes:</p>
-            <div class="finish-tags" id="finishTags"></div>
-          </div>
-
-          <div class="modal-cta">
-            <a id="modalWaBtn"
-               href="https://wa.me/919000916120?text=Hi%20CR%20PRO%20RAILING%2C%20I%20am%20interested%20in%20product%20RW-01"
-               target="_blank" class="cta-wa">💬 WhatsApp Enquiry</a>
-            <a href="contact.html" class="cta-primary">Get Free Quote</a>
-          </div>
+        <div class="prod-cta-row">
+          <a id="mWA" href="#" target="_blank" class="cta-wa">💬 WhatsApp Enquiry</a>
+          <a href="contact.html" class="cta-gold">Get Free Quote</a>
         </div>
       </div>
     </div>
@@ -1285,127 +1242,215 @@ function injectComponents(activePage) {
 <script>
 injectComponents('products.html');
 
-// ── PRODUCT DATA ──
 const PRODUCTS = [
   {
     "title": "RW-01",
     "category": "Aluminum",
-    "img": "1",
     "profileSize": "55 mm X 70 mm",
     "weight": "0.700 gm (1 Feet)",
     "length": "13 ft / 16 ft",
-    "mainImage": "images/products/product-thumb-01.webp",
-    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (1).jpg",
-    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (1).jpg",
-    "thumbImage": "images/products/product-thumb-01.webp"
+    "img3d": "images/main-products/RW01-3d.jpg",
+    "img2d": "images/main-products/RW01-2d.jpg",
+    "imgMain": "images/main-products/RW01-main.jpg",
+    "thumbImg": "images/products/product-thumb-01.webp"
   },
   {
     "title": "RW-02",
     "category": "Aluminum",
-    "img": "2",
     "profileSize": "71 mm X 81 mm",
     "weight": "0.850 gm (1 Feet)",
     "length": "13 ft / 16 ft",
-    "mainImage": "images/products/product-thumb-02.webp",
-    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (2).jpg",
-    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (2).jpg",
-    "thumbImage": "images/products/product-thumb-02.webp"
+    "img3d": "images/main-products/RW02-3d.jpg",
+    "img2d": "images/main-products/RW02-2d.jpg",
+    "imgMain": "images/main-products/RW02-main.jpg",
+    "thumbImg": "images/products/product-thumb-02.webp"
   },
   {
     "title": "RW-03",
     "category": "Aluminum",
-    "img": "3",
     "profileSize": "66 mm X 70 mm",
     "weight": "0.600 gm (1 Feet)",
     "length": "13 ft / 16 ft",
-    "mainImage": "images/products/product-thumb-03.webp",
-    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (3).jpg",
-    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (3).jpg",
-    "thumbImage": "images/products/product-thumb-03.webp"
+    "img3d": "images/main-products/RW03-3d.jpg",
+    "img2d": "images/main-products/RW03-2d.jpg",
+    "imgMain": "images/main-products/RW03-main.jpg",
+    "thumbImg": "images/products/product-thumb-03.webp"
   },
   {
     "title": "RW-04",
     "category": "Aluminum",
-    "img": "4",
     "profileSize": "45 mm X 60 mm",
     "weight": "0.500 gm (1 Feet)",
     "length": "13 ft / 16 ft",
-    "mainImage": "images/products/product-thumb-04.webp",
-    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (4).jpg",
-    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (4).jpg",
-    "thumbImage": "images/products/product-thumb-04.webp"
+    "img3d": "images/main-products/RW04-3d.jpg",
+    "img2d": "images/main-products/RW04-2d.jpg",
+    "imgMain": "images/main-products/RW04-main.jpg",
+    "thumbImg": "images/products/product-thumb-04.webp"
   },
   {
     "title": "RW-05",
     "category": "Aluminum",
-    "img": "5",
     "profileSize": "37 mm X 81 mm",
     "weight": "0.950 gm (1 Feet)",
     "length": "13 ft / 16 ft",
-    "mainImage": "images/products/product-thumb-05.webp",
-    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (5).jpg",
-    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (5).jpg",
-    "thumbImage": "images/products/product-thumb-05.webp"
+    "img3d": "images/main-products/RW05-3d.jpg",
+    "img2d": "images/main-products/RW05-2d.jpg",
+    "imgMain": "images/main-products/RW05-main.jpg",
+    "thumbImg": "images/products/product-thumb-05.webp"
   },
   {
     "title": "RW-06",
     "category": "Aluminum",
-    "img": "6",
     "profileSize": "40 mm X 100 mm",
     "weight": "1.100 gm (1 Feet)",
     "length": "13 ft / 16 ft",
-    "mainImage": "images/products/product-thumb-06.webp",
-    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (6).jpg",
-    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (6).jpg",
-    "thumbImage": "images/products/product-thumb-06.webp"
+    "img3d": "images/main-products/RW06-3d.jpg",
+    "img2d": "images/main-products/RW06-2d.jpg",
+    "imgMain": "images/main-products/RW06-main.jpg",
+    "thumbImg": "images/products/product-thumb-06.webp"
   },
   {
     "title": "RW-07",
     "category": "Aluminum",
-    "img": "7",
     "profileSize": "41 mm X 115 mm",
     "weight": "1.500 gm (1 Feet)",
     "length": "13 ft / 16 ft",
-    "mainImage": "images/products/product-thumb-07.webp",
-    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (7).jpg",
-    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (7).jpg",
-    "thumbImage": "images/products/product-thumb-07.webp"
+    "img3d": "images/main-products/RW07-3d.jpg",
+    "img2d": "images/main-products/RW07-2d.jpg",
+    "imgMain": "images/main-products/RW07-main.jpg",
+    "thumbImg": "images/products/product-thumb-07.webp"
   },
   {
     "title": "RW-08",
     "category": "Aluminum",
-    "img": "8",
     "profileSize": "60 mm X 100 mm",
     "weight": "1.100 gm (1 Feet)",
     "length": "13 ft / 16 ft",
-    "mainImage": "images/products/product-thumb-08.webp",
-    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (8).jpg",
-    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (8).jpg",
-    "thumbImage": "images/products/product-thumb-08.webp"
+    "img3d": "images/main-products/RW08-3d.jpg",
+    "img2d": "images/main-products/RW08-2d.jpg",
+    "imgMain": "images/main-products/RW08-main.jpg",
+    "thumbImg": "images/products/product-thumb-08.webp"
   },
   {
     "title": "RW-09",
     "category": "Aluminum",
-    "img": "9",
     "profileSize": "60 mm X 120 mm",
     "weight": "1.500 gm (1 Feet)",
     "length": "13 ft / 16 ft",
-    "mainImage": "images/products/product-thumb-09.webp",
-    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (9).jpg",
-    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (9).jpg",
-    "thumbImage": "images/products/product-thumb-09.webp"
+    "img3d": "images/main-products/RW09-3d.jpg",
+    "img2d": "images/main-products/RW09-2d.jpg",
+    "imgMain": "images/main-products/RW09-main.jpg",
+    "thumbImg": "images/products/product-thumb-09.webp"
   },
   {
     "title": "RW-10",
     "category": "Aluminum",
-    "img": "10",
     "profileSize": "50 mm X 90 mm",
     "weight": "0.950 gm (1 Feet)",
     "length": "13 ft / 16 ft",
-    "mainImage": "images/products/product-thumb-10.webp",
-    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (10).jpg",
-    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (10).jpg",
-    "thumbImage": "images/products/product-thumb-10.webp"
+    "img3d": "images/main-products/RW10-3d.jpg",
+    "img2d": "images/main-products/RW10-2d.jpg",
+    "imgMain": "images/main-products/RW10-main.jpg",
+    "thumbImg": "images/products/product-thumb-10.webp"
+  },
+  {
+    "title": "RW-19",
+    "category": "Aluminum",
+    "profileSize": "57 mm X 71 mm",
+    "weight": "750  gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "img3d": "images/main-products/RW19-3d.jpg",
+    "img2d": "images/main-products/RW19-2d.jpg",
+    "imgMain": "images/main-products/RW19-main.jpg",
+    "thumbImg": "images/products/product-thumb-11.webp"
+  },
+  {
+    "title": "RW-ST01",
+    "category": "Steel",
+    "profileSize": "40 mm X 200 mm",
+    "weight": "160 gm (1 Feet)",
+    "length": "13 ft / 16 ft",
+    "img3d": "images/main-products/ST01-3d.jpg",
+    "img2d": "images/main-products/ST01-2d.jpg",
+    "imgMain": "images/main-products/ST01-main.jpg",
+    "thumbImg": "images/main-products/ST01-3d.jpg"
+  },
+  {
+    "title": "RW-ST02",
+    "category": "Steel",
+    "profileSize": "Custom",
+    "weight": "Custom",
+    "length": "13ft/16ft",
+    "img3d": "images/main-products/ST02-3d.jpg",
+    "img2d": "images/main-products/ST02-2d.jpg",
+    "imgMain": "images/main-products/ST02-main.jpg",
+    "thumbImg": "images/main-products/ST02-3d.jpg"
+  },
+  {
+    "title": "RW-ST03",
+    "category": "Steel",
+    "profileSize": "Custom",
+    "weight": "Custom",
+    "length": "13ft/16ft",
+    "img3d": "images/main-products/ST03-3d.jpg",
+    "img2d": "images/main-products/ST03-2d.jpg",
+    "imgMain": "images/main-products/ST03-main.jpg",
+    "thumbImg": "images/main-products/ST03-3d.jpg"
+  },
+  {
+    "title": "RW-ST04",
+    "category": "Steel",
+    "profileSize": "Custom",
+    "weight": "Custom",
+    "length": "13ft/16ft",
+    "img3d": "images/main-products/ST04-3d.jpg",
+    "img2d": "images/main-products/ST04-2d.jpg",
+    "imgMain": "images/main-products/ST04-main.jpg",
+    "thumbImg": "images/main-products/ST04-3d.jpg"
+  },
+  {
+    "title": "RW-ST05",
+    "category": "Steel",
+    "profileSize": "Custom",
+    "weight": "Custom",
+    "length": "13ft/16ft",
+    "img3d": "images/main-products/ST05-3d.jpg",
+    "img2d": "images/main-products/ST05-2d.jpg",
+    "imgMain": "images/main-products/ST05-main.jpg",
+    "thumbImg": "images/main-products/ST05-3d.jpg"
+  },
+  {
+    "title": "RW-ST06",
+    "category": "Steel",
+    "profileSize": "Custom",
+    "weight": "Custom",
+    "length": "13ft/16ft",
+    "img3d": "images/main-products/ST06-3d.jpg",
+    "img2d": "images/main-products/ST06-2d.jpg",
+    "imgMain": "images/main-products/ST06-main.jpg",
+    "thumbImg": "images/main-products/ST06-3d.jpg"
+  },
+  {
+    "title": "RW-ST07",
+    "category": "Steel",
+    "profileSize": "Custom",
+    "weight": "Custom",
+    "length": "13ft/16ft",
+    "img3d": "images/main-products/ST07-3d.jpg",
+    "img2d": "images/main-products/ST07-2d.jpg",
+    "imgMain": "images/main-products/ST07-main.jpg",
+    "thumbImg": "images/main-products/ST07-3d.jpg"
+  },
+  {
+    "title": "RW-ST08",
+    "category": "Steel",
+    "profileSize": "Custom",
+    "weight": "Custom",
+    "length": "13ft/16ft",
+    "img3d": "images/main-products/ST08-3d.jpg",
+    "img2d": "images/main-products/ST08-2d.jpg",
+    "imgMain": "images/main-products/ST08-main.jpg",
+    "thumbImg": "images/main-products/ST08-3d.jpg"
   },
   {
     "title": "RW-11",
@@ -1504,18 +1549,6 @@ const PRODUCTS = [
     "thumbImage": "images/products/product-thumb-05.webp"
   },
   {
-    "title": "RW-19",
-    "category": "Aluminum",
-    "img": "19",
-    "profileSize": "57 mm X 71 mm",
-    "weight": "750  gm (1 Feet)",
-    "length": "13 ft / 16 ft",
-    "mainImage": "images/products/product-thumb-06.webp",
-    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (19).jpg",
-    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (19).jpg",
-    "thumbImage": "images/products/product-thumb-06.webp"
-  },
-  {
     "title": "RW-20",
     "category": "Aluminum",
     "img": "20",
@@ -1564,275 +1597,236 @@ const PRODUCTS = [
     "thumbImage": "images/products/product-thumb-10.webp"
   },
   {
-    "title": "RW-24",
-    "category": "Aluminum",
-    "img": "24",
-    "profileSize": "50 mm X 75 mm",
-    "weight": "700 gm (1 Feet)",
-    "length": "13 ft / 16 ft",
-    "mainImage": "images/products/product-thumb-11.webp",
-    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (24).jpg",
-    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (24).jpg",
-    "thumbImage": "images/products/product-thumb-11.webp"
+    "title": "Glass Point Fitting",
+    "category": "Glass Fitting",
+    "profileSize": "Various sizes",
+    "weight": "Stainless Steel SS 316",
+    "length": "Custom",
+    "img3d": "images/kavi/products-pg-1.jpg",
+    "img2d": "images/kavi/glass-spigpt-product.png",
+    "imgMain": "images/kavi/products-pg-1.jpg",
+    "thumbImg": "images/kavi/products-pg-1.jpg",
+    "description": "Premium glass point fittings and standoffs for frameless glass installations. SS 316 grade for corrosion resistance.",
+    "source": "kavi"
   },
   {
-    "title": "RW-25",
-    "category": "Aluminum",
-    "img": "25",
-    "profileSize": "55 mm X 100 mm",
-    "weight": "1150 gm (1 Feet)",
-    "length": "13 ft / 16 ft",
-    "mainImage": "images/products/product-thumb-12.webp",
-    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (25).jpg",
-    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (25).jpg",
-    "thumbImage": "images/products/product-thumb-12.webp"
+    "title": "Glass Spigots",
+    "category": "Glass Fitting",
+    "profileSize": "50mm / 60mm / 80mm",
+    "weight": "SS 304 / SS 316",
+    "length": "Height: 100-200mm",
+    "img3d": "images/kavi/glass-spigpt-product.png",
+    "img2d": "images/kavi/products-pg-3.jpg",
+    "imgMain": "images/kavi/glass-spigpt-product.png",
+    "thumbImg": "images/kavi/glass-spigpt-product.png",
+    "description": "Floor-mounted glass spigots for frameless glass balustrades. Available in square and round base. SS 316 marine grade.",
+    "source": "kavi"
   },
   {
-    "title": "RW-26",
-    "category": "Aluminum",
-    "img": "26",
-    "profileSize": "60 mm X 105 mm",
-    "weight": "1200 gm (1 Feet)",
-    "length": "13 ft / 16 ft",
-    "mainImage": "images/products/product-thumb-13.webp",
-    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (26).jpg",
-    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (26).jpg",
-    "thumbImage": "images/products/product-thumb-13.webp"
+    "title": "Glass Handrail Brackets",
+    "category": "Glass Fitting",
+    "profileSize": "38mm / 42mm / 50mm",
+    "weight": "SS 304 Grade",
+    "length": "Custom",
+    "img3d": "images/kavi/glass_bracket2.png",
+    "img2d": "images/kavi/products-pg-5.jpg",
+    "imgMain": "images/kavi/glass_bracket2.png",
+    "thumbImg": "images/kavi/glass_bracket2.png",
+    "description": "Wall-mount handrail brackets for glass and SS railings. Mirror polish finish. Easy installation with concealed fixings.",
+    "source": "kavi"
   },
   {
-    "title": "RW-27",
-    "category": "Aluminum",
-    "img": "27",
-    "profileSize": "60 mm X 120 mm",
-    "weight": "1.500 gm (1 Feet)",
-    "length": "13 ft / 16 ft",
-    "mainImage": "images/products/product-thumb-01.webp",
-    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (27).jpg",
-    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (27).jpg",
-    "thumbImage": "images/products/product-thumb-01.webp"
+    "title": "Glass Brackets",
+    "category": "Glass Fitting",
+    "profileSize": "Various",
+    "weight": "SS 316 Grade",
+    "length": "\u2014",
+    "img3d": "images/kavi/products-pg-5.jpg",
+    "img2d": "images/kavi/glass_bracket2.png",
+    "imgMain": "images/kavi/products-pg-5.jpg",
+    "thumbImg": "images/kavi/products-pg-5.jpg",
+    "description": "Heavy-duty glass brackets for side-mount and face-fix applications. Suitable for 10mm\u201319mm glass panels.",
+    "source": "kavi"
   },
   {
-    "title": "RW-28",
-    "category": "Aluminum",
-    "img": "28",
-    "profileSize": "60 mm X 100 mm",
-    "weight": "1300 gm (1 Feet)",
-    "length": "13 ft / 16 ft",
-    "mainImage": "images/products/product-thumb-02.webp",
-    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (28).jpg",
-    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (28).jpg",
-    "thumbImage": "images/products/product-thumb-02.webp"
+    "title": "Mini Glass Balustrade",
+    "category": "Glass",
+    "profileSize": "Channel: 40\u00d740mm",
+    "weight": "Aluminum / SS",
+    "length": "Custom lengths",
+    "img3d": "images/kavi/products-pg-6.jpg",
+    "img2d": "images/kavi/products-pg-6.jpg",
+    "imgMain": "images/kavi/products-pg-6.jpg",
+    "thumbImg": "images/kavi/products-pg-6.jpg",
+    "description": "Compact glass balustrade system for decks, balconies and indoor stairs. Frameless look with structural aluminum base channel.",
+    "source": "kavi"
   },
   {
-    "title": "RW-29",
-    "category": "Aluminum",
-    "img": "29",
-    "profileSize": "65 mm X 120 mm",
-    "weight": "1800 gm (1 Feet)",
-    "length": "13 ft / 16 ft",
-    "mainImage": "images/products/product-thumb-03.webp",
-    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (29).jpg",
-    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (29).jpg",
-    "thumbImage": "images/products/product-thumb-03.webp"
+    "title": "Glass Railing System",
+    "category": "Glass",
+    "profileSize": "Post: 50\u00d750mm",
+    "weight": "SS 316 Posts",
+    "length": "13ft / 16ft panels",
+    "img3d": "images/kavi/products-pg-7.jpg",
+    "img2d": "images/kavi/products-pg-7.jpg",
+    "imgMain": "images/kavi/products-pg-7.jpg",
+    "thumbImg": "images/kavi/products-pg-7.jpg",
+    "description": "Complete glass railing system with SS posts and toughened glass infill. Suitable for residential and commercial balconies.",
+    "source": "kavi"
   },
   {
-    "title": "RW-30",
-    "category": "Aluminum",
-    "img": "30",
-    "profileSize": "70 mm X 150 mm",
-    "weight": "2000 gm (1 Feet)",
-    "length": "13 ft / 16 ft",
-    "mainImage": "images/products/product-thumb-04.webp",
-    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (30).jpg",
-    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (30).jpg",
-    "thumbImage": "images/products/product-thumb-04.webp"
-  },
-  {
-    "title": "RW-31",
-    "category": "Aluminum",
-    "img": "31",
-    "profileSize": "81 mm X 110 mm",
-    "weight": "1100 gm (1 Feet)",
-    "length": "13 ft / 16 ft",
-    "mainImage": "images/products/product-thumb-05.webp",
-    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (31).jpg",
-    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (31).jpg",
-    "thumbImage": "images/products/product-thumb-05.webp"
-  },
-  {
-    "title": "RW-32",
-    "category": "Aluminum",
-    "img": "32",
-    "profileSize": "81 mm X 110 mm",
-    "weight": "1100 gm (1 Feet)",
-    "length": "13 ft / 16 ft",
-    "mainImage": "images/products/product-thumb-06.webp",
-    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (32).jpg",
-    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (32).jpg",
-    "thumbImage": "images/products/product-thumb-06.webp"
-  },
-  {
-    "title": "RW-33",
-    "category": "Aluminum",
-    "img": "33",
-    "profileSize": "55 mm X 90 mm",
-    "weight": "160 gm (1 Feet)",
-    "length": "13 ft / 16 ft",
-    "mainImage": "images/products/product-thumb-07.webp",
-    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (33).jpg",
-    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (33).jpg",
-    "thumbImage": "images/products/product-thumb-07.webp"
-  },
-  {
-    "title": "RW-34",
-    "category": "Aluminum",
-    "img": "34",
-    "profileSize": "60 mm X 115 mm",
-    "weight": "270 gm (1 Feet)",
-    "length": "13 ft / 16 ft",
-    "mainImage": "images/products/product-thumb-08.webp",
-    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (34).jpg",
-    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (34).jpg",
-    "thumbImage": "images/products/product-thumb-08.webp"
-  },
-  {
-    "title": "RW-35",
+    "title": "SS Railing Accessories",
     "category": "Steel",
-    "img": "35",
-    "profileSize": "40 mm X 200 mm",
-    "weight": "160 gm (1 Feet)",
-    "length": "13 ft / 16 ft",
-    "mainImage": "images/products/product-thumb-09.webp",
-    "image3d": "https://www.railingworld.in/images/MainProduct/3D/3DImage (35).jpg",
-    "image2d": "https://www.railingworld.in/images/MainProduct/2D/2Diamge (35).jpg",
-    "thumbImage": "images/products/product-thumb-09.webp"
+    "profileSize": "12mm / 16mm rods",
+    "weight": "SS 304 / SS 316",
+    "length": "Custom",
+    "img3d": "images/kavi/products-pg-8.jpg",
+    "img2d": "images/kavi/products-pg-8.jpg",
+    "imgMain": "images/kavi/products-pg-8.jpg",
+    "thumbImg": "images/kavi/products-pg-8.jpg",
+    "description": "Complete range of SS railing accessories \u2014 ball joints, end caps, flanges, pipe clamps and connectors. Mirror polish finish.",
+    "source": "kavi"
+  },
+  {
+    "title": "Glass Partitions",
+    "category": "Glass",
+    "profileSize": "Thickness: 8\u201312mm",
+    "weight": "Frameless / Semi-frame",
+    "length": "Custom height & width",
+    "img3d": "images/kavi/partition-pro.jpg",
+    "img2d": "images/kavi/partition-pro.jpg",
+    "imgMain": "images/kavi/partition-pro.jpg",
+    "thumbImg": "images/kavi/partition-pro.jpg",
+    "description": "Office and home glass partition systems. Frameless toughened glass with aluminum floor track. Sound-insulating options available.",
+    "source": "kavi"
+  },
+  {
+    "title": "SS Center Tables",
+    "category": "Steel",
+    "profileSize": "Custom sizes",
+    "weight": "PVD Coated SS",
+    "length": "Custom",
+    "img3d": "images/kavi/pvd-coated-center-table2.png",
+    "img2d": "images/kavi/pvd-coated-center-table2.png",
+    "imgMain": "images/kavi/pvd-coated-center-table2.png",
+    "thumbImg": "images/kavi/pvd-coated-center-table2.png",
+    "description": "Premium PVD-coated stainless steel center tables. Gold, Rose Gold, Black finishes. Custom sizes for residential and commercial spaces.",
+    "source": "kavi"
+  },
+  {
+    "title": "SS Railing",
+    "category": "Steel",
+    "profileSize": "38mm / 50mm pipes",
+    "weight": "SS 304 / SS 316",
+    "length": "13ft / 16ft",
+    "img3d": "images/kavi/products-pg-9.jpg",
+    "img2d": "images/kavi/products-pg-9.jpg",
+    "imgMain": "images/kavi/products-pg-9.jpg",
+    "thumbImg": "images/kavi/products-pg-9.jpg",
+    "description": "Complete SS railing systems for staircases, balconies and corridors. Mirror and hairline finish options available.",
+    "source": "kavi"
   }
 ];
 
-const FINISHES_AL = ["Matt Black","Silver Anodized","Champagne Gold","White Matt","Bronze","Wooden Texture","Custom RAL Colors"];
-const FINISHES_ST = ["Mirror Polish","Hairline Finish","Satin Finish","Powder Coat Black","Champagne Gold"];
+const FIN_AL = ["Matt Black","Silver Anodized","Champagne Gold","White Matt","Bronze","Wooden Texture","Custom RAL Colors"];
+const FIN_ST = ["Mirror Polish","Hairline Finish","Satin Finish","Powder Coat Black","Champagne Gold"];
+const SPEC_AL = [["Material","High Grade Aluminum Alloy"],["Alloy Grade","6063-T5 / 6061-T6"],["Finish","Powder Coat / Anodized"],["Colors","30+ Options Available"],["Coating","PVDF / Electrostatic"]];
+const SPEC_ST = [["Material","Stainless Steel SS 304/316"],["Grade","Food Grade SS 304 / Marine SS 316"],["Finish","Mirror Polish / Matte / Brushed"],["Corrosion","High Resistance"],["Coating","Anti-corrosion Treatment"]];
 
-const SPECS_AL = [
-  ["Material", "High Grade Aluminum Alloy"],
-  ["Alloy Grade", "6063-T5 / 6061-T6"],
-  ["Finish Type", "Powder Coat / Anodized"],
-  ["Surface", "Smooth / Textured"],
-  ["Coating", "PVDF / Electrostatic Powder Coat"],
-  ["Colors Available", "30+ Color Options"],
-];
-const SPECS_ST = [
-  ["Material", "Stainless Steel"],
-  ["Grade", "SS 304 / SS 316"],
-  ["Finish", "Mirror Polish / Matte / Brushed"],
-  ["Corrosion Resistance", "High"],
-  ["Surface", "Polished"],
-  ["Coating", "Anti-corrosion Treatment"],
-];
+let curProd = null;
 
-// ── RENDER CARDS ──
-function renderCards(filter) {
+function renderGrid(filter) {
   const grid = document.getElementById('prodGrid');
   grid.innerHTML = '';
-  PRODUCTS.filter(p => filter === 'all' || p.category === filter).forEach((p, i) => {
-    const card = document.createElement('div');
-    card.className = 'prod-card';
-    card.onclick = () => openProduct(p);
-    card.innerHTML = `
-      <img src="${p.thumbImage}"
-           onerror="this.src='${p.mainImage}'"
+  PRODUCTS.filter(p => filter==='all' || p.category===filter).forEach(p => {
+    // Use 3d image as card thumb (cleaner than main)
+    const thumb = p.img3d || p.thumbImg || p.mainImage || '';
+    const d = document.createElement('div');
+    d.className = 'prod-card';
+    d.onclick = () => openProd(p);
+    d.innerHTML = `
+      <img class="prod-card-img" src="${thumb}"
+           onerror="this.style.padding='20px';this.src='images/products/product-thumb-01.webp'"
            alt="${p.title}" loading="lazy"/>
-      <div class="prod-card-info">
+      <div class="prod-card-body">
         <div class="prod-card-id">${p.title}</div>
         <div class="prod-card-cat">${p.category} Railing</div>
-        <div class="prod-card-profile">Profile: ${p.profileSize}</div>
+        <div class="prod-card-profile">Profile: ${p.profileSize || p.profileSize || '—'}</div>
       </div>
-      <span class="prod-card-enquire">View Details →</span>
+      <div class="prod-view-btn">View Details →</div>
     `;
-    grid.appendChild(card);
+    grid.appendChild(d);
   });
 }
-renderCards('all');
+renderGrid('all');
 
-// Filter buttons
-document.querySelectorAll('#filterBar .filter-btn').forEach(btn => {
-  btn.addEventListener('click', () => {
-    document.querySelectorAll('#filterBar .filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    renderCards(btn.dataset.cat);
+document.querySelectorAll('#filterBar .filter-btn').forEach(b => {
+  b.addEventListener('click', () => {
+    document.querySelectorAll('#filterBar .filter-btn').forEach(x => x.classList.remove('active'));
+    b.classList.add('active');
+    renderGrid(b.dataset.cat);
   });
 });
 
-// ── OPEN PRODUCT MODAL ──
-function openProduct(p) {
-  // Main image
-  document.getElementById('modalMainImg').src = p.mainImage;
-  document.getElementById('modalMainImg').alt = p.title;
-
-  // Only show main clean image - no watermarked 3D/2D thumbs
-  const thumbs = document.getElementById('modalThumbs');
-  thumbs.innerHTML = '';
-  // Single thumb - only main image
-  const img = document.createElement('img');
-  img.src = p.mainImage;
-  img.className = 'modal-thumb active';
-  thumbs.appendChild(img);
-
-  document.getElementById('modalCat').textContent = p.category;
-  document.getElementById('modalTitle').textContent = p.title + ' — ' + p.category + ' Railing';
-  document.getElementById('modalModel').textContent = p.title;
-
-  // Main spec table
-  document.getElementById('modalSpecTable').innerHTML = `
+function openProd(p) {
+  curProd = p;
+  // Default: 3D view
+  document.getElementById('mImg').src = p.img3d || p.thumbImg || '';
+  
+  document.querySelectorAll('.prod-img-tab').forEach((t,i) => t.classList.toggle('active', i===0));
+  
+  document.getElementById('mCat').textContent = p.category;
+  document.getElementById('mTitle').textContent = `${p.title} — ${p.category} Railing Profile`;
+  
+  // Main specs
+  document.getElementById('mSpecs').innerHTML = `
     <tr><td>Model Name</td><td>${p.title}</td></tr>
-    <tr><td>Weight</td><td>${p.weight}</td></tr>
-    <tr><td>Length</td><td>${p.length}</td></tr>
-    <tr><td>Profile Size</td><td>${p.profileSize}</td></tr>
+    <tr><td>Weight</td><td>${p.weight || '—'}</td></tr>
+    <tr><td>Length</td><td>${p.length || '—'}</td></tr>
+    <tr><td>Profile Size</td><td>${p.profileSize || '—'}</td></tr>
   `;
-
-  // Specs tab
-  const specRows = p.category === 'Steel' ? SPECS_ST : SPECS_AL;
-  document.getElementById('modalSpecsTab').innerHTML = specRows.map(([k,v]) =>
-    `<tr><td>${k}</td><td>${v}</td></tr>`).join('');
-
+  
+  // Spec tab
+  const specRows = (p.category==='Steel') ? SPEC_ST : SPEC_AL;
+  document.getElementById('mSpecTab').innerHTML = specRows.map(([k,v])=>`<tr><td>${k}</td><td>${v}</td></tr>`).join('');
+  
   // Finishes
-  const finishes = p.category === 'Steel' ? FINISHES_ST : FINISHES_AL;
-  document.getElementById('finishTags').innerHTML = finishes.map(f =>
-    `<span class="finish-tag">${f}</span>`).join('');
-
-  // WA button
-  document.getElementById('modalWaBtn').href =
-    `https://wa.me/919000916120?text=Hi%20CR%20PRO%20RAILING%2C%20I%20am%20interested%20in%20${encodeURIComponent(p.title)}%20(${encodeURIComponent(p.category)}%20Railing).%20Please%20share%20pricing.`;
-
-  // Reset tabs
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
-  document.querySelector('.tab-btn').classList.add('active');
-  document.getElementById('tab-features').classList.add('active');
-
-  document.getElementById('productModal').classList.add('active');
+  const fins = (p.category==='Steel') ? FIN_ST : FIN_AL;
+  document.getElementById('mFinishes').innerHTML = fins.map(f=>`<span class="finish-chip">${f}</span>`).join('');
+  
+  // WA link
+  const msg = encodeURIComponent(`Hi CR PRO RAILING, I am interested in ${p.title} (${p.category} Railing, Profile: ${p.profileSize}). Please share pricing.`);
+  document.getElementById('mWA').href = `https://wa.me/919000916120?text=${msg}`;
+  
+  // Reset info tabs
+  document.querySelectorAll('.info-tab').forEach((t,i) => t.classList.toggle('active', i===0));
+  document.querySelectorAll('.info-tab-panel').forEach((t,i) => t.classList.toggle('active', i===0));
+  
+  document.getElementById('prodModal').classList.add('active');
   document.body.style.overflow = 'hidden';
 }
 
-function closeModal() {
-  document.getElementById('productModal').classList.remove('active');
-  document.body.style.overflow = '';
-}
-
-function handleModalClick(e) {
-  if (e.target.id === 'productModal') closeModal();
-}
-
-function switchTab(e, name) {
-  document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+function switchImg(e, type) {
+  if (!curProd) return;
+  const src = type==='3d' ? curProd.img3d : type==='2d' ? curProd.img2d : curProd.imgMain || curProd.mainImage;
+  if (src) document.getElementById('mImg').src = src;
+  document.querySelectorAll('.prod-img-tab').forEach(t => t.classList.remove('active'));
   e.target.classList.add('active');
-  document.getElementById('tab-' + name).classList.add('active');
 }
 
-function zoomImg(img) {
-  window.open(img.src, '_blank');
+function switchInfoTab(e, name) {
+  document.querySelectorAll('.info-tab').forEach(t => t.classList.remove('active'));
+  document.querySelectorAll('.info-tab-panel').forEach(t => t.classList.remove('active'));
+  e.target.classList.add('active');
+  document.getElementById('info-'+name).classList.add('active');
 }
 
+function closeModal() {
+  document.getElementById('prodModal').classList.remove('active');
+  document.body.style.overflow = '';
+  curProd = null;
+}
+function handleMClick(e) { if(e.target.id==='prodModal') closeModal(); }
 document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
 </script>
 </body>
