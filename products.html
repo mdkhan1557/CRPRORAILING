@@ -906,7 +906,7 @@ footer {
   cursor: zoom-in;
 }
 .modal-thumbs {
-  display: flex; gap: 10px;
+  display: none;
 }
 .modal-thumb {
   width: 80px; height: 70px; object-fit: contain;
@@ -1768,20 +1768,14 @@ function openProduct(p) {
   document.getElementById('modalMainImg').src = p.mainImage;
   document.getElementById('modalMainImg').alt = p.title;
 
-  // Thumbs
+  // Only show main clean image - no watermarked 3D/2D thumbs
   const thumbs = document.getElementById('modalThumbs');
   thumbs.innerHTML = '';
-  [p.mainImage, p.image3d, p.image2d].filter(Boolean).forEach((src, i) => {
-    const img = document.createElement('img');
-    img.src = src;
-    img.className = 'modal-thumb' + (i===0?' active':'');
-    img.onclick = () => {
-      document.getElementById('modalMainImg').src = src;
-      document.querySelectorAll('.modal-thumb').forEach(t => t.classList.remove('active'));
-      img.classList.add('active');
-    };
-    thumbs.appendChild(img);
-  });
+  // Single thumb - only main image
+  const img = document.createElement('img');
+  img.src = p.mainImage;
+  img.className = 'modal-thumb active';
+  thumbs.appendChild(img);
 
   document.getElementById('modalCat').textContent = p.category;
   document.getElementById('modalTitle').textContent = p.title + ' — ' + p.category + ' Railing';

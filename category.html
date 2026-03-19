@@ -4,7 +4,7 @@
   <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Product Category – CR PRO RAILING | Hyderabad</title>
-  <meta name="description" content="Browse CR PRO RAILING product categories — Hand Rails, Brackets, Accessories, SS Glass Brackets, Glass Pipes and more."/>
+  <meta name="description" content="Browse CR PRO RAILING product categories — Aluminium Hand Rail, Brackets, Accessories, SS Glass Railing, Glass Pipe, Invisible Grill."/>
   <link rel="preconnect" href="https://fonts.googleapis.com"/>
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
   <style>
@@ -816,74 +816,81 @@ footer {
 
 
 
-/* ── CATEGORY PAGE ── */
+/* ── CATEGORY PAGE LAYOUT ── */
 .cat-page-wrap {
   display: grid;
   grid-template-columns: 260px 1fr;
-  gap: 32px;
-  max-width: 1200px;
+  gap: 0;
+  max-width: 1260px;
   margin: 0 auto;
-  padding: 0 5% 80px;
+  padding: 40px 5% 80px;
+  align-items: start;
 }
 
 /* Sidebar */
 .cat-sidebar {
   position: sticky;
   top: 90px;
-  align-self: start;
+  background: var(--dark-3);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 12px;
+  overflow: hidden;
 }
-.cat-sidebar-title {
-  font-size: 11px; color: var(--silver);
-  font-weight: 700; letter-spacing: 2px;
-  text-transform: uppercase; margin-bottom: 8px;
-  padding-bottom: 8px;
-  border-bottom: 1px solid rgba(201,168,76,0.15);
+.cat-sidebar-header {
+  padding: 20px 20px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
 }
-.sidebar-nav {
-  list-style: none; padding: 0; margin: 0;
-  display: flex; flex-direction: column; gap: 2px;
+.cat-sidebar-header .tag {
+  font-size: 10px; color: var(--gold); font-weight: 700;
+  letter-spacing: 2px; text-transform: uppercase; display: block;
+  margin-bottom: 4px;
 }
-.sidebar-nav li button {
+.cat-sidebar-header h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 20px; color: var(--white); font-weight: 800;
+}
+.cat-sidebar-list {
+  list-style: none; padding: 10px 0;
+}
+.cat-sidebar-item {
+  padding: 0;
+}
+.cat-sidebar-btn {
   width: 100%; text-align: left;
-  background: none; border: none;
-  color: var(--silver); font-family: 'DM Sans', sans-serif;
-  font-size: 14px; font-weight: 500;
-  padding: 11px 14px; border-radius: 7px;
+  padding: 13px 20px; background: none; border: none;
+  color: var(--silver); font-size: 14px;
+  font-family: 'DM Sans', sans-serif; font-weight: 500;
   cursor: pointer; transition: all 0.2s;
   display: flex; align-items: center; gap: 10px;
   border-left: 3px solid transparent;
 }
-.sidebar-nav li button:hover {
-  background: rgba(201,168,76,0.07);
+.cat-sidebar-btn:hover {
   color: var(--light);
+  background: rgba(201,168,76,0.05);
+  border-left-color: rgba(201,168,76,0.3);
 }
-.sidebar-nav li button.active {
-  background: rgba(201,168,76,0.1);
-  color: var(--gold); font-weight: 600;
+.cat-sidebar-btn.active {
+  color: var(--gold); font-weight: 700;
+  background: rgba(201,168,76,0.08);
   border-left-color: var(--gold);
 }
-.sidebar-count {
+.cat-sidebar-btn .count {
   margin-left: auto;
-  background: rgba(201,168,76,0.15);
+  background: rgba(201,168,76,0.12);
   color: var(--gold); font-size: 11px; font-weight: 700;
   padding: 2px 8px; border-radius: 100px;
 }
 
-/* Right panel */
-.cat-panel-header {
-  margin-bottom: 24px;
-  padding-bottom: 16px;
-  border-bottom: 1px solid rgba(201,168,76,0.1);
-}
-.cat-panel-header h2 {
+/* Main panel */
+.cat-main { padding-left: 32px; }
+.cat-main-header { margin-bottom: 28px; }
+.cat-main-header h2 {
   font-family: 'Playfair Display', serif;
-  font-size: 26px; color: var(--white); margin-bottom: 6px;
+  font-size: 28px; color: var(--white); margin-bottom: 6px;
 }
-.cat-panel-header p {
-  color: var(--silver); font-size: 14px;
-}
+.cat-main-header p { color: var(--silver); font-size: 14px; }
 
-/* Product mini-grid */
+/* Product grid — exactly like railingworld.in */
 .cat-prod-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -894,94 +901,130 @@ footer {
   border: 1px solid rgba(255,255,255,0.06);
   border-radius: 10px; overflow: hidden;
   cursor: pointer; transition: all 0.25s;
-  text-align: center;
+  text-decoration: none; color: inherit;
 }
 .cat-prod-card:hover {
   border-color: rgba(201,168,76,0.4);
   transform: translateY(-3px);
-  box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+  box-shadow: 0 12px 32px rgba(0,0,0,0.5);
 }
-.cat-prod-card img {
-  width: 100%; height: 150px;
-  object-fit: cover; display: block;
-  background: var(--dark-4);
+.cat-prod-img-wrap {
+  background: #ffffff;
+  padding: 12px;
+  height: 160px;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+}
+.cat-prod-img-wrap img {
+  max-width: 100%; max-height: 100%;
+  object-fit: contain; display: block;
   transition: transform 0.3s;
 }
-.cat-prod-card:hover img { transform: scale(1.06); }
-.cat-prod-label {
+.cat-prod-card:hover .cat-prod-img-wrap img { transform: scale(1.06); }
+.cat-prod-footer {
+  padding: 10px 12px 12px;
   background: var(--dark-4);
-  padding: 8px 10px;
-  border-top: 1px solid rgba(255,255,255,0.05);
+  border-top: 1px solid rgba(255,255,255,0.04);
 }
 .cat-prod-id {
-  font-size: 12px; color: var(--white);
-  font-weight: 700; letter-spacing: 0.5px;
+  font-weight: 700; color: var(--white);
+  font-size: 13px; margin-bottom: 4px;
 }
 .cat-prod-size {
-  font-size: 11px; color: var(--silver); margin-top: 2px;
+  color: var(--silver); font-size: 12px;
+  display: flex; align-items: center; gap: 4px;
 }
+.cat-prod-size::before { content: "Size:"; font-weight: 600; color: var(--gold); }
 
-/* Detail modal (same as products) */
-.modal-overlay {
+/* Detail Modal */
+.cat-modal {
   display: none; position: fixed; inset: 0;
-  background: rgba(0,0,0,0.88); z-index: 9999;
-  align-items: center; justify-content: center;
-  padding: 20px;
+  background: rgba(0,0,0,0.9); z-index: 9999;
+  align-items: center; justify-content: center; padding: 20px;
 }
-.modal-overlay.active { display: flex; }
-.modal-box {
+.cat-modal.active { display: flex; }
+.cat-modal-box {
   background: var(--dark-2);
   border: 1px solid rgba(201,168,76,0.2);
-  border-radius: 14px; width: 100%; max-width: 720px;
-  max-height: 88vh; overflow-y: auto;
-  animation: modalIn 0.25s ease;
-  position: relative;
+  border-radius: 14px; width: 100%; max-width: 800px;
+  max-height: 90vh; overflow-y: auto;
+  animation: modalIn 0.3s ease;
 }
 @keyframes modalIn {
-  from { opacity:0; transform:scale(0.95) translateY(16px); }
-  to   { opacity:1; transform:scale(1) translateY(0); }
+  from { opacity:0; transform:scale(0.94); }
+  to   { opacity:1; transform:scale(1); }
 }
-.modal-close {
-  position: sticky; top: 0; float: right;
-  background: var(--dark-3); border: 1px solid rgba(201,168,76,0.2);
-  color: var(--gold); width: 36px; height: 36px;
-  border-radius: 50%; font-size: 20px; cursor: pointer;
+.cat-modal-inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 28px;
+  padding: 28px;
+  align-items: start;
+}
+.cat-modal-img {
+  background: #fff;
+  border-radius: 10px;
+  padding: 20px;
   display: flex; align-items: center; justify-content: center;
-  margin: 14px 14px 0 0; z-index: 10; transition: all 0.2s;
+  min-height: 280px;
 }
-.modal-close:hover { background: var(--gold); color: var(--dark); }
-.modal-body { padding: 0 28px 28px; }
-.modal-img-big {
-  width: 100%; height: 280px; object-fit: contain;
-  border-radius: 10px; border: 1px solid rgba(201,168,76,0.15);
-  background: var(--dark-3); margin-bottom: 20px; display: block;
+.cat-modal-img img {
+  max-width: 100%; max-height: 280px;
+  object-fit: contain;
 }
-.spec-table { width: 100%; border-collapse: collapse; margin-bottom: 16px; }
-.spec-table tr { border-bottom: 1px solid rgba(255,255,255,0.05); }
-.spec-table td { padding: 9px 12px; font-size: 13px; }
-.spec-table td:first-child { color: var(--silver); width: 40%; font-weight: 600; }
-.spec-table td:last-child { color: var(--white); }
-.spec-table tr:nth-child(odd) td { background: rgba(255,255,255,0.02); }
-.modal-cta { display: flex; gap: 12px; margin-top: 20px; flex-wrap: wrap; }
-.modal-cta a {
-  flex: 1; text-align: center; padding: 12px 20px;
-  border-radius: 6px; text-decoration: none; font-weight: 700;
-  font-size: 13px; letter-spacing: 0.5px; text-transform: uppercase; transition: all 0.3s;
+.cat-modal-info h3 {
+  font-family: 'Playfair Display', serif;
+  font-size: 22px; color: var(--white); margin-bottom: 6px;
 }
-.cta-primary { background: var(--gold); color: var(--dark); }
-.cta-wa { background: rgba(37,211,102,0.1); border: 1.5px solid #25D366; color: #25D366; }
-.cta-primary:hover { background: var(--gold-light); }
-.cta-wa:hover { background: rgba(37,211,102,0.2); }
+.cat-modal-badge {
+  display: inline-block;
+  background: rgba(201,168,76,0.1);
+  border: 1px solid rgba(201,168,76,0.3);
+  color: var(--gold); font-size: 11px; font-weight: 700;
+  letter-spacing: 1.5px; text-transform: uppercase;
+  padding: 3px 10px; border-radius: 100px; margin-bottom: 16px;
+}
+.cat-modal-specs {
+  width: 100%; border-collapse: collapse; margin-bottom: 20px;
+}
+.cat-modal-specs tr {
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.cat-modal-specs td {
+  padding: 9px 0; font-size: 13px;
+}
+.cat-modal-specs td:first-child {
+  color: var(--silver); font-weight: 600; width: 45%;
+}
+.cat-modal-specs td:last-child { color: var(--white); font-weight: 500; }
+.cat-modal-close {
+  position: absolute; top: 16px; right: 16px;
+  background: var(--dark-3); border: 1px solid rgba(201,168,76,0.2);
+  color: var(--gold); width: 34px; height: 34px;
+  border-radius: 50%; font-size: 18px; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  transition: all 0.2s;
+}
+.cat-modal-close:hover { background: var(--gold); color: var(--dark); }
 
-@media(max-width:900px) {
-  .cat-page-wrap { grid-template-columns: 1fr; }
-  .cat-sidebar { position: static; }
-  .sidebar-nav { flex-direction: row; flex-wrap: wrap; }
-  .sidebar-nav li { flex: 1 1 auto; }
-  .cat-prod-grid { grid-template-columns: repeat(3,1fr); }
+/* Features list */
+.feat-list { list-style: none; padding: 0; margin: 0 0 16px; }
+.feat-list li {
+  font-size: 13px; color: var(--light);
+  padding: 6px 0; border-bottom: 1px solid rgba(255,255,255,0.04);
+  display: flex; gap: 8px; align-items: center;
 }
-@media(max-width:600px) {
+.feat-list li::before { content:'✓'; color: var(--gold); font-weight: 700; }
+
+@media(max-width: 900px) {
+  .cat-page-wrap { grid-template-columns: 1fr; }
+  .cat-sidebar { position: static; margin-bottom: 24px; }
+  .cat-main { padding-left: 0; }
   .cat-prod-grid { grid-template-columns: repeat(2,1fr); }
+  .cat-modal-inner { grid-template-columns: 1fr; }
+}
+@media(max-width: 480px) {
+  .cat-prod-grid { grid-template-columns: repeat(2,1fr); gap:10px; }
 }
   </style>
 </head>
@@ -992,60 +1035,74 @@ footer {
   <div class="page-banner">
     <h1>Product <span>Category</span></h1>
     <div class="breadcrumb">
-      <a href="index.html">Home</a> <span>/</span> <span>Category</span>
+      <a href="index.html">Home</a> <span>/</span> <span>Product Category</span>
     </div>
   </div>
 
-  <section style="padding:48px 0 0;">
-    <div class="cat-page-wrap">
+  <div class="cat-page-wrap">
 
-      <!-- SIDEBAR -->
-      <aside class="cat-sidebar">
-        <div class="cat-sidebar-title">Product Categories</div>
-        <ul class="sidebar-nav" id="sidebarNav"></ul>
-        <div style="margin-top:24px;">
-          <a href="images/CR-PRO-RAILING-Catalog.pdf" download class="btn-catalog" style="width:100%;justify-content:center;font-size:12px;">
-            <span class="dl-icon">⬇</span> Download Catalog
-          </a>
-        </div>
-      </aside>
-
-      <!-- MAIN PANEL -->
-      <div>
-        <div class="cat-panel-header" id="panelHeader"></div>
-        <div class="cat-prod-grid" id="prodGrid"></div>
+    <!-- SIDEBAR -->
+    <aside class="cat-sidebar">
+      <div class="cat-sidebar-header">
+        <span class="tag">✦ Browse</span>
+        <h3>Product<br/>Category</h3>
       </div>
+      <ul class="cat-sidebar-list" id="catSidebar"></ul>
+    </aside>
 
+    <!-- MAIN -->
+    <div class="cat-main">
+      <div class="cat-main-header" id="catHeader">
+        <span class="section-tag" style="display:block;margin-bottom:8px;">✦ Select a category</span>
+        <h2>All Categories</h2>
+        <p>Click a category from the left to browse products</p>
+      </div>
+      <div class="cat-prod-grid" id="catProdGrid"></div>
     </div>
-  </section>
+
+  </div>
 
   <!-- CTA -->
-  <section class="cta-section" style="margin-top:40px;">
+  <section class="cta-section">
     <h2>Need a Custom Size or Design?</h2>
-    <p>We manufacture custom profiles. Free site visit anywhere in Hyderabad.</p>
+    <p>We manufacture fully custom railing accessories. Free site visit in Hyderabad.</p>
     <div class="cta-btns">
-      <a href="https://wa.me/919000916120?text=Hi%20CR%20PRO%20RAILING%2C%20I%20need%20a%20quote%20on%20your%20products."
+      <a href="https://wa.me/919000916120?text=Hi%20CR%20PRO%20RAILING%2C%20I%20need%20a%20quote%20on%20railing%20accessories."
          target="_blank" class="btn-primary" style="background:#25D366;">💬 WhatsApp Now</a>
       <a href="contact.html" class="btn-outline">Get Free Quote</a>
+      <a href="images/CR-PRO-RAILING-Catalog.pdf" download class="btn-catalog"><span class="dl-icon">⬇</span> Catalog</a>
     </div>
   </section>
-
 </main>
 
 <!-- Detail Modal -->
-<div class="modal-overlay" id="detailModal" onclick="if(event.target.id==='detailModal')closeModal()">
-  <div class="modal-box">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <div class="modal-body">
-      <img id="modalImg" class="modal-img-big" src="" alt=""/>
-      <div style="display:flex;align-items:center;gap:12px;margin-bottom:14px;">
-        <span class="modal-cat-badge" id="mBadge" style="display:inline-block;background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.3);color:var(--gold);font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:100px;"></span>
-        <h2 id="mTitle" style="font-family:'Playfair Display',serif;font-size:22px;color:var(--white);margin:0;"></h2>
+<div class="cat-modal" id="catModal" onclick="handleCatModalClick(event)">
+  <div class="cat-modal-box" style="position:relative;">
+    <button class="cat-modal-close" onclick="closeCatModal()">✕</button>
+    <div class="cat-modal-inner">
+      <div class="cat-modal-img">
+        <img id="catModalImg" src="" alt=""/>
       </div>
-      <table class="spec-table" id="mSpecTable"></table>
-      <div class="modal-cta">
-        <a id="mWaBtn" href="#" target="_blank" class="cta-wa">💬 WhatsApp Enquiry</a>
-        <a href="contact.html" class="cta-primary">Get Free Quote</a>
+      <div class="cat-modal-info">
+        <div class="cat-modal-badge" id="catModalCat"></div>
+        <h3 id="catModalTitle"></h3>
+        <table class="cat-modal-specs" id="catModalSpecs"></table>
+        <ul class="feat-list">
+          <li>100% Recyclable Material</li>
+          <li>Weather Proof &amp; UV Resistant</li>
+          <li>Maintenance Free</li>
+          <li>Corrosion Resistant</li>
+          <li>High Strength &amp; Durable</li>
+        </ul>
+        <div style="display:flex;gap:10px;flex-wrap:wrap;">
+          <a id="catModalWA" href="#" target="_blank"
+             style="flex:1;text-align:center;padding:11px 16px;border-radius:6px;text-decoration:none;
+                    background:rgba(37,211,102,0.1);border:1.5px solid #25D366;color:#25D366;
+                    font-weight:700;font-size:13px;">💬 WhatsApp</a>
+          <a href="contact.html"
+             style="flex:1;text-align:center;padding:11px 16px;border-radius:6px;text-decoration:none;
+                    background:var(--gold);color:var(--dark);font-weight:700;font-size:13px;">Get Quote</a>
+        </div>
       </div>
     </div>
   </div>
@@ -1206,118 +1263,655 @@ function injectComponents(activePage) {
 <script>
 injectComponents('category.html');
 
-const CATS = [{"id": "tab-1", "title": "Aluminium Hand Rail", "icon": "\ud83d\udd27", "desc": "Premium aluminum hand rail pipes in round, square and special profiles", "products": [{"modelId": "RW-43", "size": "65 mm Round Pipe", "weight": "0.450 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "1"}, {"modelId": "RW-44", "size": "50 mm Round Pipe", "weight": "0.330 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "2"}, {"modelId": "RW-45", "size": "38 mm Round Pipe", "weight": "0.170 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "3"}, {"modelId": "RW-46", "size": "50 x 50 Square Pipe", "weight": "0.370 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "4"}, {"modelId": "RW-47", "size": "40 x 40 Square Pipe", "weight": "0.300 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "5"}, {"modelId": "RW-48", "size": "32 x 32 Square Pipe", "weight": "0.200 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "6"}, {"modelId": "RW-49", "size": "25 x 25 Square Pipe", "weight": "0.170 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "7"}, {"modelId": "RW-50", "size": "60 x 40 mm Pipe", "weight": "0.380 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "8"}, {"modelId": "RW-51", "size": "Triangle Pipe", "weight": "0.330 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "9"}, {"modelId": "RW-52", "size": "65 x 38 mm Pipe", "weight": "0.330 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "10"}, {"modelId": "RW-53", "size": "Small Right Angle Pipe", "weight": "0.230 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "11"}, {"modelId": "RW-54", "size": "Right Angle Pipe", "weight": "0.400 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "12"}, {"modelId": "RW-55", "size": "Incline Pipe", "weight": "0.380 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "13"}, {"modelId": "RW-56", "size": "Rajwadi Pipe", "weight": "0.330 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "14"}, {"modelId": "RW-57", "size": "60 x 60 Pipe", "weight": "0.400 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "15"}, {"modelId": "RW-58", "size": "Diamond Pipe", "weight": "0.380 gm (1 Feet)", "length": ["13 ft", "16 ft"], "img": "16"}]}, {"id": "tab-2", "title": "Aluminium Railing Bracket", "icon": "\u2699\ufe0f", "desc": "L, T, V and specialty brackets for aluminum railing installation", "products": [{"modelId": "RW-75", "name": "L-Bracket", "size": "65 mm x 100 mm", "img": "17"}, {"modelId": "RW-76", "name": "T-Bracket", "size": "55 mm x 100 mm", "img": "18"}, {"modelId": "RW-77", "name": "V-Bracket", "size": "50 mm x 100 mm", "img": "19"}, {"modelId": "RW-78", "name": "Owel Bracket", "size": "50 mm x 100 mm", "img": "20"}, {"modelId": "RW-79", "name": "Tower Bracket", "size": "50 mm x 100 mm", "img": "21"}, {"modelId": "RW-80", "name": "Small Diamond Bracket", "size": "70 mm x 100 mm", "img": "22"}, {"modelId": "RW-81", "name": "V-Bracket", "size": "50 mm x 100 mm", "img": "23"}, {"modelId": "RW-82", "name": "Diamond Bracket", "size": "80 mm x 100 mm", "img": "24"}, {"modelId": "RW-83", "name": "Side Mount Bracket", "size": "70 mm x 100 mm", "img": "25"}]}, {"id": "tab-3", "title": "Aluminium Railing Accessories", "icon": "\ud83d\udd29", "desc": "Essential accessories for aluminum glass railing systems", "products": [{"modelId": "ARA-1", "size": "50 * 10 mm", "weight": "60gm", "length": "60cm", "img": "26"}, {"modelId": "ARA-2", "size": "60 * 12 mm", "weight": "70gm", "length": "70cm", "img": "27"}, {"modelId": "ARA-3", "size": "55 * 11 mm", "weight": "65gm", "length": "65cm", "img": "28"}, {"modelId": "ARA-4", "size": "55 * 11 mm", "weight": "65gm", "length": "65cm", "img": "29"}, {"modelId": "ARA-5", "size": "55 * 11 mm", "weight": "65gm", "length": "65cm", "img": "30"}, {"modelId": "ARA-6", "size": "55 * 11 mm", "weight": "65gm", "length": "65cm", "img": "31"}, {"modelId": "ARA-7", "size": "55 * 11 mm", "weight": "65gm", "length": "65cm", "img": "32"}, {"modelId": "ARA-8", "size": "55 * 11 mm", "weight": "65gm", "length": "65cm", "img": "33"}, {"modelId": "ARA-9", "size": "55 * 11 mm", "weight": "65gm", "length": "65cm", "img": "34"}, {"modelId": "ARA-10", "size": "55 * 11 mm", "weight": "65gm", "length": "65cm", "img": "35"}]}, {"id": "tab-4", "title": "S.S. Glass Railing Bracket", "icon": "\ud83e\ude9f", "desc": "Stainless steel brackets for glass railing systems", "products": [{"modelId": "SGRC-1", "size": "70 * 15 mm", "weight": "80gm", "length": "90cm", "img": "36"}, {"modelId": "SGRC-2", "size": "75 * 17 mm", "weight": "85gm", "length": "95cm", "img": "37"}, {"modelId": "SGRC-3", "size": "80 * 20 mm", "weight": "90gm", "length": "100cm", "img": "38"}, {"modelId": "SGRC-4", "size": "85 * 22 mm", "weight": "95gm", "length": "105cm", "img": "39"}, {"modelId": "SGRC-5", "size": "90 * 25 mm", "weight": "100gm", "length": "110cm", "img": "40"}, {"modelId": "SGRC-6", "size": "90 * 25 mm", "weight": "100gm", "length": "110cm", "img": "41"}, {"modelId": "SGRC-7", "size": "90 * 25 mm", "weight": "100gm", "length": "110cm", "img": "42"}, {"modelId": "SGRC-8", "size": "90 * 25 mm", "weight": "100gm", "length": "110cm", "img": "43"}, {"modelId": "SGRC-9", "size": "90 * 25 mm", "weight": "100gm", "length": "110cm", "img": "44"}, {"modelId": "SGRC-10", "size": "90 * 25 mm", "weight": "100gm", "length": "110cm", "img": "45"}]}, {"id": "tab-5", "title": "Glass Railing Pipe", "icon": "\ud83d\udd32", "desc": "Aluminum pipes for glass railing channels and frames", "products": [{"modelId": "GRP-1", "size": "200 * 40 mm", "weight": "200gm", "length": "200cm", "img": "46"}, {"modelId": "GRP-2", "size": "220 * 45 mm", "weight": "220gm", "length": "220cm", "img": "47"}, {"modelId": "GRP-3", "size": "240 * 50 mm", "weight": "240gm", "length": "240cm", "img": "48"}, {"modelId": "GRP-4", "size": "240 * 50 mm", "weight": "240gm", "length": "240cm", "img": "49"}, {"modelId": "GRP-5", "size": "240 * 50 mm", "weight": "240gm", "length": "240cm", "img": "50"}, {"modelId": "GRP-6", "size": "240 * 50 mm", "weight": "240gm", "length": "240cm", "img": "51"}, {"modelId": "GRP-7", "size": "240 * 50 mm", "weight": "240gm", "length": "240cm", "img": "52"}, {"modelId": "GRP-8", "size": "240 * 50 mm", "weight": "240gm", "length": "240cm", "img": "53"}, {"modelId": "GRP-9", "size": "240 * 50 mm", "weight": "240gm", "length": "240cm", "img": "54"}]}, {"id": "tab-6", "title": "Invisible Grill Accessories", "icon": "\ud83d\udd17", "desc": "Components for invisible grill and balcony safety systems", "products": [{"modelId": "IGA-1", "size": "30 * 5 mm", "weight": "40gm", "length": "40cm", "img": "55"}, {"modelId": "IGA-2", "size": "35 * 6 mm", "weight": "45gm", "length": "45cm", "img": "56"}, {"modelId": "IGA-3", "size": "40 * 8 mm", "weight": "50gm", "length": "50cm", "img": "57"}, {"modelId": "IGA-4", "size": "45 * 9 mm", "weight": "55gm", "length": "55cm", "img": "58"}, {"modelId": "IGA-5", "size": "45 * 9 mm", "weight": "55gm", "length": "55cm", "img": "59"}, {"modelId": "IGA-6", "size": "45 * 9 mm", "weight": "55gm", "length": "55cm", "img": "60"}, {"modelId": "IGA-7", "size": "45 * 9 mm", "weight": "55gm", "length": "55cm", "img": "61"}, {"modelId": "IGA-8", "size": "45 * 9 mm", "weight": "55gm", "length": "55cm", "img": "62"}]}];
+const CATEGORIES = [
+  {
+    "id": "aluminium-hand-rail",
+    "title": "Aluminium Hand Rail",
+    "shortTitle": "AHR",
+    "icon": "\ud83d\udd29",
+    "products": [
+      {
+        "id": "RW-43",
+        "size": "65 mm Round Pipe",
+        "weight": "0.450 gm/ft",
+        "length": "13ft/16ft",
+        "imgNum": 1,
+        "image": "images/category/cat-03.webp"
+      },
+      {
+        "id": "RW-44",
+        "size": "50 mm Round Pipe",
+        "weight": "0.330 gm/ft",
+        "length": "13ft/16ft",
+        "imgNum": 2,
+        "image": "images/category/cat-02.webp"
+      },
+      {
+        "id": "RW-45",
+        "size": "38 mm Round Pipe",
+        "weight": "0.170 gm/ft",
+        "length": "13ft/16ft",
+        "imgNum": 3,
+        "image": "images/category/cat-03.webp"
+      },
+      {
+        "id": "RW-46",
+        "size": "50\u00d750 Square Pipe",
+        "weight": "0.370 gm/ft",
+        "length": "13ft/16ft",
+        "imgNum": 4,
+        "image": "images/category/cat-04.webp"
+      },
+      {
+        "id": "RW-47",
+        "size": "40\u00d740 Square Pipe",
+        "weight": "0.300 gm/ft",
+        "length": "13ft/16ft",
+        "imgNum": 5,
+        "image": "images/category/cat-05.webp"
+      },
+      {
+        "id": "RW-48",
+        "size": "32\u00d732 Square Pipe",
+        "weight": "0.200 gm/ft",
+        "length": "13ft/16ft",
+        "imgNum": 6,
+        "image": "images/category/cat-06.webp"
+      },
+      {
+        "id": "RW-49",
+        "size": "25\u00d725 Square Pipe",
+        "weight": "0.170 gm/ft",
+        "length": "13ft/16ft",
+        "imgNum": 7,
+        "image": "images/category/cat-07.webp"
+      },
+      {
+        "id": "RW-50",
+        "size": "40\u00d720 Rectangle Pipe",
+        "weight": "0.220 gm/ft",
+        "length": "13ft/16ft",
+        "imgNum": 8,
+        "image": "images/category/cat-08.webp"
+      },
+      {
+        "id": "RW-51",
+        "size": "Triangle Pipe",
+        "weight": "0.330 gm/ft",
+        "length": "13ft/16ft",
+        "imgNum": 9,
+        "image": "images/category/cat-09.webp"
+      },
+      {
+        "id": "RW-52",
+        "size": "65\u00d738 mm Pipe",
+        "weight": "0.330 gm/ft",
+        "length": "13ft/16ft",
+        "imgNum": 10,
+        "image": "images/category/cat-10.webp"
+      },
+      {
+        "id": "RW-53",
+        "size": "Small Right Angle Pipe",
+        "weight": "0.230 gm/ft",
+        "length": "13ft/16ft",
+        "imgNum": 11,
+        "image": "images/category/cat-11.webp"
+      },
+      {
+        "id": "RW-54",
+        "size": "Right Angle Pipe",
+        "weight": "0.400 gm/ft",
+        "length": "13ft/16ft",
+        "imgNum": 12,
+        "image": "images/category/cat-12.webp"
+      },
+      {
+        "id": "RW-55",
+        "size": "Incline Pipe",
+        "weight": "0.380 gm/ft",
+        "length": "13ft/16ft",
+        "imgNum": 13,
+        "image": "images/category/cat-13.webp"
+      },
+      {
+        "id": "RW-56",
+        "size": "Rajwadi Pipe",
+        "weight": "0.330 gm/ft",
+        "length": "13ft/16ft",
+        "imgNum": 7,
+        "image": "images/category/cat-07.webp"
+      },
+      {
+        "id": "RW-57",
+        "size": "Half Round Pipe",
+        "weight": "0.280 gm/ft",
+        "length": "13ft/16ft",
+        "imgNum": 8,
+        "image": "images/category/cat-08.webp"
+      },
+      {
+        "id": "RW-58",
+        "size": "Flat Bar",
+        "weight": "0.150 gm/ft",
+        "length": "13ft/16ft",
+        "imgNum": 9,
+        "image": "images/category/cat-09.webp"
+      }
+    ]
+  },
+  {
+    "id": "aluminium-railing-bracket",
+    "title": "Aluminium Railing Bracket",
+    "shortTitle": "ARB",
+    "icon": "\ud83d\udd27",
+    "products": [
+      {
+        "id": "RW-75",
+        "size": "65\u00d7100 mm",
+        "weight": "L-Bracket",
+        "length": "\u2014",
+        "imgNum": 17,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(17).webp"
+      },
+      {
+        "id": "RW-76",
+        "size": "55\u00d7100 mm",
+        "weight": "T-Bracket",
+        "length": "\u2014",
+        "imgNum": 18,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(18).webp"
+      },
+      {
+        "id": "RW-77",
+        "size": "50\u00d7100 mm",
+        "weight": "V-Bracket",
+        "length": "\u2014",
+        "imgNum": 19,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(19).webp"
+      },
+      {
+        "id": "RW-78",
+        "size": "50\u00d7100 mm",
+        "weight": "Owel Bracket",
+        "length": "\u2014",
+        "imgNum": 20,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(20).webp"
+      },
+      {
+        "id": "RW-79",
+        "size": "50\u00d7100 mm",
+        "weight": "Tower Bracket",
+        "length": "\u2014",
+        "imgNum": 21,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(21).webp"
+      },
+      {
+        "id": "RW-80",
+        "size": "70\u00d7100 mm",
+        "weight": "Small Diamond",
+        "length": "\u2014",
+        "imgNum": 22,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(22).webp"
+      },
+      {
+        "id": "RW-81",
+        "size": "50\u00d7100 mm",
+        "weight": "V-Bracket",
+        "length": "\u2014",
+        "imgNum": 23,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(23).webp"
+      },
+      {
+        "id": "RW-82",
+        "size": "80\u00d7100 mm",
+        "weight": "Diamond Bracket",
+        "length": "\u2014",
+        "imgNum": 24,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(24).webp"
+      },
+      {
+        "id": "RW-83",
+        "size": "70\u00d7100 mm",
+        "weight": "Side Mount Bracket",
+        "length": "\u2014",
+        "imgNum": 25,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(25).webp"
+      }
+    ]
+  },
+  {
+    "id": "aluminium-railing-accessories",
+    "title": "Aluminium Railing Accessories",
+    "shortTitle": "ARA",
+    "icon": "\u2699\ufe0f",
+    "products": [
+      {
+        "id": "ARA-1",
+        "size": "50\u00d710 mm",
+        "weight": "60gm",
+        "length": "60cm",
+        "imgNum": 26,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(26).webp"
+      },
+      {
+        "id": "ARA-2",
+        "size": "60\u00d712 mm",
+        "weight": "70gm",
+        "length": "70cm",
+        "imgNum": 27,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(27).webp"
+      },
+      {
+        "id": "ARA-3",
+        "size": "55\u00d711 mm",
+        "weight": "65gm",
+        "length": "65cm",
+        "imgNum": 28,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(28).webp"
+      },
+      {
+        "id": "ARA-4",
+        "size": "55\u00d711 mm",
+        "weight": "65gm",
+        "length": "65cm",
+        "imgNum": 29,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(29).webp"
+      },
+      {
+        "id": "ARA-5",
+        "size": "55\u00d711 mm",
+        "weight": "65gm",
+        "length": "65cm",
+        "imgNum": 30,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(30).webp"
+      },
+      {
+        "id": "ARA-6",
+        "size": "55\u00d711 mm",
+        "weight": "65gm",
+        "length": "65cm",
+        "imgNum": 31,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(31).webp"
+      },
+      {
+        "id": "ARA-7",
+        "size": "55\u00d711 mm",
+        "weight": "65gm",
+        "length": "65cm",
+        "imgNum": 32,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(32).webp"
+      },
+      {
+        "id": "ARA-8",
+        "size": "55\u00d711 mm",
+        "weight": "65gm",
+        "length": "65cm",
+        "imgNum": 33,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(33).webp"
+      },
+      {
+        "id": "ARA-9",
+        "size": "55\u00d711 mm",
+        "weight": "65gm",
+        "length": "65cm",
+        "imgNum": 34,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(34).webp"
+      },
+      {
+        "id": "ARA-10",
+        "size": "55\u00d711 mm",
+        "weight": "65gm",
+        "length": "65cm",
+        "imgNum": 35,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(35).webp"
+      }
+    ]
+  },
+  {
+    "id": "ss-glass-railing-bracket",
+    "title": "S.S. Glass Railing Bracket",
+    "shortTitle": "SGRC",
+    "icon": "\ud83e\ude9f",
+    "products": [
+      {
+        "id": "SGRC-1",
+        "size": "70\u00d715 mm",
+        "weight": "\u2014",
+        "length": "\u2014",
+        "imgNum": 36,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(36).webp"
+      },
+      {
+        "id": "SGRC-2",
+        "size": "75\u00d717 mm",
+        "weight": "\u2014",
+        "length": "\u2014",
+        "imgNum": 37,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(37).webp"
+      },
+      {
+        "id": "SGRC-3",
+        "size": "80\u00d720 mm",
+        "weight": "\u2014",
+        "length": "\u2014",
+        "imgNum": 38,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(38).webp"
+      },
+      {
+        "id": "SGRC-4",
+        "size": "85\u00d722 mm",
+        "weight": "\u2014",
+        "length": "\u2014",
+        "imgNum": 39,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(39).webp"
+      },
+      {
+        "id": "SGRC-5",
+        "size": "90\u00d725 mm",
+        "weight": "\u2014",
+        "length": "\u2014",
+        "imgNum": 40,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(40).webp"
+      },
+      {
+        "id": "SGRC-6",
+        "size": "70\u00d715 mm",
+        "weight": "\u2014",
+        "length": "\u2014",
+        "imgNum": 36,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(36).webp"
+      },
+      {
+        "id": "SGRC-7",
+        "size": "75\u00d717 mm",
+        "weight": "\u2014",
+        "length": "\u2014",
+        "imgNum": 37,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(37).webp"
+      },
+      {
+        "id": "SGRC-8",
+        "size": "80\u00d720 mm",
+        "weight": "\u2014",
+        "length": "\u2014",
+        "imgNum": 38,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(38).webp"
+      },
+      {
+        "id": "SGRC-9",
+        "size": "85\u00d722 mm",
+        "weight": "\u2014",
+        "length": "\u2014",
+        "imgNum": 39,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(39).webp"
+      },
+      {
+        "id": "SGRC-10",
+        "size": "90\u00d725 mm",
+        "weight": "\u2014",
+        "length": "\u2014",
+        "imgNum": 40,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(40).webp"
+      },
+      {
+        "id": "SGRC-11",
+        "size": "70\u00d715 mm",
+        "weight": "\u2014",
+        "length": "\u2014",
+        "imgNum": 36,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(36).webp"
+      }
+    ]
+  },
+  {
+    "id": "glass-railing-pipe",
+    "title": "Glass Railing Pipe",
+    "shortTitle": "GRP",
+    "icon": "\ud83d\udd32",
+    "products": [
+      {
+        "id": "GRP-1",
+        "size": "200\u00d740 mm",
+        "weight": "200gm",
+        "length": "200cm",
+        "imgNum": 46,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(46).webp"
+      },
+      {
+        "id": "GRP-2",
+        "size": "220\u00d745 mm",
+        "weight": "220gm",
+        "length": "220cm",
+        "imgNum": 47,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(47).webp"
+      },
+      {
+        "id": "GRP-3",
+        "size": "240\u00d750 mm",
+        "weight": "240gm",
+        "length": "240cm",
+        "imgNum": 48,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(48).webp"
+      },
+      {
+        "id": "GRP-4",
+        "size": "240\u00d750 mm",
+        "weight": "240gm",
+        "length": "240cm",
+        "imgNum": 49,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(49).webp"
+      },
+      {
+        "id": "GRP-5",
+        "size": "240\u00d750 mm",
+        "weight": "240gm",
+        "length": "240cm",
+        "imgNum": 50,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(50).webp"
+      },
+      {
+        "id": "GRP-6",
+        "size": "240\u00d750 mm",
+        "weight": "240gm",
+        "length": "240cm",
+        "imgNum": 51,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(51).webp"
+      },
+      {
+        "id": "GRP-7",
+        "size": "240\u00d750 mm",
+        "weight": "240gm",
+        "length": "240cm",
+        "imgNum": 46,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(46).webp"
+      },
+      {
+        "id": "GRP-8",
+        "size": "240\u00d750 mm",
+        "weight": "240gm",
+        "length": "240cm",
+        "imgNum": 47,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(47).webp"
+      },
+      {
+        "id": "GRP-9",
+        "size": "240\u00d750 mm",
+        "weight": "240gm",
+        "length": "240cm",
+        "imgNum": 48,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(48).webp"
+      },
+      {
+        "id": "GRP-10",
+        "size": "240\u00d750 mm",
+        "weight": "240gm",
+        "length": "240cm",
+        "imgNum": 46,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(46).webp"
+      }
+    ]
+  },
+  {
+    "id": "invisible-grill-accessories",
+    "title": "Invisible Grill Accessories",
+    "shortTitle": "IGA",
+    "icon": "\ud83c\udfd7\ufe0f",
+    "products": [
+      {
+        "id": "IGA-1",
+        "size": "30\u00d75 mm",
+        "weight": "40gm",
+        "length": "40cm",
+        "imgNum": 55,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(55).webp"
+      },
+      {
+        "id": "IGA-2",
+        "size": "35\u00d76 mm",
+        "weight": "45gm",
+        "length": "45cm",
+        "imgNum": 56,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(56).webp"
+      },
+      {
+        "id": "IGA-3",
+        "size": "40\u00d78 mm",
+        "weight": "50gm",
+        "length": "50cm",
+        "imgNum": 57,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(57).webp"
+      },
+      {
+        "id": "IGA-4",
+        "size": "45\u00d79 mm",
+        "weight": "55gm",
+        "length": "55cm",
+        "imgNum": 58,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(58).webp"
+      },
+      {
+        "id": "IGA-5",
+        "size": "45\u00d79 mm",
+        "weight": "55gm",
+        "length": "55cm",
+        "imgNum": 55,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(55).webp"
+      },
+      {
+        "id": "IGA-6",
+        "size": "45\u00d79 mm",
+        "weight": "55gm",
+        "length": "55cm",
+        "imgNum": 56,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(56).webp"
+      },
+      {
+        "id": "IGA-7",
+        "size": "45\u00d79 mm",
+        "weight": "55gm",
+        "length": "55cm",
+        "imgNum": 57,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(57).webp"
+      },
+      {
+        "id": "IGA-8",
+        "size": "45\u00d79 mm",
+        "weight": "55gm",
+        "length": "55cm",
+        "imgNum": 58,
+        "image": "https://railingworld.in/images/ProductCat/whole/RW%20(58).webp"
+      }
+    ]
+  }
+];
 
-let activeIdx = 0;
+let activeCat = 0;
 
 // Build sidebar
-function buildSidebar() {
-  const nav = document.getElementById('sidebarNav');
-  nav.innerHTML = '';
-  CATS.forEach((cat, i) => {
-    const li = document.createElement('li');
-    li.innerHTML = `<button onclick="selectCat(${i})" id="sBtn-${i}">
-      <span>${cat.icon}</span>
-      <span style="flex:1;">${cat.title}</span>
-      <span class="sidebar-count">${cat.products.length}</span>
-    </button>`;
-    nav.appendChild(li);
-  });
-  updateActive();
-}
+const sidebar = document.getElementById('catSidebar');
+CATEGORIES.forEach((cat, idx) => {
+  const li = document.createElement('li');
+  li.className = 'cat-sidebar-item';
+  li.innerHTML = `<button class="cat-sidebar-btn ${idx===0?'active':''}" onclick="selectCat(${idx})">
+    <span>${cat.icon}</span>
+    <span>${cat.title}</span>
+    <span class="count">${cat.products.length}</span>
+  </button>`;
+  sidebar.appendChild(li);
+});
 
 function selectCat(idx) {
-  activeIdx = idx;
-  updateActive();
-  renderProducts();
-}
-
-function updateActive() {
-  document.querySelectorAll('.sidebar-nav button').forEach((btn,i) => {
-    btn.classList.toggle('active', i === activeIdx);
-  });
-}
-
-function getImgUrl(imgNum) {
-  return `https://images.unsplash.com/photo-1600607687939-54fa7f7e9244?w=800&h=500&fit=crop&q=85
-}
-
-function renderProducts() {
-  const cat = CATS[activeIdx];
+  activeCat = idx;
+  const cat = CATEGORIES[idx];
   
-  // Header
-  document.getElementById('panelHeader').innerHTML = `
-    <div style="display:flex;align-items:center;gap:12px;margin-bottom:6px;">
-      <span style="font-size:28px;">${cat.icon}</span>
-      <h2 style="font-family:'Playfair Display',serif;font-size:26px;color:var(--white);margin:0;">${cat.title}</h2>
-      <span style="background:rgba(201,168,76,0.12);border:1px solid rgba(201,168,76,0.25);color:var(--gold);font-size:12px;font-weight:700;padding:4px 12px;border-radius:100px;">${cat.products.length} products</span>
-    </div>
-    <p style="color:var(--silver);font-size:14px;">${cat.desc}</p>
+  // Update sidebar
+  document.querySelectorAll('.cat-sidebar-btn').forEach((b,i) => {
+    b.classList.toggle('active', i === idx);
+  });
+  
+  // Update header
+  document.getElementById('catHeader').innerHTML = `
+    <span class="section-tag" style="display:block;margin-bottom:8px;">✦ ${cat.title}</span>
+    <h2 style="font-family:'Playfair Display',serif;font-size:26px;color:var(--white);margin-bottom:4px;">
+      ${cat.products.length} Products
+    </h2>
+    <p style="color:var(--silver);font-size:14px;">Click any product to view full details &amp; specifications</p>
   `;
-
-  // Grid
-  const grid = document.getElementById('prodGrid');
+  
+  // Render products
+  const grid = document.getElementById('catProdGrid');
   grid.innerHTML = '';
   cat.products.forEach(p => {
     const card = document.createElement('div');
     card.className = 'cat-prod-card';
-    card.onclick = () => openDetail(p, cat);
-    const imgUrl = getImgUrl(p.img);
+    card.onclick = () => openCatProduct(p, cat);
     card.innerHTML = `
-      <img src="${imgUrl}" alt="${p.modelId}" loading="lazy"
-           onerror="this.style.opacity=0.3"/>
-      <div class="cat-prod-label">
-        <div class="cat-prod-id">${p.modelId}${p.name ? ' — '+p.name : ''}</div>
-        <div class="cat-prod-size">Size: ${p.size}</div>
+      <div class="cat-prod-img-wrap">
+        <img src="${p.image}"
+             onerror="this.src='images/category/cat-07.webp'"
+             alt="${p.id}" loading="lazy"/>
+      </div>
+      <div class="cat-prod-footer">
+        <div class="cat-prod-id">${p.id}</div>
+        <div class="cat-prod-size"> ${p.size}</div>
       </div>
     `;
     grid.appendChild(card);
   });
 }
 
-function openDetail(p, cat) {
-  document.getElementById('modalImg').src = getImgUrl(p.img);
-  document.getElementById('modalImg').alt = p.modelId;
-  document.getElementById('mBadge').textContent = cat.title;
-  document.getElementById('mTitle').textContent = p.modelId + (p.name ? ' — ' + p.name : '');
+// Load first category on start
+selectCat(0);
 
-  let rows = `<tr><td>Model ID</td><td>${p.modelId}</td></tr>`;
-  if(p.name) rows += `<tr><td>Name</td><td>${p.name}</td></tr>`;
-  rows += `<tr><td>Size / Profile</td><td>${p.size}</td></tr>`;
-  if(p.weight) rows += `<tr><td>Weight</td><td>${p.weight}</td></tr>`;
-  if(p.length) {
-    const len = Array.isArray(p.length) ? p.length.join(' / ') : p.length;
-    rows += `<tr><td>Length</td><td>${len}</td></tr>`;
-  }
-  rows += `<tr><td>Category</td><td>${cat.title}</td></tr>`;
-  rows += `<tr><td>Material</td><td>High Grade Aluminum / SS</td></tr>`;
+function openCatProduct(p, cat) {
+  document.getElementById('catModalImg').src = p.image;
+  document.getElementById('catModalImg').onerror = function() { this.src='images/category/cat-07.webp'; };
+  document.getElementById('catModalCat').textContent = cat.title;
+  document.getElementById('catModalTitle').textContent = p.id;
   
-  document.getElementById('mSpecTable').innerHTML = rows;
-
-  document.getElementById('mWaBtn').href =
-    `https://wa.me/919000916120?text=Hi%20CR%20PRO%20RAILING%2C%20I%20am%20interested%20in%20${encodeURIComponent(p.modelId)}%20(${encodeURIComponent(p.size)}).%20Please%20share%20pricing.`;
-
-  document.getElementById('detailModal').classList.add('active');
+  let rows = `<tr><td>Model ID</td><td>${p.id}</td></tr>
+              <tr><td>Size</td><td>${p.size}</td></tr>`;
+  if (p.weight && p.weight !== '—') rows += `<tr><td>Weight / Type</td><td>${p.weight}</td></tr>`;
+  if (p.length && p.length !== '—') rows += `<tr><td>Length</td><td>${p.length}</td></tr>`;
+  rows += `<tr><td>Category</td><td>${cat.title}</td></tr>`;
+  document.getElementById('catModalSpecs').innerHTML = rows;
+  
+  const wa_msg = encodeURIComponent(`Hi CR PRO RAILING, I am interested in ${p.id} (${cat.title}) - Size: ${p.size}. Please share pricing.`);
+  document.getElementById('catModalWA').href = `https://wa.me/919000916120?text=${wa_msg}`;
+  
+  document.getElementById('catModal').classList.add('active');
   document.body.style.overflow = 'hidden';
 }
 
-function closeModal() {
-  document.getElementById('detailModal').classList.remove('active');
+function closeCatModal() {
+  document.getElementById('catModal').classList.remove('active');
   document.body.style.overflow = '';
 }
-
-document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
-
-// URL hash routing
-function checkHash() {
-  const hash = location.hash.replace('#','');
-  const idx = CATS.findIndex(c => c.id === hash || c.title.toLowerCase().replace(/\s+/g,'-') === hash);
-  if(idx >= 0) activeIdx = idx;
+function handleCatModalClick(e) {
+  if (e.target.id === 'catModal') closeCatModal();
 }
-
-checkHash();
-buildSidebar();
-renderProducts();
+document.addEventListener('keydown', e => { if(e.key==='Escape') closeCatModal(); });
 </script>
 </body>
 </html>
