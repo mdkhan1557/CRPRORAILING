@@ -542,6 +542,9 @@ footer {
   }
   .hero-content { grid-template-columns: 1fr; }
   .hero-image-wrap { display: none; }
+  /* New hero 2-col -> 1-col on mobile */
+  .hero [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+  .hero img[src*="cr-pro-logo"] { max-width: 280px !important; }
   .stats-bar .inner { grid-template-columns: repeat(2,1fr); }
   .cat-grid { grid-template-columns: 1fr 1fr; }
   .products-grid { grid-template-columns: 1fr 1fr; }
@@ -573,31 +576,53 @@ footer {
   <section class="hero">
     <div class="hero-bg"></div>
     <div class="hero-grid"></div>
-    <div class="hero-content">
-      <div class="hero-text">
-        <div class="hero-tag">
-          <span>✦</span> Premium Railing Solutions
-        </div>
-        <h1 class="hero-title">
-          Crafting <span class="gold">Timeless</span><br/>
-          Railing Masterpieces
-        </h1>
-        <p class="hero-desc">
-          India's leading manufacturer of Aluminum, Glass and Stainless Steel railings. Elevate your spaces with railings that blend strength, safety and architectural elegance.
-        </p>
-        <div class="hero-actions">
-          <a href="products.html" class="btn-primary">Explore Products →</a>
-          <a href="contact.html" class="btn-outline">Get Free Quote</a>
-        </div>
+
+    <!-- HERO: Logo banner top, then 2-col below -->
+    <div style="position:relative;z-index:2;max-width:1200px;margin:0 auto;padding:60px 5% 80px;">
+
+      <!-- Logo centered at top -->
+      <div style="text-align:center;margin-bottom:48px;">
+        <img src="images/cr-pro-logo.png" alt="CR PRO RAILING"
+             style="max-width:480px;width:90%;height:auto;object-fit:contain;filter:drop-shadow(0 8px 40px rgba(201,168,76,0.3));"/>
       </div>
-      <div class="hero-image-wrap">
-        <img
-          src="https://images.unsplash.com/photo-1600607687939-54fa7f7e9244?w=800&h=500&fit=crop&q=85"
-          alt="Premium Aluminum Glass Railing"
-        />
-        <div class="hero-image-badge">
-          <span class="num">15+</span>
-          <span class="label">Years Excellence</span>
+
+      <!-- 2 column: text left, image right -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;">
+        <div>
+          <div class="hero-tag"><span>✦</span> Premium Railing Solutions</div>
+          <h1 class="hero-title">
+            Hyderabad's <span class="gold">Finest</span><br/>Railing Experts
+          </h1>
+          <p class="hero-desc">
+            Manufacturer of Aluminum, Glass &amp; Stainless Steel railings. Serving homes, offices &amp; commercial spaces across Hyderabad with precision and elegance.
+          </p>
+          <div class="hero-actions">
+            <a href="products.html" class="btn-primary">Explore Products →</a>
+            <a href="contact.html" class="btn-outline">Get Free Quote</a>
+          </div>
+          <!-- Quick contact -->
+          <div style="margin-top:28px;display:flex;gap:16px;flex-wrap:wrap;">
+            <a href="tel:+919000916120" style="color:var(--gold);text-decoration:none;font-size:14px;display:flex;align-items:center;gap:6px;">
+              📞 9000916120
+            </a>
+            <a href="https://wa.me/919000916120" target="_blank" style="color:#25D366;text-decoration:none;font-size:14px;display:flex;align-items:center;gap:6px;">
+              💬 WhatsApp Us
+            </a>
+          </div>
+        </div>
+        <div style="position:relative;">
+          <img
+            src="https://images.unsplash.com/photo-1600607687939-54fa7f7e9244?w=800&h=560&fit=crop&q=85"
+            alt="Premium Glass Railing Hyderabad"
+            style="width:100%;height:460px;object-fit:cover;border-radius:12px;border:1px solid rgba(201,168,76,0.25);"
+          />
+          <div style="position:absolute;bottom:-16px;left:-16px;background:var(--gold);color:var(--dark);padding:14px 22px;border-radius:8px;font-family:'Playfair Display',serif;">
+            <span style="font-size:32px;font-weight:900;display:block;line-height:1;">500+</span>
+            <span style="font-size:11px;font-weight:700;letter-spacing:1px;text-transform:uppercase;">Projects Done</span>
+          </div>
+          <div style="position:absolute;top:16px;right:16px;background:rgba(0,0,0,0.7);backdrop-filter:blur(8px);border:1px solid rgba(201,168,76,0.3);color:var(--white);padding:10px 16px;border-radius:8px;font-size:13px;">
+            📍 Rajendra Nagar, Hyd
+          </div>
         </div>
       </div>
     </div>
