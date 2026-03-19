@@ -415,12 +415,12 @@ footer {
 
 /* ── PAGE BANNER ── */
 .page-banner {
-  height: 320px;
+  height: 280px;
   background: linear-gradient(135deg, #0a0a0a 0%, #1a1209 50%, #0a0a0a 100%);
   display: flex; align-items: center; justify-content: center; flex-direction: column;
   text-align: center; padding: 0 20px;
   position: relative; overflow: hidden;
-  margin-top: 75px;
+  margin-top: 0;
 }
 .page-banner::before {
   content: '';
@@ -599,7 +599,7 @@ footer {
   .about-intro { grid-template-columns: 1fr; }
   .contact-grid { grid-template-columns: 1fr; }
   .form-row { grid-template-columns: 1fr; }
-  .page-banner { height: 180px; margin-top: 62px; }
+  .page-banner { height: 180px; }
   .page-banner h1 { font-size: 30px; }
 
   /* Category page */
@@ -681,7 +681,7 @@ footer {
   .footer-bottom { font-size: 10px; }
 
   /* Pages */
-  .page-banner { height: 140px !important; margin-top: 56px !important; }
+  .page-banner { height: 140px !important; }
   .page-banner h1 { font-size: 22px !important; }
 
   /* CTA */
@@ -714,7 +714,7 @@ footer {
 <body>
 <!-- NAV -->
 <main style="margin-top:75px;">
-  <div class="page-banner">
+  <div class="page-banner" style="margin-top:0;">
     <h1>Our <span>Products</span></h1>
     <div class="breadcrumb"><a href="index.html">Home</a> <span>/</span> <span>Products</span></div>
   </div>
