@@ -3,9 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Categories – CR PRO RAILING</title>
-  <meta name="description" content="Explore CR PRO RAILING's railing categories — Aluminum, Glass, Stainless Steel, Balcony, Stair, Deck, Modular railings."/>
-  <style>
+  <title>Our Work – CR PRO RAILING | Hyderabad</title>
+  <meta name="description" content="See CR PRO RAILING's completed projects — Aluminum, Glass & SS railings installed across Hyderabad homes, offices and commercial spaces."/>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&family=DM+Sans:wght@300;400;500;600&display=swap');
 
 :root {
@@ -559,193 +561,431 @@ footer {
   .footer-grid { grid-template-columns: 1fr; }
 }
 
+/* ── WHATSAPP FLOATING BUTTON ── */
+.whatsapp-float {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+}
+.whatsapp-btn {
+  width: 62px;
+  height: 62px;
+  border-radius: 50%;
+  background: #25D366;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.5);
+  animation: wa-glow 2s ease-in-out infinite;
+  transition: transform 0.2s;
+  position: relative;
+  overflow: visible;
+}
+.whatsapp-btn:hover {
+  transform: scale(1.1);
+}
+.whatsapp-btn svg {
+  width: 34px;
+  height: 34px;
+  fill: #fff;
+}
+@keyframes wa-glow {
+  0%   { box-shadow: 0 0 0 0 rgba(37,211,102,0.6), 0 4px 20px rgba(37,211,102,0.4); }
+  50%  { box-shadow: 0 0 0 14px rgba(37,211,102,0), 0 4px 20px rgba(37,211,102,0.4); }
+  100% { box-shadow: 0 0 0 0 rgba(37,211,102,0), 0 4px 20px rgba(37,211,102,0.4); }
+}
+.whatsapp-label {
+  background: rgba(0,0,0,0.75);
+  color: #fff;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  padding: 3px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  opacity: 0;
+  transform: translateY(4px);
+  transition: all 0.3s;
+  pointer-events: none;
+}
+.whatsapp-float:hover .whatsapp-label {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── LOGO IN NAV ── */
+.nav-logo img.logo-img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+}
+
+/* ── GALLERY PAGE ── */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  gap: 24px;
+}
+.gallery-card {
+  background: var(--dark-3);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  overflow: hidden;
+  transition: all 0.3s;
+}
+.gallery-card:hover {
+  border-color: rgba(201,168,76,0.35);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+}
+.gallery-card img {
+  width: 100%;
+  height: 240px;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s;
+}
+.gallery-card:hover img { transform: scale(1.04); }
+.gallery-info { padding: 18px; }
+.gallery-tag {
+  font-size: 11px;
+  color: var(--gold);
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+.gallery-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 17px;
+  color: var(--white);
+  margin-bottom: 8px;
+}
+.gallery-desc {
+  color: var(--silver);
+  font-size: 13px;
+  line-height: 1.6;
+}
+.gallery-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+.gallery-meta span {
+  font-size: 12px;
+  color: var(--silver);
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+.gallery-meta span b { color: var(--gold); }
+
+/* Lightbox */
+.lightbox-overlay {
+  display: none;
+  position: fixed; inset: 0;
+  background: rgba(0,0,0,0.93);
+  z-index: 10000;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 20px;
+}
+.lightbox-overlay.active { display: flex; }
+.lightbox-overlay img {
+  max-width: 90vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 8px;
+  border: 1px solid rgba(201,168,76,0.2);
+}
+.lightbox-close {
+  position: absolute; top: 20px; right: 24px;
+  color: var(--gold); font-size: 32px; cursor: pointer;
+  background: none; border: none; line-height: 1;
+}
+.lightbox-caption {
+  color: var(--light);
+  margin-top: 14px;
+  font-size: 15px;
+  text-align: center;
+}
+
+@media(max-width:768px) {
+  .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .whatsapp-float { bottom: 20px; right: 16px; }
+}
+@media(max-width:480px) {
+  .gallery-grid { grid-template-columns: 1fr; }
+}
+
 </style>
-  <link rel="preconnect" href="https://fonts.googleapis.com"/>
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-  <style>
-    .cat-section { padding: 70px 5%; }
-    .cat-section:nth-child(even) { background: var(--dark-3); }
-    .cat-section-inner { max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    .cat-section:nth-child(even) .cat-section-inner { direction: rtl; }
-    .cat-section:nth-child(even) .cat-section-inner > * { direction: ltr; }
-    .cat-img { width: 100%; height: 420px; object-fit: cover; border-radius: 12px; border: 1px solid rgba(201,168,76,0.15); }
-    .cat-info h2 { font-family: 'Playfair Display', serif; font-size: 34px; color: var(--white); margin-bottom: 16px; }
-    .cat-info p { color: var(--silver); font-size: 15px; line-height: 1.8; margin-bottom: 16px; }
-    .cat-features { display: flex; flex-direction: column; gap: 10px; margin: 20px 0 28px; }
-    .cat-feature { display: flex; align-items: center; gap: 10px; color: var(--light); font-size: 14px; }
-    .cat-feature::before { content: '✦'; color: var(--gold); font-size: 10px; flex-shrink: 0; }
-    @media(max-width:768px) {
-      .cat-section-inner { grid-template-columns: 1fr; direction: ltr !important; }
-      .cat-img { height: 260px; }
-    }
-  </style>
 </head>
 <body>
+
+<!-- NAV injected by JS -->
 
 <main style="margin-top:75px;">
 
   <div class="page-banner">
-    <h1>Product <span>Categories</span></h1>
+    <h1>Our <span>Work</span></h1>
     <div class="breadcrumb">
-      <a href="index.html">Home</a> <span>/</span> <span>Categories</span>
+      <a href="index.html">Home</a> <span>/</span> <span>Our Work</span>
     </div>
   </div>
 
-  <!-- Aluminum -->
-  <section class="cat-section" id="aluminum">
-    <div class="cat-section-inner">
-      <img class="cat-img"
-        src="https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?w=800&h=500&fit=crop&q=85"
-        alt="Aluminum Railing"
-      />
-      <div class="cat-info">
-        <span class="section-tag">✦ Category 01</span>
-        <h2>Aluminum <span style="color:var(--gold)">Railings</span></h2>
-        <p>Aluminum railings are the ideal choice for modern homes, commercial buildings, and outdoor spaces. Lightweight, rust-proof, and incredibly versatile — aluminum can be shaped into virtually any design.</p>
-        <p>Our aluminum railings come with glass infills, rod infills, or solid panel options. Available in anodized silver, matte black, champagne gold, and custom powder-coat colors.</p>
-        <div class="cat-features">
-          <div class="cat-feature">Lightweight — easy to install and handle</div>
-          <div class="cat-feature">100% rust-proof and corrosion-resistant</div>
-          <div class="cat-feature">Powder coat in 30+ colors</div>
-          <div class="cat-feature">Suitable for indoor and outdoor use</div>
-          <div class="cat-feature">Custom profiles and designs available</div>
+  <!-- ── INTRO ── -->
+  <section class="section" style="padding-bottom:20px;">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">✦ Completed Projects</span>
+        <h2 class="section-title">Our <span class="gold">Experience</span> Speaks</h2>
+        <p class="section-sub">Every railing we install tells a story of precision, craftsmanship and trust. Here's a glimpse of the work we've done across Hyderabad and beyond.</p>
+      </div>
+
+      <!-- Stats -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-bottom:60px;text-align:center;">
+        <div style="background:var(--dark-3);border:1px solid rgba(201,168,76,0.15);border-radius:10px;padding:24px;">
+          <span style="font-family:'Playfair Display',serif;font-size:38px;font-weight:800;color:var(--gold);display:block;">500+</span>
+          <span style="color:var(--silver);font-size:13px;letter-spacing:1px;text-transform:uppercase;">Projects Done</span>
         </div>
-        <a href="products.html" class="btn-primary">View Aluminum Products →</a>
+        <div style="background:var(--dark-3);border:1px solid rgba(201,168,76,0.15);border-radius:10px;padding:24px;">
+          <span style="font-family:'Playfair Display',serif;font-size:38px;font-weight:800;color:var(--gold);display:block;">10+</span>
+          <span style="color:var(--silver);font-size:13px;letter-spacing:1px;text-transform:uppercase;">Years Experience</span>
+        </div>
+        <div style="background:var(--dark-3);border:1px solid rgba(201,168,76,0.15);border-radius:10px;padding:24px;">
+          <span style="font-family:'Playfair Display',serif;font-size:38px;font-weight:800;color:var(--gold);display:block;">100%</span>
+          <span style="color:var(--silver);font-size:13px;letter-spacing:1px;text-transform:uppercase;">Client Satisfaction</span>
+        </div>
+        <div style="background:var(--dark-3);border:1px solid rgba(201,168,76,0.15);border-radius:10px;padding:24px;">
+          <span style="font-family:'Playfair Display',serif;font-size:38px;font-weight:800;color:var(--gold);display:block;">HYD</span>
+          <span style="color:var(--silver);font-size:13px;letter-spacing:1px;text-transform:uppercase;">& Telangana</span>
+        </div>
+      </div>
+
+      <!-- Filter -->
+      <div class="filter-bar" id="galleryFilter">
+        <button class="filter-btn active" data-cat="all">All Projects</button>
+        <button class="filter-btn" data-cat="aluminum">Aluminum</button>
+        <button class="filter-btn" data-cat="glass">Glass</button>
+        <button class="filter-btn" data-cat="steel">SS Railing</button>
+        <button class="filter-btn" data-cat="balcony">Balcony</button>
+        <button class="filter-btn" data-cat="stair">Staircase</button>
+        <button class="filter-btn" data-cat="commercial">Commercial</button>
+      </div>
+
+      <!-- Gallery Grid -->
+      <div class="gallery-grid" id="galleryGrid">
+
+        <!-- Project 1 -->
+        <div class="gallery-card" data-cat="glass balcony" onclick="openLightbox(this)">
+          <img src="https://images.unsplash.com/photo-1600607687939-54fa7f7e9244?w=800&h=500&fit=crop&q=85"
+               alt="Frameless Glass Balcony Railing - Banjara Hills"/>
+          <div class="gallery-info">
+            <div class="gallery-tag">Glass · Balcony</div>
+            <div class="gallery-title">Frameless Glass Balcony Railing</div>
+            <div class="gallery-desc">12mm toughened clear glass panels with stainless steel spigots. Installed in a luxury villa for unobstructed views.</div>
+            <div class="gallery-meta">
+              <span>📍 <b>Banjara Hills, Hyd</b></span>
+              <span>✅ <b>Completed</b></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 2 -->
+        <div class="gallery-card" data-cat="aluminum stair" onclick="openLightbox(this)">
+          <img src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?w=800&h=500&fit=crop&q=85"
+               alt="Aluminum Glass Staircase Railing - Jubilee Hills"/>
+          <div class="gallery-info">
+            <div class="gallery-tag">Aluminum · Staircase</div>
+            <div class="gallery-title">Aluminum Glass Staircase Railing</div>
+            <div class="gallery-desc">Modern aluminum channel with glass infill on a double-flight staircase. Powder-coated matte black finish.</div>
+            <div class="gallery-meta">
+              <span>📍 <b>Jubilee Hills, Hyd</b></span>
+              <span>✅ <b>Completed</b></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 3 -->
+        <div class="gallery-card" data-cat="steel balcony" onclick="openLightbox(this)">
+          <img src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=500&fit=crop&q=85"
+               alt="SS 316 Balcony Railing - Gachibowli"/>
+          <div class="gallery-info">
+            <div class="gallery-tag">Stainless Steel · Balcony</div>
+            <div class="gallery-title">SS 316 Mirror Polish Balcony</div>
+            <div class="gallery-desc">Stainless steel 316 grade tubular railing with horizontal bars. Suitable for humid climate, mirror polish finish.</div>
+            <div class="gallery-meta">
+              <span>📍 <b>Gachibowli, Hyd</b></span>
+              <span>✅ <b>Completed</b></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 4 -->
+        <div class="gallery-card" data-cat="glass commercial" onclick="openLightbox(this)">
+          <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&h=500&fit=crop&q=85"
+               alt="Glass Office Railing - HITEC City"/>
+          <div class="gallery-info">
+            <div class="gallery-tag">Glass · Commercial</div>
+            <div class="gallery-title">Corporate Office Glass Railing</div>
+            <div class="gallery-desc">Full-height frameless glass panels for a corporate lobby and mezzanine floor. Semi-frosted glass for privacy.</div>
+            <div class="gallery-meta">
+              <span>📍 <b>HITEC City, Hyd</b></span>
+              <span>✅ <b>Completed</b></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 5 -->
+        <div class="gallery-card" data-cat="aluminum balcony" onclick="openLightbox(this)">
+          <img src="https://images.unsplash.com/photo-1628744448840-55bdb2497bd4?w=800&h=500&fit=crop&q=85"
+               alt="Aluminum Balcony Railing - Kondapur"/>
+          <div class="gallery-info">
+            <div class="gallery-tag">Aluminum · Balcony</div>
+            <div class="gallery-title">Aluminum Profile Balcony Railing</div>
+            <div class="gallery-desc">European-style U-channel aluminum profile with clear glass. Custom champagne gold powder coat to match building facade.</div>
+            <div class="gallery-meta">
+              <span>📍 <b>Kondapur, Hyd</b></span>
+              <span>✅ <b>Completed</b></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 6 -->
+        <div class="gallery-card" data-cat="steel stair commercial" onclick="openLightbox(this)">
+          <img src="https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=800&h=500&fit=crop&q=85"
+               alt="SS Stair Railing - Kukatpally"/>
+          <div class="gallery-info">
+            <div class="gallery-tag">SS · Staircase · Commercial</div>
+            <div class="gallery-title">SS Rod Staircase Railing</div>
+            <div class="gallery-desc">Stainless steel post system with horizontal rod infill. Installed across 4 floors of a commercial building.</div>
+            <div class="gallery-meta">
+              <span>📍 <b>Kukatpally, Hyd</b></span>
+              <span>✅ <b>Completed</b></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 7 -->
+        <div class="gallery-card" data-cat="glass balcony" onclick="openLightbox(this)">
+          <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=800&h=500&fit=crop&q=85"
+               alt="Deck Glass Railing - Manikonda"/>
+          <div class="gallery-info">
+            <div class="gallery-tag">Glass · Deck</div>
+            <div class="gallery-title">Rooftop Deck Glass Railing</div>
+            <div class="gallery-desc">Heavy-duty glass railing for a rooftop terrace. Post-mounted toughened glass with aluminum handrail on top.</div>
+            <div class="gallery-meta">
+              <span>📍 <b>Manikonda, Hyd</b></span>
+              <span>✅ <b>Completed</b></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 8 -->
+        <div class="gallery-card" data-cat="aluminum stair" onclick="openLightbox(this)">
+          <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=800&h=500&fit=crop&q=85"
+               alt="Modular Aluminum Railing - Nizampet"/>
+          <div class="gallery-info">
+            <div class="gallery-tag">Aluminum · Modular</div>
+            <div class="gallery-title">Modular Aluminum Railing System</div>
+            <div class="gallery-desc">Pre-fabricated modular sections for a residential complex. Fast installation across 40 units in 10 days.</div>
+            <div class="gallery-meta">
+              <span>📍 <b>Nizampet, Hyd</b></span>
+              <span>✅ <b>Completed</b></span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Project 9 -->
+        <div class="gallery-card" data-cat="steel commercial" onclick="openLightbox(this)">
+          <img src="https://images.unsplash.com/photo-1571068316344-75bc76f77890?w=800&h=500&fit=crop&q=85"
+               alt="SS Glass Commercial Railing - Secunderabad"/>
+          <div class="gallery-info">
+            <div class="gallery-tag">SS · Glass · Commercial</div>
+            <div class="gallery-title">SS + Glass Mall Railing</div>
+            <div class="gallery-desc">Combination SS post and glass infill railing for a shopping mall atrium. High load-bearing design with safety certification.</div>
+            <div class="gallery-meta">
+              <span>📍 <b>Secunderabad, Hyd</b></span>
+              <span>✅ <b>Completed</b></span>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Glass -->
-  <section class="cat-section" id="glass">
-    <div class="cat-section-inner">
-      <img class="cat-img"
-        src="https://images.unsplash.com/photo-1600607687939-54fa7f7e9244?w=800&h=500&fit=crop&q=85"
-        alt="Glass Railing"
-      />
-      <div class="cat-info">
-        <span class="section-tag">✦ Category 02</span>
-        <h2>Glass <span style="color:var(--gold)">Railings</span></h2>
-        <p>Glass railings bring unparalleled elegance and an open, airy feel to any space. Our glass railings use ISI-certified toughened/tempered glass panels (8mm, 10mm, 12mm options) that are extremely safe and durable.</p>
-        <p>Choose from frameless (spigot-mounted), semi-frameless, or full-framed glass railing systems. Perfect for balconies, swimming pools, offices, staircases, and more.</p>
-        <div class="cat-features">
-          <div class="cat-feature">ISI-certified toughened safety glass</div>
-          <div class="cat-feature">Available in clear, frosted, and tinted</div>
-          <div class="cat-feature">Frameless, semi-frame & full-frame options</div>
-          <div class="cat-feature">Maximum unobstructed view</div>
-          <div class="cat-feature">Easy to clean and maintain</div>
+  <!-- ── PROCESS ── -->
+  <section class="section" style="background:var(--dark-3);border-top:1px solid rgba(201,168,76,0.08);">
+    <div class="section-inner">
+      <div class="section-header">
+        <span class="section-tag">✦ How We Work</span>
+        <h2 class="section-title">Our <span class="gold">Process</span></h2>
+        <p class="section-sub">From your first call to final installation — we make it simple and professional.</p>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;">
+        <div style="text-align:center;padding:28px 20px;background:var(--dark-4);border-radius:10px;border:1px solid rgba(201,168,76,0.1);">
+          <div style="font-size:36px;margin-bottom:12px;">📞</div>
+          <div style="font-family:'Playfair Display',serif;font-size:40px;font-weight:900;color:rgba(201,168,76,0.15);margin-bottom:4px;">01</div>
+          <h4 style="font-family:'Playfair Display',serif;color:var(--white);font-size:17px;margin-bottom:8px;">Enquiry</h4>
+          <p style="color:var(--silver);font-size:13px;">Call or WhatsApp us with your requirements. We respond within 1 hour.</p>
         </div>
-        <a href="products.html" class="btn-primary">View Glass Products →</a>
+        <div style="text-align:center;padding:28px 20px;background:var(--dark-4);border-radius:10px;border:1px solid rgba(201,168,76,0.1);">
+          <div style="font-size:36px;margin-bottom:12px;">📐</div>
+          <div style="font-family:'Playfair Display',serif;font-size:40px;font-weight:900;color:rgba(201,168,76,0.15);margin-bottom:4px;">02</div>
+          <h4 style="font-family:'Playfair Display',serif;color:var(--white);font-size:17px;margin-bottom:8px;">Site Visit</h4>
+          <p style="color:var(--silver);font-size:13px;">Our team visits your site, takes precise measurements and recommends the best design.</p>
+        </div>
+        <div style="text-align:center;padding:28px 20px;background:var(--dark-4);border-radius:10px;border:1px solid rgba(201,168,76,0.1);">
+          <div style="font-size:36px;margin-bottom:12px;">🏭</div>
+          <div style="font-family:'Playfair Display',serif;font-size:40px;font-weight:900;color:rgba(201,168,76,0.15);margin-bottom:4px;">03</div>
+          <h4 style="font-family:'Playfair Display',serif;color:var(--white);font-size:17px;margin-bottom:8px;">Fabrication</h4>
+          <p style="color:var(--silver);font-size:13px;">Custom fabricated in our workshop using premium materials with strict quality checks.</p>
+        </div>
+        <div style="text-align:center;padding:28px 20px;background:var(--dark-4);border-radius:10px;border:1px solid rgba(201,168,76,0.1);">
+          <div style="font-size:36px;margin-bottom:12px;">🔧</div>
+          <div style="font-family:'Playfair Display',serif;font-size:40px;font-weight:900;color:rgba(201,168,76,0.15);margin-bottom:4px;">04</div>
+          <h4 style="font-family:'Playfair Display',serif;color:var(--white);font-size:17px;margin-bottom:8px;">Installation</h4>
+          <p style="color:var(--silver);font-size:13px;">Professional installation by our trained team. Clean work, on-time delivery.</p>
+        </div>
       </div>
     </div>
   </section>
 
-  <!-- SS -->
-  <section class="cat-section" id="steel">
-    <div class="cat-section-inner">
-      <img class="cat-img"
-        src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=800&h=500&fit=crop&q=85"
-        alt="Stainless Steel Railing"
-      />
-      <div class="cat-info">
-        <span class="section-tag">✦ Category 03</span>
-        <h2>Stainless Steel <span style="color:var(--gold)">Railings</span></h2>
-        <p>Stainless Steel railings offer unbeatable strength, a sleek appearance, and exceptional longevity. We use SS 304 and SS 316 grade steel for different environments.</p>
-        <p>Available as tube railings, cable railings, rod railings, and combination glass-SS systems. SS 316 is recommended for coastal and humid areas due to superior corrosion resistance.</p>
-        <div class="cat-features">
-          <div class="cat-feature">SS 304 & SS 316 grade options</div>
-          <div class="cat-feature">Mirror polish or matte finish</div>
-          <div class="cat-feature">Cable, rod, tube and glass infill options</div>
-          <div class="cat-feature">Ideal for coastal environments (SS 316)</div>
-          <div class="cat-feature">Long-lasting with minimal maintenance</div>
-        </div>
-        <a href="products.html" class="btn-primary">View SS Products →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Balcony -->
-  <section class="cat-section" id="balcony">
-    <div class="cat-section-inner">
-      <img class="cat-img"
-        src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=800&h=500&fit=crop&q=85"
-        alt="Balcony Railing"
-      />
-      <div class="cat-info">
-        <span class="section-tag">✦ Category 04</span>
-        <h2>Balcony <span style="color:var(--gold)">Railings</span></h2>
-        <p>Our balcony railings are designed to withstand outdoor elements while looking stunning. Choose from glass, aluminum, or stainless steel — all engineered to meet IS safety standards for balcony height and load.</p>
-        <p>We manufacture balcony railings for residential apartments, bungalows, commercial buildings, hotels, and resorts. Custom widths and heights available.</p>
-        <div class="cat-features">
-          <div class="cat-feature">Weather-resistant and UV-stable</div>
-          <div class="cat-feature">Meets IS:2750 & NBC safety standards</div>
-          <div class="cat-feature">Custom height from 900mm to 1200mm+</div>
-          <div class="cat-feature">Multiple material and infill combinations</div>
-          <div class="cat-feature">Available with top handrail in wood, SS or aluminum</div>
-        </div>
-        <a href="products.html" class="btn-primary">View Balcony Products →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Stair -->
-  <section class="cat-section" id="stair">
-    <div class="cat-section-inner">
-      <img class="cat-img"
-        src="https://images.unsplash.com/photo-1541123437800-1bb1317badc2?w=800&h=500&fit=crop&q=85"
-        alt="Stair Railing"
-      />
-      <div class="cat-info">
-        <span class="section-tag">✦ Category 05</span>
-        <h2>Stair <span style="color:var(--gold)">Railings</span></h2>
-        <p>Stair railings need to be both safe and beautiful. CR PRO RAILING's stair railings are engineered for smooth inclined runs, landings, and complex stair configurations.</p>
-        <p>We handle straight stairs, curved stairs, spiral stairs, and cantilever stairs. Our installation team precisely measures and fits railings to any staircase profile.</p>
-        <div class="cat-features">
-          <div class="cat-feature">Fits straight, curved & spiral staircases</div>
-          <div class="cat-feature">Glass, SS, aluminum infill options</div>
-          <div class="cat-feature">Inclined top rails for continuous handrail</div>
-          <div class="cat-feature">Post-and-base or core-drilled installation</div>
-          <div class="cat-feature">ADA/NBC compliant handrail heights</div>
-        </div>
-        <a href="products.html" class="btn-primary">View Stair Products →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Deck -->
-  <section class="cat-section" id="deck">
-    <div class="cat-section-inner">
-      <img class="cat-img"
-        src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?w=800&h=500&fit=crop&q=85"
-        alt="Deck Railing"
-      />
-      <div class="cat-info">
-        <span class="section-tag">✦ Category 06</span>
-        <h2>Deck <span style="color:var(--gold)">Railings</span></h2>
-        <p>Deck railings must be tough enough for outdoor exposure while complementing the overall aesthetic. Our deck railings are built with heavy-duty materials and corrosion-resistant coatings.</p>
-        <p>Whether it's a rooftop deck, poolside deck, or garden terrace — we design railings that withstand the elements and look great year after year.</p>
-        <div class="cat-features">
-          <div class="cat-feature">Weatherproof for year-round outdoor use</div>
-          <div class="cat-feature">Anti-corrosion powder coat or anodizing</div>
-          <div class="cat-feature">Heavy-duty posts for structural strength</div>
-          <div class="cat-feature">Pool-safe glass and infill options</div>
-          <div class="cat-feature">Custom colors to match deck aesthetics</div>
-        </div>
-        <a href="products.html" class="btn-primary">View Deck Products →</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CTA -->
+  <!-- ── CTA ── -->
   <section class="cta-section">
-    <h2>Need a Custom Category?</h2>
-    <p>We manufacture railings for hospitals, airports, malls, schools and more. Just ask.</p>
+    <h2>Want a Railing Like These?</h2>
+    <p>Call us or WhatsApp now — free site visit anywhere in Hyderabad.</p>
     <div class="cta-btns">
-      <a href="contact.html" class="btn-primary">Get Custom Quote →</a>
-      <a href="products.html" class="btn-outline">All Products</a>
+      <a href="https://wa.me/919000916120?text=Hi%20CR%20PRO%20RAILING%2C%20I%20saw%20your%20work%20and%20want%20a%20quote." target="_blank" class="btn-primary" style="background:#25D366;color:#fff;">
+        💬 WhatsApp Now
+      </a>
+      <a href="contact.html" class="btn-outline">Get Free Quote</a>
     </div>
   </section>
 
 </main>
+
+<!-- Lightbox -->
+<div class="lightbox-overlay" id="lightbox" onclick="closeLightbox()">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img id="lightboxImg" src="" alt=""/>
+  <div class="lightbox-caption" id="lightboxCaption"></div>
+</div>
+
+<script>
+
+</script>
 
 <script>
 // ── SHARED COMPONENTS — CR PRO RAILING ──
@@ -851,15 +1091,39 @@ function injectComponents(activePage) {
 
 </script>
 <script>
-  injectComponents('category.html');
+  injectComponents('gallery.html');
 
-  // Scroll to anchor if hash in URL
-  window.addEventListener('load', () => {
-    if (location.hash) {
-      const el = document.querySelector(location.hash);
-      if (el) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+  // Filter
+  const filterBtns = document.querySelectorAll('#galleryFilter .filter-btn');
+  const cards = document.querySelectorAll('.gallery-card');
+
+  filterBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      filterBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const cat = btn.dataset.cat;
+      cards.forEach(card => {
+        card.style.display = (cat === 'all' || card.dataset.cat.includes(cat)) ? 'block' : 'none';
+      });
+    });
   });
+
+  // Lightbox
+  function openLightbox(card) {
+    const img = card.querySelector('img');
+    const title = card.querySelector('.gallery-title').textContent;
+    const loc = card.querySelector('.gallery-meta span b') ? card.querySelector('.gallery-meta span b').textContent : '';
+    document.getElementById('lightboxImg').src = img.src;
+    document.getElementById('lightboxImg').alt = img.alt;
+    document.getElementById('lightboxCaption').textContent = title + (loc ? ' — ' + loc : '');
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+  }
+  document.addEventListener('keydown', e => { if(e.key==='Escape') closeLightbox(); });
 </script>
 
 </body>
